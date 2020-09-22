@@ -1,0 +1,2844 @@
+[
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599130800000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "03/09/2020",
+      "endDt": "03/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599210000000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "04/09/2020",
+      "endDt": "04/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599217200000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 2,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "04/09/2020",
+      "endDt": "04/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151443333,
+      "version": 8,
+      "id": "acc36d70-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599321600000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "acc54230-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "05/09/2020",
+      "endDt": "05/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": "13/09/2020",
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151537230,
+      "version": 6,
+      "id": "e4b18320-ee04-11ea-a5af-000c2930f1f3",
+      "name": "24/7 time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599361200000,
+      "seriesStartDate": 1599350400000,
+      "frequency": "7",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "e4b21f60-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "e4b330d0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "e4b41b30-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "06/09/2020",
+      "endDt": "06/09/2020",
+      "startHour": "00:00",
+      "endHour": "23:59",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599469200000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 2,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "07/09/2020",
+      "endDt": "07/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599476400000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 3,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "07/09/2020",
+      "endDt": "07/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151443333,
+      "version": 8,
+      "id": "acc36d70-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599494400000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "acc54230-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 2,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "07/09/2020",
+      "endDt": "07/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": "13/09/2020",
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599562800000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 4,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "08/09/2020",
+      "endDt": "08/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599642000000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 3,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "09/09/2020",
+      "endDt": "09/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599649200000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 5,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "09/09/2020",
+      "endDt": "09/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599735600000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 6,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "10/09/2020",
+      "endDt": "10/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599814800000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 4,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "11/09/2020",
+      "endDt": "11/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599822000000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 7,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "11/09/2020",
+      "endDt": "11/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151443333,
+      "version": 8,
+      "id": "acc36d70-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599926400000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "acc54230-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 3,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "12/09/2020",
+      "endDt": "12/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": "13/09/2020",
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151537230,
+      "version": 6,
+      "id": "e4b18320-ee04-11ea-a5af-000c2930f1f3",
+      "name": "24/7 time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599966000000,
+      "seriesStartDate": 1599350400000,
+      "frequency": "7",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "e4b21f60-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "e4b330d0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "e4b41b30-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 2,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "13/09/2020",
+      "endDt": "13/09/2020",
+      "startHour": "00:00",
+      "endHour": "23:59",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599852662217,
+      "version": 2,
+      "id": "53c512c0-f465-11ea-8620-000c2930f1f3",
+      "name": "Test1",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1599994800000,
+      "seriesStartDate": null,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "53c67250-f465-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "ce5f8620-ede2-11ea-a480-000c2930f1f3",
+               "name": "Peak Tracker",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": null,
+      "fkEventFrequencyTypeId": {
+         "id": 1,
+         "name": "one time"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "13/09/2020",
+      "endDt": "13/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600074000000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 5,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "14/09/2020",
+      "endDt": "14/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857074941,
+      "version": 3,
+      "id": "99f15a60-f46f-11ea-8620-000c2930f1f3",
+      "name": "Test standard 1",
+      "notes": "Test standard 1",
+      "occupancy": 0,
+      "originalStartDateTime": 1600081200000,
+      "seriesStartDate": null,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "99f35630-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "ab92c010-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "ab93d180-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 1,
+         "name": "one time"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "14/09/2020",
+      "endDt": "14/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857030594,
+      "version": 2,
+      "id": "7f85be00-f46f-11ea-8620-000c2930f1f3",
+      "name": "Test Custom 1",
+      "notes": "Test Custom 1",
+      "occupancy": 0,
+      "originalStartDateTime": 1600081200000,
+      "seriesStartDate": null,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "7f865a40-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "ce5f8620-ede2-11ea-a480-000c2930f1f3",
+               "name": "Peak Tracker",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": null,
+      "fkEventFrequencyTypeId": {
+         "id": 1,
+         "name": "one time"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "14/09/2020",
+      "endDt": "14/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": "19/09/2020",
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600081200000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 8,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "14/09/2020",
+      "endDt": "14/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857218997,
+      "version": 6,
+      "id": "efd089b0-f46f-11ea-8620-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600099200000,
+      "seriesStartDate": 1600041600000,
+      "frequency": "1,2,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "efd0fee0-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "14/09/2020",
+      "endDt": "14/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600167600000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 9,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "15/09/2020",
+      "endDt": "15/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857218997,
+      "version": 6,
+      "id": "efd089b0-f46f-11ea-8620-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600185600000,
+      "seriesStartDate": 1600041600000,
+      "frequency": "1,2,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "efd0fee0-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 2,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "15/09/2020",
+      "endDt": "15/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600246800000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 6,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "16/09/2020",
+      "endDt": "16/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600254000000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 10,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "16/09/2020",
+      "endDt": "16/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600340400000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 11,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "17/09/2020",
+      "endDt": "17/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600419600000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 7,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "18/09/2020",
+      "endDt": "18/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600426800000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 12,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "18/09/2020",
+      "endDt": "18/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857218997,
+      "version": 6,
+      "id": "efd089b0-f46f-11ea-8620-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600531200000,
+      "seriesStartDate": 1600041600000,
+      "frequency": "1,2,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "efd0fee0-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 3,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "19/09/2020",
+      "endDt": "19/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151537230,
+      "version": 6,
+      "id": "e4b18320-ee04-11ea-a5af-000c2930f1f3",
+      "name": "24/7 time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600570800000,
+      "seriesStartDate": 1599350400000,
+      "frequency": "7",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "e4b21f60-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "e4b330d0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "e4b41b30-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 3,
+      "state": "PAST",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "20/09/2020",
+      "endDt": "20/09/2020",
+      "startHour": "00:00",
+      "endHour": "23:59",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600678800000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 8,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "21/09/2020",
+      "endDt": "21/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600686000000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 13,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "21/09/2020",
+      "endDt": "21/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857218997,
+      "version": 6,
+      "id": "efd089b0-f46f-11ea-8620-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600704000000,
+      "seriesStartDate": 1600041600000,
+      "frequency": "1,2,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "efd0fee0-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 4,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "21/09/2020",
+      "endDt": "21/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600772400000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 14,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "22/09/2020",
+      "endDt": "22/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857218997,
+      "version": 6,
+      "id": "efd089b0-f46f-11ea-8620-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600790400000,
+      "seriesStartDate": 1600041600000,
+      "frequency": "1,2,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "efd0fee0-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 5,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "22/09/2020",
+      "endDt": "22/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600851600000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 9,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "23/09/2020",
+      "endDt": "23/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600858800000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 15,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "23/09/2020",
+      "endDt": "23/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1600945200000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 16,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "24/09/2020",
+      "endDt": "24/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601024400000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 10,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "25/09/2020",
+      "endDt": "25/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601031600000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 17,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "25/09/2020",
+      "endDt": "25/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857218997,
+      "version": 6,
+      "id": "efd089b0-f46f-11ea-8620-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601136000000,
+      "seriesStartDate": 1600041600000,
+      "frequency": "1,2,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "efd0fee0-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 6,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "26/09/2020",
+      "endDt": "26/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151537230,
+      "version": 6,
+      "id": "e4b18320-ee04-11ea-a5af-000c2930f1f3",
+      "name": "24/7 time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601175600000,
+      "seriesStartDate": 1599350400000,
+      "frequency": "7",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "e4b21f60-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "e4b330d0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "e4b41b30-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 4,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "27/09/2020",
+      "endDt": "27/09/2020",
+      "startHour": "00:00",
+      "endHour": "23:59",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601283600000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 11,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "28/09/2020",
+      "endDt": "28/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601290800000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 18,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "28/09/2020",
+      "endDt": "28/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857199045,
+      "version": 0,
+      "id": "e3fce390-f46f-11ea-8620-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601308800000,
+      "seriesStartDate": null,
+      "frequency": null,
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "e3fda6e0-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 1,
+         "name": "one time"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 1,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "28/09/2020",
+      "endDt": "28/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601377200000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 19,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "29/09/2020",
+      "endDt": "29/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-pradeep_test",
+      "insertTime": 1599857218997,
+      "version": 6,
+      "id": "efd089b0-f46f-11ea-8620-000c2930f1f3",
+      "name": "Off Time",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601395200000,
+      "seriesStartDate": 1600041600000,
+      "frequency": "1,2,6",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "efd0fee0-f46f-11ea-8620-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "3056ed90-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Off Hours",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 8,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "29/09/2020",
+      "endDt": "29/09/2020",
+      "startHour": "13:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151414039,
+      "version": 14,
+      "id": "9b563720-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Reduced Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601456400000,
+      "seriesStartDate": 1599177600000,
+      "frequency": "1,3,5",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "9b5a2ec0-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2da980d0-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Reduced Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 4,
+         "name": "weekly"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 12,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "30/09/2020",
+      "endDt": "30/09/2020",
+      "startHour": "06:00",
+      "endHour": "08:00",
+      "seriesEnd": null,
+      "externalId": null
+   },
+   {
+      "insertBy": "DASHBOARD-bk_solution",
+      "insertTime": 1599151351773,
+      "version": 24,
+      "id": "7628b2c0-ee04-11ea-a5af-000c2930f1f3",
+      "name": "Work Day",
+      "notes": "",
+      "occupancy": 0,
+      "originalStartDateTime": 1601463600000,
+      "seriesStartDate": 1599091200000,
+      "frequency": "0",
+      "misc": null,
+      "spaceEventSet": [
+         {
+            "id": "76297610-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "06e7c7e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder1 ",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "7629eb40-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "0b28a5e0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder3",
+               "spaceModeSet": null
+            }
+         },
+         {
+            "id": "762a8780-ee04-11ea-a5af-000c2930f1f3",
+            "fkSpaceId": {
+               "id": "09b789b0-ee02-11ea-92ea-000c2930f1f3",
+               "name": "Placeholder2",
+               "spaceModeSet": null
+            }
+         }
+      ],
+      "fkSubscriberEventTypeId": {
+         "id": "2a1b5100-ee02-11ea-92ea-000c2930f1f3",
+         "name": "Standard Work Day",
+         "fkDefaultEventFrequencyTypeId": null
+      },
+      "fkEventFrequencyTypeId": {
+         "id": 3,
+         "name": "monday to friday"
+      },
+      "fkEventEntryTypeId": {
+         "eosId": 1,
+         "id": 1,
+         "name": "planner"
+      },
+      "index": 20,
+      "state": "FUTURE",
+      "eventSpaceModeSet": [],
+      "equipmentSetSpaceSet": [],
+      "auditDetails": {},
+      "customSpaceReqEventOverride": null,
+      "startDt": "30/09/2020",
+      "endDt": "30/09/2020",
+      "startHour": "08:00",
+      "endHour": "17:00",
+      "seriesEnd": null,
+      "externalId": null
+   }
+]

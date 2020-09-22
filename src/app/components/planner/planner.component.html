@@ -1,0 +1,634 @@
+<context-menu #basicMenu>
+    <ng-template contextMenuItem (execute)="addEvent($event.item)">
+        Add event
+    </ng-template>
+</context-menu>
+<ng-template #customCellTemplate let-day="day" let-locale="locale">
+    <div class="cal-cell-top">
+        <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+    </div>
+    <a *ngFor="let item of day.events" style="margin: 5px;" (click)="handleEvent('Edited', item)">{{item.title}}</a>
+</ng-template>
+<div id="wrapperSchedule">
+    <!-- <div class="col-lg-12">
+    <p>{{counts}}</p>
+    <ul id="scrolls">
+       <li *ngFor="let itemslist of statuslists">
+          <p>{{itemslist.name}} {{itemslist.startHour}} - {{itemslist.endHour}}</p>
+       </li>
+    </ul>
+ </div>  -->
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-1 no-padding">
+                <app-aside></app-aside>
+            </div>
+            <div class="col-lg-11 ">
+                <div id="wrapper_content">
+                    <div id="eos_sheduler">
+                        <div class="row topbg">
+                            <div class="col-md-3 pad-0">
+                                <div class="btn-group month_div">
+                                    <label>Year:</label>
+                                    <select>
+                                        <option>2020</option>
+                                    </select>
+                                    <label>Month:</label>
+                                    <div class="prev" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                        <div class="tri"></div>
+                                    </div>
+                                    <select class="month_select">
+                                        <option>September</option>
+                                    </select>
+                                    <div class="next" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                        <div class="tri"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-12">
+                                <article>
+                                    <select (change)="selectChangeHandler($event)">
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                    </select>
+                                    <p><span>You selected: </span><b>{{selectedDay}}</b></p>
+                                </article>
+                            </div> -->
+                            <div class="col-md-5 select_content pad-0">
+                                <label>Filter By Space:</label>
+                                <select class="eos_filterSelect"   (change)="onChange($event.target.value)">
+                                     <option value="0"> Show All Spaces </option> 
+                                    <option   *ngFor="let spaceItem of filterData" [value]="spaceItem.id">{{spaceItem.name}}</option>
+                                  </select>
+                                <input type="checkbox"   (click)="onRecurranceEvents()" name="">
+                                <label>Hide Recurring Events</label>
+                            </div>
+                            <div class="col-md-4 tab_btn text-right pad-0">
+                                <div class="btn-group">
+                                    <div class="btn btn-primary" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">
+                                        Monthly
+                                    </div>
+                                    <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
+                                        Daily By Event
+                                    </div>
+                                    <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+                                        Daily By Equip
+                                    </div>
+                                    <div class="upload_icon" data-toggle="modal" data-target="#file_upload" (click)="open(file_upload)">
+                                        <i class="fas fa-upload"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div [ngSwitch]="view">
+                            <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (dayClicked)="dayClicked($event.day)" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
+                                [cellTemplate]="monthCellTemplate">
+                            </mwl-calendar-month-view>
+                            <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+                            </mwl-calendar-week-view>
+                            <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+                            </mwl-calendar-day-view>
+                        </div>
+                        <br /><br /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #modalContent let-close="close">
+     <div id="eos-events-form">
+         
+                <div class="modal-body">
+                    <!--TAB SECTION START-->
+                    <tabset id="eos-tabset">
+                        <!--Standard-->
+                        <h6 class="eos_event_heading">New Event Entry</h6>
+                        <tab heading="Standard">
+                            <form [formGroup]="eosAddEventForm" (ngSubmit)="onSubmit()">
+                                <div class="content_section_tab">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group eos_flex_forms">
+                                                <label>Name:</label>
+                                                <input type="text"  class="form-control" formControlName="s_eventName" [ngClass]="{ 'is-invalid': submitted && formValues.s_eventName.errors }"/>
+                                                <div *ngIf="submitted && formValues.s_eventName.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValues.s_eventName.errors.required" class="eos_errorValues">Name is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group eos_flex_forms flex_eos120">
+                                                <label>Start:</label>
+                                                <div class="flex_grp_eos">
+                                                    <label>Date:</label>
+                                                    <input type="date" class="form-control w-140" id="" formControlName="s_startDate" [ngClass]="{ 'is-invalid': submitted && formValues.s_startDate.errors }"/>
+                                                    <div *ngIf="submitted && formValues.s_startDate.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValues.s_startDate.errors.required" class="eos_errorValues">Date is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex_grp_eos">
+                                                    <label>Time:</label>
+                                                    <div id="timepick_eos">
+                                                        <dp-time-select [(ngModel)]="selectedDate" [config]="config" formControlName="s_startTime" [ngClass]="{ 'is-invalid': submitted && formValues.s_startTime.errors }"></dp-time-select>
+                                                    </div>
+                                                    <div *ngIf="submitted && formValues.s_startTime.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValues.s_startTime.errors.required" class="eos_errorValues">Time is required</div>
+                                                    </div>
+                                                    <!-- <input type="time" class="form-control w-80" id="" formControlName="s_startTime" /> -->
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group eos_flex_forms eos_column">
+                                                <label class="w-100">Type:</label>
+                                                <select name="" class="form-control" id="" formControlName="s_courseType" [ngClass]="{ 'is-invalid': submitted && formValues.s_courseType.errors }">
+                                                    <option value="lightAgency" *ngFor="let eventType of typeData">{{eventType.name}}</option>
+                                                    <!-- <option value="bldga">BLDGA - 24/7</option> -->
+                                                </select>
+                                                <div *ngIf="submitted && formValues.s_courseType.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValues.s_courseType.errors.required" class="eos_errorValues">Type is required</div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="form-group eos_flex_forms eos_column">
+                                                <label class="w-100">Locations:</label>
+                                                <div class="temp_calc eos_bg_white">
+                                                    <div class="form-group eos_flex_forms">
+                                                        <div class="scrollable_lists">
+                                                            <lable class="checkbox_eos" *ngFor="let location of selectdata">
+                                                                <input id=" " class="e-field rt_checked" type="checkbox" name=" " />
+                                                                <small>{{location.name}}</small>
+                                                            </lable>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group eos_flex_forms flex_eos120">
+                                                <label>End:</label>
+                                                <div class="flex_grp_eos">
+                                                    <label>Date:</label>
+                                                    <input type="date" class="form-control w-140" id="" formControlName="s_endDate" [ngClass]="{ 'is-invalid': submitted && formValues.s_endDate.errors }"/>
+                                                    <div *ngIf="submitted && formValues.s_endDate.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValues.s_endDate.errors.required" class="eos_errorValues">date is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex_grp_eos">
+                                                    <label>Time:</label>
+                                                    <div id="timepick_eos">
+                                                        <dp-time-select [(ngModel)]="selectedDate1" [config]="config" formControlName="s_endTime" [ngClass]="{ 'is-invalid': submitted && formValues.s_endTime.errors }"></dp-time-select>
+                                                    </div>
+                                                    <!-- <input type="time" class="form-control w-80" id=""  formControlName="s_endTime"/> -->
+                                                    <div *ngIf="submitted && formValues.s_endTime.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValues.s_endTime.errors.required" class="eos_errorValues">Time is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group eos_flex_forms eos_text_right">
+                                                <lable class="checkbox_eos">
+                                                    <input id="recurrence_config" class="e-field rt_checked" (click)="onRecurrring()" type="checkbox" name=" " />
+                                                    <small>Recurring</small>
+                                                </lable>
+                                            </div>
+
+                                            <div class="form-group eos_flex_forms eos_column eos_position_relate">
+                                                <label class="w-100">Notes:</label>
+                                                <textarea id="" class="eos_txt_ht100" formControlName="s_notes" [ngClass]="{ 'is-invalid': submitted && formValues.s_notes.errors }"></textarea>
+                                                <div *ngIf="submitted && formValues.s_notes.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValues.s_notes.errors.required" class="eos_errorValues">Comment is required</div>
+                                                </div>
+
+                                                <div class="recurring_visible" *ngIf="recurrring_visibleDivision">
+                                                    <tabset>
+                                                        <tab title="Daily">
+                                                            <span *tabHeading>Daily</span>
+                                                            <div class="eos_sub_tabs">
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <h6 class="flex_checks">
+                                                                            <input type="checkbox" name="" />
+                                                                            <label>Every Day</label>
+                                                                        </h6>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <h6 class="flex_checks">
+                                                                            <input type="checkbox" name="" />
+                                                                            <label>Weekdays</label>
+                                                                        </h6>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </tab>
+                                                        <tab title="Weekly">
+                                                            <span *tabHeading>Weekly</span>
+                                                            <div class="eos_sub_tabs" id="day_lists">
+                                                                <label class="w_100">Weekdays</label>
+                                                                <ul>
+                                                                    <li> <input type="checkbox" name="" />
+                                                                        <label>Sun</label>
+                                                                    </li>
+                                                                    <li> <input type="checkbox" name="" />
+                                                                        <label>Mon</label>
+                                                                    </li>
+                                                                    <li> <input type="checkbox" name="" />
+                                                                        <label>Tue</label>
+                                                                    </li>
+                                                                    <li> <input type="checkbox" name="" />
+                                                                        <label>Wed</label>
+                                                                    </li>
+                                                                    <li> <input type="checkbox" name="" />
+                                                                        <label>Thu</label>
+                                                                    </li>
+                                                                    <li> <input type="checkbox" name="" />
+                                                                        <label>Fri</label>
+                                                                    </li>
+                                                                    <li> <input type="checkbox" name="" />
+                                                                        <label>Sat</label>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </tab>
+                                                        <tab title="Monthly">
+                                                            <span *tabHeading>Monthly</span>
+                                                            <div class="eos_sub_tabs">
+                                                                <label class="w_100">Weekdays</label>
+                                                                <select name="" id="" class="day_select">
+                                                                    <option value="">1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">4</option>
+                                                                    <option value="">5</option>
+                                                                </select>
+                                                                <label class="w_100">of each month,for the duration of the schedule</label>
+                                                            </div>
+                                                        </tab>
+                                                        <div class="form-group" id="date_finalize">
+                                                            <label>Recurrence Ends:</label>
+                                                            <input type="date" class="form-contorl">
+                                                        </div>
+                                                    </tabset>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block_eos_right">
+                                    <div class="button_grp">
+                                        <button  class="eos-save" >SAVE</button>
+                                        <button type="reset" class="eos-close" (click)="onReset()">CANCEL</button>
+                                    </div>
+                                </div>
+                              
+                            </form>
+                        </tab>
+                        <!--Custom-->
+                        <tab heading="Custom">
+                            <form [formGroup]="eosAddEventFormCustom" (ngSubmit)="onSubmits()">
+                                <div class="content_section_tab">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group eos_flex_forms">
+                                                <label>Name:</label>
+                                                <input type="text" class="form-control" id="email" formControlName="c_eventName" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_eventName.errors }" />
+                                                <div *ngIf="submitted && formValuesCustom.c_eventName.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValuesCustom.c_eventName.errors.required" class="eos_errorValues">Comment is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group eos_flex_forms flex_eos120">
+                                                <label>Start:</label>
+                                                <div class="flex_grp_eos">
+                                                    <label>Date:</label>
+                                                    <input type="date" name="" class="form-control w-140" id="" formControlName="c_startDate" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_startDate.errors }"/>
+                                                    <div *ngIf="submitted && formValuesCustom.c_startDate.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValuesCustom.c_startDate.errors.required" class="eos_errorValues">Comment is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex_grp_eos">
+                                                    <label>Time:</label>
+                                                    <div id="timepick_eos">
+                                                        <dp-time-select [(ngModel)]="selectedDate2" [config]="config" formControlName="c_startTime" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_startTime.errors }"></dp-time-select>
+                                                    </div>
+                                                    <div *ngIf="submitted && formValuesCustom.c_startTime.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValuesCustom.c_startTime.errors.required" class="eos_errorValues">Comment is required</div>
+                                                    </div>
+                                                    <!-- <input type="time" name="" class="form-control w-80" id="" formControlName="c_startTime" /> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group eos_flex_forms eos_column">
+                                                <label class="w-100">Location:</label>
+                                                <select name="" class="form-control" id="" formControlName="c_location" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_location.errors }">
+                                                    <option value="BLDGA - 24/7" *ngFor="let location of selectdata">{{location.name}}</option>
+                                                    <!-- <option value="BLDGA - 24/7">BLDGA - 24/7</option> -->
+                                                </select>
+                                                <div *ngIf="submitted && formValuesCustom.c_location.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValuesCustom.c_location.errors.required" class="eos_errorValues">Comment is required</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group eos_flex_forms eos_column">
+                                                <label class="w-100">Mode:</label>
+                                                <select name="" class="form-control" id="" formControlName="c_mode" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_mode.errors }">
+                                                    <option value="BLDGA - 24/7 - occupied" *ngFor="let modeval of modeData">{{modeval.name}}</option>
+                                                    <!-- <option value=">BLDGA - 24/7">BLDGA - 24/7</option> -->
+                                                </select>
+                                                <div *ngIf="submitted && formValuesCustom.c_mode.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValuesCustom.c_mode.errors.required" class="eos_errorValues">Comment is required</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group eos_flex_forms eos_column">
+                                                <label class="w-100">Requirements:</label>
+                                                <div class="temp_calc">
+                                                    <div class="form-group eos_flex_forms">
+                                                        <label class="eos_weight_400">Min Temp:</label>
+                                                        <input type="text" value="13.5" class="bb_grn" />
+                                                    </div>
+                                                    <div class="form-group eos_flex_forms">
+                                                        <label class="eos_weight_400">Humid (RH%):</label>
+                                                        <input type="text" value="50" class="bb_grn" />
+                                                    </div>
+                                                    <div class="form-group eos_flex_forms">
+                                                        <label class="eos_weight_400">Max Temp:</label>
+                                                        <input type="text" value="15" class="bb_grn" />
+                                                    </div>
+                                                    <div class="form-group eos_flex_forms">
+                                                        <label class="eos_weight_400">Fresh Air Required:</label>
+                                                        <input type="text" value="1" class="bb_grn" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group eos_flex_forms flex_eos120">
+                                                <label>End:</label>
+                                                <div class="flex_grp_eos">
+                                                    <label>Date:</label>
+                                                    <input type="date" name="" class="form-control w-140" id="" formControlName="c_endDate" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_endDate.errors }"/>
+                                                    <div *ngIf="submitted && formValuesCustom.c_endDate.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValuesCustom.c_endDate.errors.required" class="eos_errorValues">Comment is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex_grp_eos">
+                                                    <label>Time:</label>
+                                                    <div id="timepick_eos">
+                                                        <dp-time-select [(ngModel)]="selectedDate3" [config]="config" formControlName="c_endTime" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_endTime.errors }"></dp-time-select>
+                                                    </div>
+                                                    <!-- <input type="time" name="" class="form-control w-80" id="" formControlName="c_endTime" /> -->
+                                                    <div *ngIf="submitted && formValuesCustom.c_endTime.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValuesCustom.c_endTime.errors.required" class="eos_errorValues">Comment is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group eos_flex_forms eos_column">
+                                                <label class="w-100">Notes:</label>
+                                                <textarea name="" id="" class="eos_txt_ht100" formControlName="c_notes" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_notes.errors }"></textarea>
+                                                <div *ngIf="submitted && formValuesCustom.c_notes.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValuesCustom.c_notes.errors.required" class="eos_errorValues">Comment is required</div>
+                                                </div>
+                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block_eos_right">
+                                    <div class="button_grp">
+                                        <button  class="eos-save" >SAVE</button>
+                                        <button type="reset" class="eos-close" (click)="onResetCustom()">CANCEL</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </tab>
+                    </tabset>
+                </div>
+                <!-- <div class="modal-footer">
+                    <div class="button_grp">
+                        <button  class="eos-save" >SAVE</button>
+                        <button type="reset" class="eos-close" (click)="onReset()">CANCEL</button>
+                    </div>
+                </div> -->
+          
+        </div>
+
+    </ng-template>
+
+
+    <!--ADD EVENT FORM END-->
+    <ng-template #monthCellTemplate let-day="day" let-openDay="openDay" let-locale="locale" let-tooltipPlacement="tooltipPlacement" let-highlightDay="highlightDay" let-unhighlightDay="unhighlightDay" let-eventClicked="eventClicked">
+        <div class="fill-height" [contextMenu]="basicMenu" [contextMenuSubject]="day.date">
+            <div class="cal-cell-top">
+                <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span
+        >
+     <span class="cal-day-number"
+        >{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span
+        >
+  </div>
+  <!-- border-left: event.version == 1640 ? '5px solid red':''  -->
+  <div >
+     <div
+     *ngFor="let event of day.events"
+     (mouseenter)="highlightDay.emit({event: event})"
+     (mouseleave)="unhighlightDay.emit({event: event})"
+     [mwlCalendarTooltip]="event.title | calendarEventTitle:'monthTooltip':event"
+     [tooltipPlacement]="tooltipPlacement"
+     (click)="$event.stopPropagation(); eventClicked.emit({event: event})"
+     [ngStyle]="{ 'border-left': getEventColor(event.id) }"
+     ><span class="eos_ellipse_title">{{event.title}}</span> 
+     <span class="eos_start">{{event.start}}</span>- <span class="eos_end"> {{event.end}}</span>
+     
+    
+  </div>
+  </div>
+  </div>
+</ng-template>
+
+
+
+
+<!-- <button (click)="open(confirm_delete)">canfirm Delete</button>
+<button (click)="open(invalid_entry)">invalid entry</button>
+<button (click)="open(save_complete)">save complete</button>
+<button (click)="open(space_req)">Space Requirement</button> -->
+
+
+
+
+
+<!-- upload file popup -->
+
+<ng-template #file_upload class="modal fade file_upload" role="dialog">
+  <form [formGroup]="file_Form" (ngSubmit)="onSubmit_file()">
+  <div id="file_upload">
+
+    <!-- Modal content-->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">File Upload</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Selected File:</h3>
+        <div class="input_section">
+          <input type="file" name="" class="form-group" formControlName="f_fileUpload">
+          <span>...</span>
+            </div>
+            <small *ngIf="!file_Form.get('f_fileUpload').valid && file_Form.get('f_fileUpload').touched">File required</small>
+
+            <div class="flx_btn">
+                <button class="upload">Upload</button>
+                <button class="cancel">Cancel</button>
+            </div>
+        </div>
+
+</div>
+</form>
+</ng-template>
+
+
+<!-- Modal -->
+<ng-template #confirm_delete class="modal fade new" role="dialog">
+    <div class="confirm_delete">
+
+        <!-- Modal content-->
+        <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4 class="modal-title">Confirm Delete</h4>
+        </div>
+        <div class="modal-body">
+            <div class="info_content">
+                <span class="orange">!</span>
+                <p>Are you sure you want to delete this event?</p>
+            </div>
+
+            <div class="flx_btn">
+                <button class="delete">Delete</button>
+                <button class="cancel_new">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</ng-template>
+
+
+
+<ng-template #invalid_entry class="modal fade new" role="dialog">
+    <div class="confirm_delete">
+
+        <!-- Modal content-->
+        <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4 class="modal-title">Invalid Entry</h4>
+        </div>
+        <div class="modal-body">
+            <div class="info_content">
+                <span class="orange">!</span>
+                <p>Please enter a Name for the event</p>
+            </div>
+
+            <div class="flx_btn">
+                <button class="delete">Ok</button>
+            </div>
+        </div>
+
+    </div>
+</ng-template>
+
+
+<ng-template #save_complete class="modal fade new" role="dialog">
+    <div class="confirm_delete" id="save_complete">
+
+        <!-- Modal content-->
+        <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4 class="modal-title">Save Complete</h4>
+        </div>
+        <div class="modal-body">
+            <div class="info_content">
+                <span class="blue">!</span>
+                <p>Save Successful!</p>
+            </div>
+
+            <div class="flx_btn">
+                <button class="delete">Ok</button>
+            </div>
+        </div>
+
+    </div>
+</ng-template>
+
+
+
+
+<ng-template #space_req class="modal fade" role="dialog">
+    <form [formGroup]="space_req_Form" (ngSubmit)="onSubmit_space_req()">
+        <div id="space_req">
+
+            <!-- Modal content-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Space Requirement</h4>
+            </div>
+            <div class="modal-body">
+                <p>ui event</p>
+                <p>08:00-17:00 | 09/09/2020 - 28/09/2020</p>
+                <h3 style="margin-top: 10px;">Location:</h3>
+                <select class="form-group" formControlName="f_location">
+          <option>BLDG C-LVL 0-LO Shell</option>
+        </select>
+                <small *ngIf="!space_req_Form.get('f_location').valid && space_req_Form.get('f_location').touched">Mode required</small>
+                <div class="flx form-group">
+                    <h3>Mode:</h3>
+                    <input type="text" name="" placeholder="BLDG C-LVL 0-LO Shell_Occupied" formControlName="f_mode">
+                    <small *ngIf="!space_req_Form.get('f_mode').valid && space_req_Form.get('f_mode').touched">Mode required</small>
+                </div>
+                <h3>Space Requirement:</h3>
+                <div class="inner_req form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label>Min Temp</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <input type="text" name="" value="13.5" formControlName="f_minTemp">
+                            <!-- <small *ngIf="!space_req_Form.get('f_minTemp').valid && space_req_Form.get('f_minTemp').touched">Min Temp is required</small> -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label>Humid (RH%)</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <input type="text" name="" value="50" formControlName="f_humid">
+                            <!-- <small *ngIf="!space_req_Form.get('f_humid').valid && space_req_Form.get('f_humid').touched">Humid is required</small> -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label>Max Temp</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <input type="text" name="" value="15" formControlName="f_maxtemp">
+                            <!-- <small *ngIf="!space_req_Form.get('f_maxtemp').valid && space_req_Form.get('f_maxtemp').touched">Max Temp is required</small> -->
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label>Fresh Air Required</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <input type="text" name="" value="1" formControlName="f_freshAir">
+                            <!-- <small *ngIf="!space_req_Form.get('f_freshAir').valid && space_req_Form.get('f_freshAir').touched">Fresh Air is required</small> -->
+                        </div>
+                    </div>
+                    <div class="flx_btn">
+                        <button class="change_req">Change Requirements</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+</ng-template>

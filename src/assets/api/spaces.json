@@ -1,0 +1,247 @@
+[
+    {
+       "id":"f418d2e0-d7ff-11e8-80f2-005056a924f8",
+       "name":"BLDG A - LVL 0 - 24/7",
+       "spaceModeSet":null
+    },
+    {
+       "id":"50268460-8e8b-11e8-bcba-005056a924f8",
+       "name":"BLDG A - LVL 0 - Logistics",
+       "spaceModeSet":null
+    },
+    {
+       "id":"e2db91d0-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 0 - Morgue",
+       "spaceModeSet":null
+    },
+    {
+       "id":"d7c8cab0-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 1 - MED/Surgery",
+       "spaceModeSet":null
+    },
+    {
+       "id":"e67644c0-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 1 - Pool Room",
+       "spaceModeSet":null
+    },
+    {
+       "id":"e0e455b0-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 1 - Rehab OP",
+       "spaceModeSet":null
+    },
+    {
+       "id":"d297e760-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 2 - Nephrology",
+       "spaceModeSet":null
+    },
+    {
+       "id":"dec5e280-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 2 - North",
+       "spaceModeSet":null
+    },
+    {
+       "id":"da01a3b0-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 2 - Public Space and HR",
+       "spaceModeSet":null
+    },
+    {
+       "id":"dc3154f0-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 3/4 - North",
+       "spaceModeSet":null
+    },
+    {
+       "id":"d5005be0-2769-11e8-b865-005056a924f8",
+       "name":"BLDG A - LVL 3/4 - South",
+       "spaceModeSet":null
+    },
+    {
+       "id":"277f2080-d792-11e8-80f2-005056a924f8",
+       "name":"BLDG A - TYPE 1",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c845ec-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 0 - CSP 100% FA",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c83f20-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 0 - Food Service",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c84ca4-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 0 - LO Shell",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c834da-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 0 - Pharmacy",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c82aa8-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 1 - Cardio, Neuro, Env, Fracture",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c82db4-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 1 - DI",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c830b6-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 1 - Emergency, Security, 100% OA",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c8425e-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 1 - Org, Spirit, Discharge, HR",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c83bd8-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 2 - Ambulatory Procedures, 100% OA",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c84952-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 2 - SDC",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c83872-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 2 - Surgical Department",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c8277e-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 3 - Maternal Child",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c823fa-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 3 - ORs, PACU. Op. Birth & NICU",
+       "spaceModeSet":null
+    },
+    {
+       "id":"58c81c34-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG C - LVL 4 - Adult MH",
+       "spaceModeSet":null
+    },
+    {
+       "id":"377a669a-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 1/2 - Cronic, HR",
+       "spaceModeSet":null
+    },
+    {
+       "id":"26143f02-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 2 - CCU",
+       "spaceModeSet":null
+    },
+    {
+       "id":"50f8b8ec-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 2/3 - Adult MH",
+       "spaceModeSet":null
+    },
+    {
+       "id":"50f8b4c8-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 3/5/6/7/8 - MS IP ",
+       "spaceModeSet":null
+    },
+    {
+       "id":"50f8a744-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 3/5/6/7/8 - MS IP - Corp Admin",
+       "spaceModeSet":null
+    },
+    {
+       "id":"50f8aeb0-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 3/5/6/7/8 - MS IP - Finance",
+       "spaceModeSet":null
+    },
+    {
+       "id":"50f8b28e-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 3/5/6/7/8 - MS IP - Prof. Admin",
+       "spaceModeSet":null
+    },
+    {
+       "id":"50f8b702-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 3/5/6/7/8 - Public Areas",
+       "spaceModeSet":null
+    },
+    {
+       "id":"ef62f5de-5552-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 4 - CAMH",
+       "spaceModeSet":null
+    },
+    {
+       "id":"50f8bac2-5553-11e9-b8d8-005056a900e8",
+       "name":"BLDG D - LVL 4 - OP Mental Health",
+       "spaceModeSet":null
+    },
+    {
+       "id":"e605dce0-7ee3-11e8-bcba-005056a924f8",
+       "name":"Peak Tracker",
+       "spaceModeSet":null
+    },
+    {
+       "id":"c8f07010-2769-11e8-b865-005056a924f8",
+       "name":"Testing Space",
+       "spaceModeSet":null
+    },
+    {
+       "id":"e9462da0-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space10",
+       "spaceModeSet":null
+    },
+    {
+       "id":"ebac7f40-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space11",
+       "spaceModeSet":null
+    },
+    {
+       "id":"edb4ab50-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space12",
+       "spaceModeSet":null
+    },
+    {
+       "id":"ef96ffe0-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space13",
+       "spaceModeSet":null
+    },
+    {
+       "id":"f1a4aa30-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space14",
+       "spaceModeSet":null
+    },
+    {
+       "id":"f3c58e60-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space15",
+       "spaceModeSet":null
+    },
+    {
+       "id":"f5c296e0-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space16",
+       "spaceModeSet":null
+    },
+    {
+       "id":"f81b7b00-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space17",
+       "spaceModeSet":null
+    },
+    {
+       "id":"fa6ce510-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space18",
+       "spaceModeSet":null
+    },
+    {
+       "id":"fc52e320-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space19",
+       "spaceModeSet":null
+    },
+    {
+       "id":"feafe5f0-2769-11e8-b865-005056a924f8",
+       "name":"zFuture Space20",
+       "spaceModeSet":null
+    }
+ ]

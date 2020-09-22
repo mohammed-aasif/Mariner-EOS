@@ -1,0 +1,24 @@
+.one
+{
+    color:yellow;
+    font-size: 18px;
+    padding: 10px;
+    
+}
+
+.two
+{
+    background: #000;
+
+    
+}
+
+.three
+{
+    border: 5px solid red;
+}
+
+.four
+{
+    border-radius: 10px;
+}
