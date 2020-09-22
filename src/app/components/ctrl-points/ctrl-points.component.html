@@ -11,8 +11,8 @@
 		<div class="ctrl_points">
 			<div class="top_head">
 				<!-- <img src="../../../assets/images/pic.png"> -->
-				<select  [(ngModel)]="selectedUser" (change)="onChange($event.target.id)">
-					<option  *ngFor="let modeval of controlListOptions" [value]="modeval.id">{{modeval.name}}</option>
+				<select  [(ngModel)]="selectedUser" (change)="onChange(selectedUser)">
+					<option  *ngFor="let modeval of controlListOptions" [value]="modeval.widgetId">{{modeval.name}}</option>
 					<!-- <option value=">BLDGA - 24/7">BLDGA - 24/7</option> -->
 				</select> 
 				<div class="right_icons">
@@ -32,31 +32,20 @@
 					<h4>Current</h4>
 					<h4>EOS</h4>
 					<h4>Status</h4>
+					
 				</div>
 			</div>
 
 			<div class="hide_show accordion" (click)="section['first'] = !section['first']">
 				<h4><i class="fas fa-plus"  *ngIf="!section['first']"></i><i class="fas fa-minus" *ngIf="section['first']"></i> <small *ngFor="let ctlLst of controlListArray">{{ctlLst.name}}</small></h4>
-				<div class="power_icons eos_ctrlPoint_toggle" data-title="Turn Optimization Off">
-					<i  data-toggle="modal" data-target="#myModal1" class="fa fa-power-off clr_green"></i>
+				<div class="power_icons eos_ctrlPoint_toggle" >
+					<i class="fa fa-power-off clr_green" data-toggle="modal" data-target="#myModal1"></i>
 					<p>{{countList}}</p>
 				 </div>
 				
 			</div>
 			<div  class="hidden_flex panel" *ngIf="section['first']">
-				<ul>
-				 
-						<!-- <ul>
-								<li *ngFor="let ctlLst of controlListArray">
-									<p *ngFor="let ctlLst1 of ctlLst.equipmentSetFields">{{ctlLst1.name}}</p>
-								</li>
-						</ul> -->
-
-
-							<!--<[ngClass]="o_tooltip">-->  
-
-
-
+				<ul id="eos_height_adjusant"> 
 						<li *ngFor="let ctlLst of controlListArray">
 							<div class="controlListBlocks" *ngFor="let ctlLst1 of ctlLst.equipmentSetFields">
 								<div class="chk_div">
@@ -77,12 +66,46 @@
 								</div>
 							</div>
 							
-						</li>  
-				 
-		 
-					 														
-<!-- ----------------------------------------- -->
+						</li>   
 
+						<!--modal-->
+		 
+				<div id="eos-setting">
+				 
+					<!-- Modal -->
+					 <div id="myModal1" class="modal fade" role="dialog">
+						 <div class="modal-dialog">
+					 
+						 <!-- Modal content-->
+						 <div class="modal-content">
+							 <div class="modal-header">
+							 <button type="button" class="close" data-dismiss="modal">&times;</button>
+							 <h4 class="modal-title">EOS Optimization control</h4>
+							 </div>
+							 <div class="modal-body">
+								 <div class="eos-btn-grp">
+									 <button class="selectnone" (click)="UnCheckAllOptions()">Select None</button>
+									 <button class="selectall" (click)="CheckAllOptions()">Select All</button>
+								 </div>
+								 <div class="checkbox-list-select">
+									 <div *ngFor="let checkbox of checkboxes">
+										 <input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value"><span>{{checkbox.name}}</span>
+									 </div>
+								 </div>
+								 <div class="eos-btn-grp">
+									 <button class="optim_off">Selected optimization Off</button>
+									 <button class="optim_on">Selected optimization On</button>
+								 </div>
+								 <div class="eos-btn-grp text-center"> 
+									 <button class="cancel">Cancel</button>
+								 </div>
+							 </div>
+					 
+						 </div>
+					 
+						 </div>
+					 </div>
+				 </div>
 
 				</ul>
 
@@ -95,6 +118,10 @@
         </div>
     </div>
 	</div>
+ 
 </div>
  
  
+
+
+

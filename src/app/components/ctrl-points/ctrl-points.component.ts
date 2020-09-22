@@ -31,13 +31,14 @@ export class CtrlPointsComponent implements OnInit {
   this._serve.onControlListOptions().subscribe(data2 => {
         
     this.controlListOptions=data2;
-   //console.log(data2);
+    console.log(data2);
     });
 
     //for displaying list of the selected dropdown
     this._serve.onControlDescriptionList().subscribe( controlPointData => 
       {
         this.controlListArray = controlPointData;
+
            //to display the count of the list
            this.controlListArray.forEach(countResponse => {
            this.countList = countResponse.equipmentSetFields.length  
@@ -49,20 +50,60 @@ export class CtrlPointsComponent implements OnInit {
 
  
    onChange(id) { 
-    this.filterdOptions = this.controlListArray.filter(
-      item => {
-          //console.log("The value  of item - :" , item.id)
-          item.equipmentSetFields.filter( responses => { 
-          console.log("The values of spaces = : ",  responses.id)  
-         // return responses.id = id;
-          return this.controlListOptions.id = this.controlListArray
+     console.log("ids" ,id)
+    // this.filterdOptions = this.controlListArray.filter(
+    //   item => {
+    //       //console.log("The value  of item - :" , item.id)
+    //       item.equipmentSetFields.filter( responses => { 
+    //       console.log("The values of spaces = : ",  responses.id)  
+    //      // return responses.id = id;
+    //       return this.controlListOptions.id = this.controlListArray
           
-        });
+    //     });
        
-      }
-    )
+    //   }
+    // )
        
   }
 
+  checkboxes: any[] = [
+    { name: 'AHA508', value: 'cb1', checked: false },
+    { name: 'AHA508_TerminalUnits', value: 'cb2', checked: true },
+    { name: 'AHA508', value: 'cb3', checked: false },
+    { name: 'AHA508', value: 'cb4', checked: false },
+    { name: 'AHA508_TerminalUnits', value: 'cb5', checked: false },
+    { name: 'AHA508', value: 'cb3', checked: false },
+    { name: 'AHA508', value: 'cb4', checked: false },
+    { name: 'AHA508_TerminalUnits', value: 'cb5', checked: false },
+    { name: 'AHA508', value: 'cb3', checked: false },
+    { name: 'AHA508', value: 'cb4', checked: false },
+    { name: 'AHA508_TerminalUnits', value: 'cb5', checked: false },
+  ]
+
+
+  CheckAllOptions() {
+    if (this.checkboxes.every(val => val.checked == true))
+      this.checkboxes.forEach(val => { val.checked = false });
+    else
+      this.checkboxes.forEach(val => { val.checked = true });
+  }
+
+
+  UnCheckAllOptions()
+  {
+    if (this.checkboxes.every(val => val.checked == false))
+    this.checkboxes.forEach(val => { val.checked = true });
+  else
+    this.checkboxes.forEach(val => { val.checked = false });
+  }
+
+
+ 
+  openModal(){
+    const buttonModal = document.getElementById("openModalButton")
+    console.log('buttonModal', buttonModal)
+    buttonModal.click()
+  }
+ 
 
 }

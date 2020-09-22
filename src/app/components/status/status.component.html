@@ -1,516 +1,80 @@
- 
- 
 
-<div class="col-lg-12">
-	<div class="row">
-	   <div class="col-lg-1 no-padding">
-		  <app-aside></app-aside>
-	   </div>
-	   <div class="col-lg-11 ">
-		  <div id="wrapper_content">
-			 <div class="status_component">
-				<div class="top_head">
-				   <h4>Status</h4>
-				   <div class="right_icons">
-					  <i class="fas fa-sync-alt"></i>
-				   </div>
-				</div>
-				<div class="head_text">
-				   <div class="head_inner">
-					  <h4>Status</h4>
-				   </div>
-				   <div class="head_inner">
-					  <h4>Status</h4>
-				   </div>
-				</div>
-
-						
-				<!-- <li>
-					<div class="chk_div">
-					   <i class="fas fa-tools settings"  data-toggle="modal" data-target="#myModal"></i>
-					   <label class="chk_label">H_AHA501_SatEffSetpt</label>
-					</div>
-					<div class="ipt">
-					   <input type="text" name="">
-					   <input class="big_input" type="text" name="">
-					</div>
-					<div class="power_icons" data-title="Turn Optimization Off">
-					   <i  data-toggle="modal" data-target="#myModal1" class="fa fa-power-off clr_green"></i>
-					</div>
-				 </li>   -->
-
-
-				<div class="hide_show accordion"  *ngFor="let itemslist of statuslists">
-				   <h4><i class="fas fa-plus"></i>{{itemslist.name}}</h4>
-				   <p>{{counts}}</p> 
-				   <div  class="hidden_flex panel" >
-					<ul *ngFor="let itemslist1 of itemslist.widgets">
-					 <li>
-						 <ul>
-							  <li>
-								  <div class="flextron" *ngFor="let itemslist2 of itemslist1.deviceRw">
-									<div class="chk_div">
-										<i class="fas fa-tools settings"  data-toggle="modal" data-target="#myModal"></i>
-										<label class="chk_label"> {{itemslist2.name}}</label>
-									 </div>
-									 <div class="ipt">
-										<input type="text" name="">
-										<input class="big_input" type="text" name="">
-									 </div>
-									 <div class="power_icons" data-title="Turn Optimization Off">
-										<i  data-toggle="modal" data-target="#myModal1" class="fa fa-power-off clr_green"></i>
-									 </div>
-								  </div>
-
-								</li>
-						 </ul>
-					 </li>
-					</ul>
-				 </div>
-				</div>
-				
-				<!--modal-->
-				<!-- Modal -->
-				<div id="eos-setting">
-				   <div class="modal fade setting_eos-modal" id="myModal" role="dialog">
-					  <div class="modal-dialog">
-						 <!-- Modal content-->
-						 <div class="modal-content">
-							<div class="modal-header">
-							   <button type="button" class="close" data-dismiss="modal">&times;</button>
-							   <h4 class="modal-title">H_AHAH505_SatEffSetpt</h4>
-							</div>
-							<div class="modal-body">
-							   <div  class="hidden_flex panel"  >
-								  <ul>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class=" ">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class=" ">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-										<div class="chk_div">
-										   <label class="chk_label">H_AHA501_DaTemp</label>
-										</div>
-										<div class="ipt">
-										   <input type="text" name="">
-										   <input type="text" name="">
-										</div>
-										<div class="status">
-										   <label data-title="Readable" class="blue_bg">R</label>
-										   <label data-title="Writable" class="orange_bg">W</label>
-										   <label data-title="Optimizable by EOS" class="green_bg">C</label>
-										   <label class="o_tooltip" data-title="Controlled/Optimizable by EOS">O</label>
-										   <label data-title="Virtual">V</label>
-										</div>
-									 </li>
-									 <li>
-								  </ul>
-							   </div>
-							</div>
-						 </div>
-					  </div>
-				   </div>
-
-				   <!-- Modal -->
-<div id="myModal1" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-  
-	  <!-- Modal content-->
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <button type="button" class="close" data-dismiss="modal">&times;</button>
-		  <h4 class="modal-title">EOS Optimization control</h4>
+<div class="container-fluid">
+    <div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-1 no-padding"> 
+			<app-aside></app-aside>
 		</div>
-		<div class="modal-body">
-		 	<div class="eos-btn-grp">
-				 <button class="selectnone" (click)="UnCheckAllOptions()">Select None</button>
-				 <button class="selectall" (click)="CheckAllOptions()">Select All</button>
-			 </div>
-			 <div class="checkbox-list-select">
-				<div *ngFor="let checkbox of checkboxes">
-					<input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value"><span>{{checkbox.name}}</span>
+        <div class="col-lg-11">
+ 		<div class="status_component">
+			<div class="top_head">
+				<h4>Status</h4>
+				<div class="right_icons">
+					<i class="fa fa-refresh"></i>
 				</div>
-			 </div>
-			 <div class="eos-btn-grp">
-				<button class="optim_off">Selected optimization Off</button>
-				<button class="optim_on">Selected optimization On</button>
 			</div>
-			<div class="eos-btn-grp text-center"> 
-				<button class="cancel">Cancel</button>
+
+			<div class="head_text">
+				<div class="head_inner">
+					<h4>Status</h4>
+				</div>
+				<div class="head_inner">
+					<h4>Status</h4>
+				</div>
 			</div>
+
+			<div class="hide_show accordion" (click)="section['first'] = !section['first']">
+				<h4><i class="fa fa-plus" *ngIf="!section['first']"></i><i class="fa fa-minus pane" *ngIf="section['first']"></i> Air Handlers - In Scope</h4>
+				<p>27</p>
+			</div>
+			<div  class="hidden_flex panel" *ngIf="section['first']">
+				<ul>
+					<li>
+						<div class="chk_div">
+							<span class="settings"><i class="fa fa-wrench"></i></span>
+							<label class="chk_label">H_AHA501_SatEffSetpt</label>
+						</div>
+						<div class="ipt">
+							<input type="text" name="">
+							<input class="big_input" type="text" name="">
+						</div>
+						<div class="power_icons">
+							<i class="fa fa-power-off clr_green"></i>
+						</div>
+					</li>
+					 
+				</ul> 
+			</div>
+
+			<div class="hide_show accordion" (click)="section['second'] = !section['second']">
+				<h4><i class="fa fa-plus" *ngIf="!section['second']"></i><i class="fa fa-minus" *ngIf="section['second']"></i>Air Handlers - Out of Scope</h4>
+				<p>15</p>
+			</div>
+			<div  class="hidden_flex panel" *ngIf="section['second']">
+				<ul>
+					<li>
+						<div class="chk_div">
+							<i class="fa fa-wrench settings"></i>
+							<label class="chk_label">H_AHA501_SatEffSetpt</label>
+						</div>
+						<div class="ipt">
+							<input type="text" name="">
+							<input class="big_input" type="text" name="">
+						</div>
+						<div class="power_icons">
+							<i class="fa fa-power-off clr_red"></i>
+						</div>
+					</li> 
+				</ul>
+
+			</div>
+
+
 		</div>
+
+
+        </div>
+    </div>
+    </div>
  
-	  </div>
-  
-	</div>
-  </div>
-				</div>
-			 </div>
-		  </div>
-	   </div>
-	</div>
- </div>
+</div>
