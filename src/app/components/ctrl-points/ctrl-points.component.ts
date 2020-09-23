@@ -14,57 +14,87 @@ export class CtrlPointsComponent implements OnInit {
   controlListOptions:any =[];
   plannerData:any = []
   countList;
+  widgetId;
 
-
-  selectedUser: any;
+  selectedControlList: any;
   filterdOptions = [];
 
 
   arraylistsArray = []
+  loading = true;
+  
   constructor(private _serve:ConfigService) {
     
   }
 
   ngOnInit(): void { 
 
-    
+    // select dropdown
   this._serve.onControlListOptions().subscribe(data2 => {
+
         
     this.controlListOptions=data2;
-    console.log(data2);
+    this.widgetId = data2[0].widgetId;
+    console.log("fjsdlkfjsldk" ,this.widgetId)
+    //console.log(data2);
+    this.getControlList();
     });
+  }
 
-    //for displaying list of the selected dropdown
-    this._serve.onControlDescriptionList().subscribe( controlPointData => 
+  getControlList()
+  {
+     //for displaying list of the selected dropdown
+     this._serve.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
       {
+        this.loading = false;
         this.controlListArray = controlPointData;
-
+ 
            //to display the count of the list
            this.controlListArray.forEach(countResponse => {
            this.countList = countResponse.equipmentSetFields.length  
           // console.log("The length of the array is :" , countResponse.equipmentSetFields.length); 
+        
+        });
+      })
+  }
+
+
+
+ // for displaying selected api list 
+   onChange(widgetId) { 
+
+    console.log(widgetId)
+
+
+    //for displaying list of the selected dropdown
+    this._serve.onControlDescriptionList(widgetId).subscribe( controlPointData => 
+      {
+     
+       
+        this.controlListArray = controlPointData;
+ 
+           //to display the count of the list
+           this.controlListArray.forEach(countResponse => {
+           this.countList = countResponse.equipmentSetFields.length  
+          // console.log("The length of the array is :" , countResponse.equipmentSetFields.length); 
+        
         });
       })
 
+      
+      // console.log("Selected id key is - :" ,widgetId);
+      // this.controlListArray.forEach( res => {
+      //    // console.log(res.equipmentSetFields) 
+      //     res.equipmentSetFields.forEach( repo1 =>  { 
+      //       console.log(repo1)
+            
+      //     })
+          
+      // });
+        
   }
 
- 
-   onChange(id) { 
-     console.log("ids" ,id)
-    // this.filterdOptions = this.controlListArray.filter(
-    //   item => {
-    //       //console.log("The value  of item - :" , item.id)
-    //       item.equipmentSetFields.filter( responses => { 
-    //       console.log("The values of spaces = : ",  responses.id)  
-    //      // return responses.id = id;
-    //       return this.controlListOptions.id = this.controlListArray
-          
-    //     });
-       
-    //   }
-    // )
-       
-  }
+
 
   checkboxes: any[] = [
     { name: 'AHA508', value: 'cb1', checked: false },

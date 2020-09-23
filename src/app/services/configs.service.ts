@@ -15,7 +15,7 @@ export class ConfigService {
    private _popupModeURL = 'assets/api/modeselectoption.json';
    private _status = 'assets/api/status.json';
    
-
+  
   constructor(private http:HttpClient) { }
  
 
@@ -57,23 +57,39 @@ export class ConfigService {
   //status page
   onStatusService()
   {
-    return this.http.get(this._status)
+    return this.http.get('/dashboard/external/secure/dashboardService/status/get')
   }
 
-  // control list select option
+  // control point select option
   onControlListOptions()
   {
-    //let params = new HttpParams().set("widgetType",'setpoints')
-    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayouts?widgetType=setpoints')
+    let httpParams = new HttpParams({
+      fromObject:
+      {
+        widgetType : 'setpoints',
+      }
+    }) ;
+    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayouts',{params:httpParams})
   }
 
-  // control list description list
-  onControlDescriptionList()
+  // control point description list
+  onControlDescriptionList(widgetId)
   {
 
-    //let params = new HttpParams().set("id",'Parent_Widget1_ID')
-    return this.http.get('/dashboard/external/secure/dashboardService//widgets/getLayout?id=Parent_Widget1_ID')
+    // let httpParams = new HttpParams({
+    //   fromObject:
+    //   {
+    //     id : 'Parent_Widget1_ID',
+    //   }
+    // }) ;
+
+    // http://eos.stg2app01.mariner.local:8080/Dashboard/secure/dashboardService/widgets/getLayout?id=Parent_Widget1_ID
+ 
+    return this.http.get('/dashboard/external/secure/dashboardService//widgets/getLayout'+ "?id="+ widgetId)
   }
 
 
 }
+
+
+

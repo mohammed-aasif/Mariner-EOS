@@ -10,18 +10,19 @@ export class StatusComponent implements OnInit {
 
   constructor(private _myservice:ConfigService) { }
 
-  statuslists:any = [];
+ 
 
   counts;
   
   section: any = [];
+  statusListArray:any =[];
 
   ngOnInit(): void {
 
     this._myservice.onStatusService().subscribe( statuslistsData => 
       {
         
-        this.statuslists = statuslistsData
+        this.statusListArray = statuslistsData
         console.log(statuslistsData);
         // console.log("the length is :" + statuslistsData.length);
         // this.counts = statuslistsData.length;

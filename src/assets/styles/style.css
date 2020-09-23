@@ -2194,3 +2194,68 @@ button.optim_off,button.cancel {
 .hidden_flex.panel {
     background-color: unset;
 }
+
+.eos_accord {
+    display: flex;
+    justify-content: space-between;
+    background: #c0c0c0;
+}
+.eos_accord .hide_show.accordion {
+    width: 94%;
+}
+.eos_accord .power_icons.eos_ctrlPoint_toggle {
+    width: 6%;
+}
+
+
+
+p.countList
+{
+    font-size: 14px;
+    color: black;
+    background: #dddddd;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
+
+.loader_bg {
+    height: 100vh;
+    width: 100%;
+    display: block;
+    background: #9e9e9e94;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #aed5b4;
+    border-right: 16px solid silver;
+    border-bottom: 16px solid #e1ffcf;
+    border-left: 16px solid #ffc10770;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  #eos_loader
+  {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
