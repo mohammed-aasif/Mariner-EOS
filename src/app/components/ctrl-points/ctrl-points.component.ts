@@ -18,7 +18,7 @@ export class CtrlPointsComponent implements OnInit {
 
   selectedControlList: any;
   filterdOptions = [];
-
+ 
 
   arraylistsArray = []
   loading = true;
@@ -56,6 +56,26 @@ export class CtrlPointsComponent implements OnInit {
         
         });
       })
+  }
+
+  toggleEditable(checking)
+  {
+    if(checking.target.checked == true)
+    {
+      
+      console.log("working",checking)
+
+     //for displaying list of the selected dropdown
+    }
+    else{
+      console.log("not working")
+    }
+  }
+   
+
+  selectedCheckList()
+  {
+ 
   }
 
 

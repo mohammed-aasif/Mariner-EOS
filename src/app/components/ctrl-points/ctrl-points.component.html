@@ -4,6 +4,7 @@
             <app-aside></app-aside>
         </div>
         <div class="col-lg-11">
+            <div class="eos_loader_response">
             <!-- <ng-template #loaded> -->
                 <div id="wrapper_content" >
                     <div class="ctrl_points">
@@ -14,7 +15,7 @@
                             <div class="right_icons">
                                 <i class="fas fa-sync-alt"></i>
                                 <i class="fas fa-ellipsis-v"></i>
-                                <i class="fas fa-bars"></i>
+                                <i class="fas fa-bars" (click)="selectedCheckList()"></i>
                             </div>
                         </div>
     
@@ -46,7 +47,8 @@
                                 <li *ngFor="let ctlLst of controlListArray">
                                     <div class="controlListBlocks" *ngFor="let ctlLst1 of ctlLst.equipmentSetFields">
                                         <div class="chk_div">
-                                            <input type="checkbox" name="" />
+                                            
+                                            <input type="checkbox"  name=""  value="" (change)="toggleEditable($event)"/>
                                             <label class="chk_label">{{ctlLst1.name}}</label>
                                         </div>
                                         <div class="ipt">
@@ -100,6 +102,9 @@
                         </div>
                     </div>
                 </div>
+                </div>
+                <ng-template #customLoadingTemplate id="uiLoaders" style="width:100%;height: 100vh;"></ng-template>
+                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
             <!-- </ng-template> -->
            
         </div>
@@ -107,12 +112,12 @@
 </div>
 <!--loader-->
 
-	<!-- <div *ngIf="loading else loaded">
+	  <!-- <div *ngIf="loading else loaded">
 		<div class="loader_bg"> 
 		    <div class="loader" id="eos_loader"></div>
 	    </div>
 	</div>
- -->
+  -->
 
  
 <!--loader End-->

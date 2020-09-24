@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from 'src/app/services/configs.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-status',
@@ -8,9 +9,9 @@ import { ConfigService } from 'src/app/services/configs.service';
 })
 export class StatusComponent implements OnInit {
 
-  constructor(private _myservice:ConfigService) { }
+  constructor(private modal: NgbModal,private _myservice:ConfigService) { }
 
- 
+  public loading = true;
 
   countList;
   
@@ -19,16 +20,19 @@ export class StatusComponent implements OnInit {
 
   ngOnInit(): void {
 
+   this.loading = true;
     this._myservice.onStatusService().subscribe( statuslistsData => 
       {
-        
-        this.statusListArray = statuslistsData
-        
+        this.loading = false;
+        this.statusListArray = statuslistsData 
         this.statusListArray.forEach( statusRes => {
              statusRes.widgets.forEach(statusResSub =>{ 
              return this.countList = statusResSub.deviceRw.length;
+          
           })
+          // this.loading = false;
         })  
+       
       })
 
       }
@@ -72,5 +76,12 @@ export class StatusComponent implements OnInit {
     buttonModal.click()
   }
  
+
+  open(modalContent){
+    this.modal.open(modalContent, { centered: true});
+  }
+
+
+
 
 }

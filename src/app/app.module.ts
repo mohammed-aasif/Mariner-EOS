@@ -30,6 +30,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import {DpDatePickerModule} from 'ng2-date-picker';
+
+import { NgxLoadingModule } from 'ngx-loading';
  
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import {DpDatePickerModule} from 'ng2-date-picker';
     // NgxTuiCalendarModule,
     TabsModule.forRoot(),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
-    ContextMenuModule.forRoot()
+    ContextMenuModule.forRoot(),
+    NgxLoadingModule.forRoot({})
     // NgbModule
     
   ],
