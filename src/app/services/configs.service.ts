@@ -85,7 +85,7 @@ export class ConfigService {
 
     // http://eos.stg2app01.mariner.local:8080/Dashboard/secure/dashboardService/widgets/getLayout?id=Parent_Widget1_ID
  
-    return this.http.get('/dashboard/external/secure/dashboardService//widgets/getLayout'+ "?id="+ widgetId)
+    return this.http.get('/dashboard/external/secure/dashboardService//widgets/getLayout'+"?id="+widgetId)
   }
 
 

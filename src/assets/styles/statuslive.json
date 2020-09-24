@@ -1,0 +1,70 @@
+[
+    {
+       "id":"bc5f8b10-edf5-11ea-92ea-000c2930f1f3",
+       "name":"ParentName1",
+       "widgets":[
+          {
+             "attributes":{
+                
+             },
+             "id":"bc5f8b10-edf5-11ea-92ea-000c2930f1f3",
+             "name":"ParentName1",
+             "deviceRw":[
+                {
+                   "id":"8f605b20-ed29-11ea-bfda-000c2941e511",
+                   "name":"Status of soln_ddp00035",
+                   "activityLogMessage":"Oh, oh...trouble!",
+                   "readable":true,
+                   "writable":false,
+                   "controllable":true,
+                   "incontrol":false,
+                   "virtual":false,
+                   "currentValue":"29960.00",
+                   "currentEosValue":"",
+                   "widgetId":"cacceee0-edf5-11ea-92ea-000c2930f1f3",
+                   "widgetStringId":"ddp000035_STATUS",
+                   "equipmentSetId":"788bc350-edf4-11ea-92ea-000c2930f1f3",
+                   "sortOrder":1,
+                   "attributes":{
+                      "StatusView":"soln_ddp00001"
+                   }
+                }
+             ]
+          }
+       ]
+    },
+    {
+       "id":"ff9d70e0-edf5-11ea-92ea-000c2930f1f3",
+       "name":"ParentName2",
+       "widgets":[
+          {
+             "attributes":{
+                
+             },
+             "id":"ff9d70e0-edf5-11ea-92ea-000c2930f1f3",
+             "name":"ParentName2",
+             "deviceRw":[
+                {
+                   "id":"2eb4c012-ee10-11ea-92fd-000c2941e511",
+                   "name":"Status of soln_ddp00036",
+                   "activityLogMessage":"Those rapids are huge!",
+                   "readable":true,
+                   "writable":false,
+                   "controllable":true,
+                   "incontrol":false,
+                   "virtual":false,
+                   "currentValue":"29486.00",
+                   "currentEosValue":"",
+                   "widgetId":"5c246c10-edf6-11ea-92ea-000c2930f1f3",
+                   "widgetStringId":"soln_ddp00036_STATUS",
+                   "equipmentSetId":"d2d6fa20-ee06-11ea-92ea-000c2930f1f3",
+                   "sortOrder":1,
+                   "attributes":{
+                      "StatusView":"soln_ddp00010"
+                   }
+                }
+             ]
+          }
+       ]
+    }
+ ]

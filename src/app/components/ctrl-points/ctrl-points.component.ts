@@ -35,7 +35,7 @@ export class CtrlPointsComponent implements OnInit {
         
     this.controlListOptions=data2;
     this.widgetId = data2[0].widgetId;
-    console.log("fjsdlkfjsldk" ,this.widgetId)
+    console.log("Control Point select - :" ,this.widgetId)
     //console.log(data2);
     this.getControlList();
     });

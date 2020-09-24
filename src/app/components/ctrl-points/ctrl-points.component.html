@@ -4,112 +4,115 @@
             <app-aside></app-aside>
         </div>
         <div class="col-lg-11">
-            <div id="wrapper_content" #loaded>
-                <div class="ctrl_points">
-                    <div class="top_head">
-                        <select [(ngModel)]="selectedControlList" (change)="onChange(selectedControlList)">
-                            <option *ngFor="let controlItems of controlListOptions" [value]="controlItems.widgetId">{{controlItems.name}}</option>
-                        </select>
-                        <div class="right_icons">
-                            <i class="fas fa-sync-alt"></i>
-                            <i class="fas fa-ellipsis-v"></i>
-                            <i class="fas fa-bars"></i>
+            <!-- <ng-template #loaded> -->
+                <div id="wrapper_content" >
+                    <div class="ctrl_points">
+                        <div class="top_head">
+                            <select [(ngModel)]="selectedControlList" (change)="onChange(selectedControlList)">
+                                <option *ngFor="let controlItems of controlListOptions" [value]="controlItems.widgetId">{{controlItems.name}}</option>
+                            </select>
+                            <div class="right_icons">
+                                <i class="fas fa-sync-alt"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                                <i class="fas fa-bars"></i>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="head_text">
-                        <div class="head_inner">
-                            <h4>Current</h4>
-                            <h4>EOS</h4>
-                            <h4>Status</h4>
+    
+                        <div class="head_text">
+                            <div class="head_inner">
+                                <h4>Current</h4>
+                                <h4>EOS</h4>
+                                <h4>Status</h4>
+                            </div>
+                            <div class="head_inner">
+                                <h4>Current</h4>
+                                <h4>EOS</h4>
+                                <h4>Status</h4>
+                            </div>
                         </div>
-                        <div class="head_inner">
-                            <h4>Current</h4>
-                            <h4>EOS</h4>
-                            <h4>Status</h4>
+    
+                        <div class="eos_accord">
+                            <div class="hide_show accordion" (click)="section['first'] = !section['first']">
+                                <h4><i class="fas fa-plus" *ngIf="!section['first']"></i><i class="fas fa-minus" *ngIf="section['first']"></i> <small *ngFor="let ctlLst of controlListArray">{{ctlLst.name}}</small></h4>
+                            </div>
+                            <div class="power_icons eos_ctrlPoint_toggle">
+                                <i class="fa fa-power-off clr_green" data-toggle="modal" data-target="#myModal1"></i>
+                                <p class="countList">{{countList}}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="eos_accord">
-                        <div class="hide_show accordion" (click)="section['first'] = !section['first']">
-                            <h4><i class="fas fa-plus" *ngIf="!section['first']"></i><i class="fas fa-minus" *ngIf="section['first']"></i> <small *ngFor="let ctlLst of controlListArray">{{ctlLst.name}}</small></h4>
-                        </div>
-                        <div class="power_icons eos_ctrlPoint_toggle">
-                            <i class="fa fa-power-off clr_green" data-toggle="modal" data-target="#myModal1"></i>
-                            <p class="countList">{{countList}}</p>
-                        </div>
-                    </div>
-
-                    <div class="hidden_flex panel" *ngIf="section['first']">
-                        <ul id="eos_height_adjusant">
-                            <li *ngFor="let ctlLst of controlListArray">
-                                <div class="controlListBlocks" *ngFor="let ctlLst1 of ctlLst.equipmentSetFields">
-                                    <div class="chk_div">
-                                        <input type="checkbox" name="" />
-                                        <label class="chk_label">{{ctlLst1.name}}</label>
+    
+                        <div class="hidden_flex panel" *ngIf="section['first']">
+                            <ul id="eos_height_adjusant">
+                                <li *ngFor="let ctlLst of controlListArray">
+                                    <div class="controlListBlocks" *ngFor="let ctlLst1 of ctlLst.equipmentSetFields">
+                                        <div class="chk_div">
+                                            <input type="checkbox" name="" />
+                                            <label class="chk_label">{{ctlLst1.name}}</label>
+                                        </div>
+                                        <div class="ipt">
+                                            <input type="text" [(ngModel)]="ctlLst1.currentValue" name="" />
+                                            <input type="text" [(ngModel)]="ctlLst1.currentEOSValue" name="" />
+                                        </div>
+    
+                                        <div class="status">
+                                            <label data-title="Readable" [ngClass]="{ 'readable_bg': ctlLst1.readable == true}">R</label>
+                                            <label data-title="Writable" [ngClass]="{ 'writable_bg':ctlLst1.writable == true}">W</label>
+                                            <label data-title="Controlled/Optimizable by EOS" [ngClass]="{ 'controllable_bg' : ctlLst1.controllable == true}">C</label>
+                                            <label data-title="Optimizable by EOS" [ngClass]="{ 'incontrol_bg' : ctlLst1.incontrol == true }">O</label>
+                                            <label data-title="Virtual">V</label>
+                                        </div>
                                     </div>
-                                    <div class="ipt">
-                                        <input type="text" [(ngModel)]="ctlLst1.currentValue" name="" />
-                                        <input type="text" [(ngModel)]="ctlLst1.currentEOSValue" name="" />
-                                    </div>
-
-                                    <div class="status">
-                                        <label data-title="Readable" [ngClass]="{ 'readable_bg': ctlLst1.readable == true}">R</label>
-                                        <label data-title="Writable" [ngClass]="{ 'writable_bg':ctlLst1.writable == true}">W</label>
-                                        <label data-title="Controlled/Optimizable by EOS" [ngClass]="{ 'controllable_bg' : ctlLst1.controllable == true}">C</label>
-                                        <label data-title="Optimizable by EOS" [ngClass]="{ 'incontrol_bg' : ctlLst1.incontrol == true }">O</label>
-                                        <label data-title="Virtual">V</label>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!--modal-->
-
-                            <div id="eos-setting">
-                                <!-- Modal -->
-                                <div id="myModal1" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">EOS Optimization control</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="eos-btn-grp">
-                                                    <button class="selectnone" (click)="UnCheckAllOptions()">Select None</button>
-                                                    <button class="selectall" (click)="CheckAllOptions()">Select All</button>
+                                </li>
+    
+                                <!--modal-->
+    
+                                <div id="eos-setting">
+                                    <!-- Modal -->
+                                    <div id="myModal1" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">EOS Optimization control</h4>
                                                 </div>
-                                                <div class="checkbox-list-select">
-                                                    <div *ngFor="let checkbox of checkboxes"><input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value" /><span>{{checkbox.name}}</span></div>
-                                                </div>
-                                                <div class="eos-btn-grp">
-                                                    <button class="optim_off">Selected optimization Off</button>
-                                                    <button class="optim_on">Selected optimization On</button>
-                                                </div>
-                                                <div class="eos-btn-grp text-center">
-                                                    <button class="cancel">Cancel</button>
+                                                <div class="modal-body">
+                                                    <div class="eos-btn-grp">
+                                                        <button class="selectnone" (click)="UnCheckAllOptions()">Select None</button>
+                                                        <button class="selectall" (click)="CheckAllOptions()">Select All</button>
+                                                    </div>
+                                                    <div class="checkbox-list-select">
+                                                        <div *ngFor="let checkbox of checkboxes"><input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value" /><span>{{checkbox.name}}</span></div>
+                                                    </div>
+                                                    <div class="eos-btn-grp">
+                                                        <button class="optim_off">Selected optimization Off</button>
+                                                        <button class="optim_on">Selected optimization On</button>
+                                                    </div>
+                                                    <div class="eos-btn-grp text-center">
+                                                        <button class="cancel">Cancel</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <!-- </ng-template> -->
+           
         </div>
     </div>
 </div>
 <!--loader-->
 
-	<div *ngIf="loading else loaded">
+	<!-- <div *ngIf="loading else loaded">
 		<div class="loader_bg"> 
-		<div class="loader" id="eos_loader"></div>
+		    <div class="loader" id="eos_loader"></div>
+	    </div>
 	</div>
-	</div>
-
+ -->
 
  
 <!--loader End-->

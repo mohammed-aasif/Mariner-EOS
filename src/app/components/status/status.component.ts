@@ -12,7 +12,7 @@ export class StatusComponent implements OnInit {
 
  
 
-  counts;
+  countList;
   
   section: any = [];
   statusListArray:any =[];
@@ -23,10 +23,12 @@ export class StatusComponent implements OnInit {
       {
         
         this.statusListArray = statuslistsData
-        console.log(statuslistsData);
-        // console.log("the length is :" + statuslistsData.length);
-        // this.counts = statuslistsData.length;
-         
+        
+        this.statusListArray.forEach( statusRes => {
+             statusRes.widgets.forEach(statusResSub =>{ 
+             return this.countList = statusResSub.deviceRw.length;
+          })
+        })  
       })
 
       }

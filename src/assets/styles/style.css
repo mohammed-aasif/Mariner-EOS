@@ -510,6 +510,7 @@ div#_dialog_wrapper_dialog-header {
     font-size: 14px;
     color: white;
     margin: 0;
+    font-weight: 700;
 }
 
 .hide_show p {
@@ -2250,6 +2251,17 @@ p.countList
     transform: translate(-50%,-50%);
   }
   
+
+  .hidden_flex.panel h6, .hidden_flex.panel h5 {
+    width: 100%;
+    display: flex;
+}
+
+
+
+div#eos-setting #myModal .hidden_flex.panel { 
+    height: auto; 
+}
   @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
