@@ -7,7 +7,7 @@ import { ConfigService } from '../../services/configs.service';
   styleUrls: ['./ctrl-points.component.css']
 })
 export class CtrlPointsComponent implements OnInit {
-
+ 
   section: any = [];
   controlListArray;any = [];
 
@@ -28,6 +28,8 @@ export class CtrlPointsComponent implements OnInit {
   }
 
   ngOnInit(): void { 
+ 
+
 
     // select dropdown
   this._serve.onControlListOptions().subscribe(data2 => {

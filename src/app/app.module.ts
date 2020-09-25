@@ -24,6 +24,7 @@ import { ContextMenuModule } from 'ngx-contextmenu';
 
 
 import { HttpClientModule,HttpHeaders  } from '@angular/common/http'
+// import { CollapseModule } from 'ngx-bootstrap';
 
 // RECOMMENDED
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -31,7 +32,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 import {DpDatePickerModule} from 'ng2-date-picker';
 
-import { NgxLoadingModule } from 'ngx-loading';
+import { NgxLoadingModule } from 'ngx-loading'; 
  
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    DpDatePickerModule ,
+    DpDatePickerModule , 
     // ScheduleModule,
     // TimePickerModule,
     // RecurrenceEditorModule ,
@@ -58,7 +59,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     TabsModule.forRoot(),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     ContextMenuModule.forRoot(),
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}), 
     // NgbModule
     
   ],

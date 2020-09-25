@@ -4,6 +4,7 @@
             <app-aside></app-aside>
         </div>
         <div class="col-lg-11">
+     
             <div class="eos_loader_response">
             <!-- <ng-template #loaded> -->
                 <div id="wrapper_content" >
@@ -47,7 +48,6 @@
                                 <li *ngFor="let ctlLst of controlListArray">
                                     <div class="controlListBlocks" *ngFor="let ctlLst1 of ctlLst.equipmentSetFields">
                                         <div class="chk_div">
-                                            
                                             <input type="checkbox"  name=""  value="" (change)="toggleEditable($event)"/>
                                             <label class="chk_label">{{ctlLst1.name}}</label>
                                         </div>
