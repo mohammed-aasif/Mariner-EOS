@@ -561,7 +561,7 @@ div#_dialog_wrapper_dialog-header {
 }
 
 .chk_label {
-    font-size: 13px;
+    font-size: 12px;
     margin-bottom: 0px;
 }
 
@@ -2211,12 +2211,12 @@ button.optim_off,button.cancel {
 
 
 p.countList
-{
-    font-size: 14px;
+{    font-size: 12px;
     color: black;
     background: #dddddd;
     border-radius: 100%;
     width: 20px;
+    line-height: 20px;
     height: 20px;
     text-align: center;
     margin-bottom: 0px;
@@ -2292,3 +2292,47 @@ div#eos-setting #myModal .hidden_flex.panel {
   .eos_loader_response { 
     height: 100vh;
 }
+ 
+.hide_show.accordion i.fas.fa-plus {
+    display: none;
+}
+.hide_show.accordion.collapsed i.fas.fa-minus {
+    display: none;
+}
+.hide_show.accordion.collapsed i.fas.fa-plus {
+    display: inline-block;
+}
+.eos_accordion_subHeader .eos_accordion_nestedSubHeader {
+    width: 50%;
+    display: flex;
+}
+.eos_accordion_subHeader {
+    width: 100%;
+}
+.eos_accordion_subHeader {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.w_100
+{
+    width: 100%!important;
+}
+
+
+/**/
+.modal-dialog.modal-dialog-centered .modal-content {
+    box-shadow: unset;
+    border: none;
+    background: transparent;
+}
+.modal-dialog.modal-dialog-centered .modal-content .hidden_flex.panel {
+    height: unset !important;
+}
+.modal-dialog.modal-dialog-centered .modal-content .modal-dialog {
+    background: #e1ffcf !important;
+}
+button.close:focus {
+    outline: none !important;
+}
+/**/

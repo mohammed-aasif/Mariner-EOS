@@ -55,13 +55,13 @@ export class ConfigService {
   }
 
   //status page
-  onStatusService()
+  onStatusService():Observable<any>
   {
     return this.http.get('/dashboard/external/secure/dashboardService/status/get')
   }
 
   // control point select option
-  onControlListOptions()
+  onControlListOptions():Observable<any>
   {
     let httpParams = new HttpParams({
       fromObject:
@@ -73,7 +73,7 @@ export class ConfigService {
   }
 
   // control point description list
-  onControlDescriptionList(widgetId)
+  onControlDescriptionList(widgetId):Observable<any>
   {
 
     // let httpParams = new HttpParams({
@@ -85,10 +85,15 @@ export class ConfigService {
 
     // http://eos.stg2app01.mariner.local:8080/Dashboard/secure/dashboardService/widgets/getLayout?id=Parent_Widget1_ID
  
-    return this.http.get('/dashboard/external/secure/dashboardService//widgets/getLayout'+"?id="+widgetId)
+    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout'+"?id="+widgetId)
   }
 
+  // status setting click list options
 
+  onStatusManufact(id:any):Observable<any>
+  {
+    return this.http.get('/dashboard/external/secure/dashboardService/status/devicerw?widgetId='+id);
+  }
 }
 
 

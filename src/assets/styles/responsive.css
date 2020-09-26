@@ -51,7 +51,7 @@
     .hidden_flex.panel ul#eos_height_adjusant li .controlListBlocks {
 		width: 100%;
 	}
-	.hidden_flex.panel ul#eos_height_adjusant li {
+	/* .hidden_flex.panel ul#eos_height_adjusant li {
 		display: unset;
 		height: 600px;
 		-webkit-columns: 2;
@@ -59,7 +59,7 @@
 		columns: 2;
 		-moz-column-fill: balance;
 		column-fill: balance;
-	}
+	} */
  
 }
 

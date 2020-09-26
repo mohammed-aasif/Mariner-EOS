@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../../services/configs.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-ctrl-points',
@@ -7,29 +9,36 @@ import { ConfigService } from '../../services/configs.service';
   styleUrls: ['./ctrl-points.component.css']
 })
 export class CtrlPointsComponent implements OnInit {
- 
-  section: any = [];
+
+  public isCollapsed = -1;
   controlListArray;any = [];
 
   controlListOptions:any =[];
   plannerData:any = []
-  countList;
+  countLists;
   widgetId;
 
   selectedControlList: any;
   filterdOptions = [];
+
+  checkedList = [];
  
 
   arraylistsArray = []
   loading = true;
+
+    
+  section: any = [];
+
   
-  constructor(private _serve:ConfigService) {
+  public items = ['item 1', 'item 2', 'item 3'];
+
+  
+  constructor(private modal: NgbModal,private _serve:ConfigService) {
     
   }
 
   ngOnInit(): void { 
- 
-
 
     // select dropdown
   this._serve.onControlListOptions().subscribe(data2 => {
@@ -49,87 +58,68 @@ export class CtrlPointsComponent implements OnInit {
      this._serve.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
       {
         this.loading = false;
-        this.controlListArray = controlPointData;
- 
-           //to display the count of the list
-           this.controlListArray.forEach(countResponse => {
-           this.countList = countResponse.equipmentSetFields.length  
-          // console.log("The length of the array is :" , countResponse.equipmentSetFields.length); 
-        
-        });
+        this.controlListArray = controlPointData; 
       })
   }
 
-  toggleEditable(checking)
+  toggleEditable(checking,data)
   {
+    console.log('data', data)
     if(checking.target.checked == true)
     {
       
       console.log("working",checking)
-
+      this.checkedList.push(data)
      //for displaying list of the selected dropdown
     }
     else{
       console.log("not working")
+      this.checkedList = this.checkedList.filter(item=> item.name != data.name);
     }
+    console.log('this.checkedList', this.checkedList);
   }
    
 
-  selectedCheckList()
-  {
- 
+  eosRefresh(widgetId)
+  { 
+           this.loading = true;
+           this.checkedList = null
+          this._serve.onControlDescriptionList(widgetId).subscribe( controlPointData => 
+          {
+            this.controlListArray = controlPointData;
+          })
+
+          this._serve.onControlListOptions().subscribe(data2 => {
+          this.controlListOptions=data2;
+          this.widgetId = data2[0].widgetId;   
+          this.getControlList();
+          });
   }
 
 
 
  // for displaying selected api list 
    onChange(widgetId) { 
-
-    console.log(widgetId)
-
-
     //for displaying list of the selected dropdown
     this._serve.onControlDescriptionList(widgetId).subscribe( controlPointData => 
       {
-     
-       
         this.controlListArray = controlPointData;
- 
-           //to display the count of the list
-           this.controlListArray.forEach(countResponse => {
-           this.countList = countResponse.equipmentSetFields.length  
-          // console.log("The length of the array is :" , countResponse.equipmentSetFields.length); 
-        
-        });
       })
-
-      
-      // console.log("Selected id key is - :" ,widgetId);
-      // this.controlListArray.forEach( res => {
-      //    // console.log(res.equipmentSetFields) 
-      //     res.equipmentSetFields.forEach( repo1 =>  { 
-      //       console.log(repo1)
-            
-      //     })
+      this.controlListArray.forEach( res => {
+         // console.log(res.equipmentSetFields) 
+          res.equipmentSetFields.forEach( repo1 =>  { 
+            console.log(repo1)
+            this.countLists = repo1.length
+          })
           
-      // });
+      });
         
   }
 
 
 
   checkboxes: any[] = [
-    { name: 'AHA508', value: 'cb1', checked: false },
-    { name: 'AHA508_TerminalUnits', value: 'cb2', checked: true },
-    { name: 'AHA508', value: 'cb3', checked: false },
-    { name: 'AHA508', value: 'cb4', checked: false },
-    { name: 'AHA508_TerminalUnits', value: 'cb5', checked: false },
-    { name: 'AHA508', value: 'cb3', checked: false },
-    { name: 'AHA508', value: 'cb4', checked: false },
-    { name: 'AHA508_TerminalUnits', value: 'cb5', checked: false },
-    { name: 'AHA508', value: 'cb3', checked: false },
-    { name: 'AHA508', value: 'cb4', checked: false },
-    { name: 'AHA508_TerminalUnits', value: 'cb5', checked: false },
+
   ]
 
 
@@ -150,12 +140,10 @@ export class CtrlPointsComponent implements OnInit {
   }
 
 
- 
-  openModal(){
-    const buttonModal = document.getElementById("openModalButton")
-    console.log('buttonModal', buttonModal)
-    buttonModal.click()
+  open(modalContent){
+    this.modal.open(modalContent, { centered: true});
   }
+
  
 
 }
