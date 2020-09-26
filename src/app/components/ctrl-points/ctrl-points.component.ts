@@ -80,21 +80,7 @@ export class CtrlPointsComponent implements OnInit {
   }
    
 
-  eosRefresh(widgetId)
-  { 
-           this.loading = true;
-           this.checkedList = null
-          this._serve.onControlDescriptionList(widgetId).subscribe( controlPointData => 
-          {
-            this.controlListArray = controlPointData;
-          })
 
-          this._serve.onControlListOptions().subscribe(data2 => {
-          this.controlListOptions=data2;
-          this.widgetId = data2[0].widgetId;   
-          this.getControlList();
-          });
-  }
 
 
 
@@ -139,11 +125,28 @@ export class CtrlPointsComponent implements OnInit {
     this.checkboxes.forEach(val => { val.checked = false });
   }
 
-
+  //modal
   open(modalContent){
     this.modal.open(modalContent, { centered: true});
   }
 
  
+//refresh button
+  eosRefresh(widgetId)
+  { 
+           this.loading = true;
+           //this.checkedList = null
+          this._serve.onControlDescriptionList(widgetId).subscribe( controlPointData => 
+          {
+            this.controlListArray = controlPointData;
+          })
+
+          this._serve.onControlListOptions().subscribe(data2 => {
+          this.controlListOptions=data2;
+          this.widgetId = data2[0].widgetId;   
+          this.getControlList();
+          });
+  }
+
 
 }

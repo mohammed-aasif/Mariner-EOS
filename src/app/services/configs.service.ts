@@ -85,14 +85,21 @@ export class ConfigService {
 
     // http://eos.stg2app01.mariner.local:8080/Dashboard/secure/dashboardService/widgets/getLayout?id=Parent_Widget1_ID
  
-    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout'+"?id="+widgetId)
+    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id=' + widgetId)
   }
 
-  // status setting click list options
+  // status setting click list options --> popup
 
   onStatusManufact(id:any):Observable<any>
   {
     return this.http.get('/dashboard/external/secure/dashboardService/status/devicerw?widgetId='+id);
+  }
+
+  //status optimization click list option --> popup
+  onStatusOptimization(id:any):Observable<any>
+  {
+      return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id='+id)
+    //return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id=EOS%20Level%20000%20Offices')
   }
 }
 

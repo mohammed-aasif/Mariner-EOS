@@ -8,13 +8,16 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./status.component.css']
 })
 export class StatusComponent implements OnInit {
-  public isCollapsed = -1;
+
   constructor(private modal: NgbModal,private _myservice:ConfigService) { }
 
   public loading = true;
   manufactArray = [];
   modalData:any = {};
- 
+  modalDatas:any = {}
+  //modalOptimize:any = {}
+  checkBoxes:any = []
+
   countList;
   
   section: any = [];
@@ -31,39 +34,43 @@ export class StatusComponent implements OnInit {
       }
 
 
-  checkboxes: any[] = [
-  ]
+  
 
-  CheckAllOptions() {
-    if (this.checkboxes.every(val => val.checked == true))
-      this.checkboxes.forEach(val => { val.checked = false });
-    else
-      this.checkboxes.forEach(val => { val.checked = true });
-  }
-
-
-  UnCheckAllOptions()
-  {
-    if (this.checkboxes.every(val => val.checked == false))
-    this.checkboxes.forEach(val => { val.checked = true });
-  else
-    this.checkboxes.forEach(val => { val.checked = false });
-  }
+ 
 
  
  
 
   open(modalContent, data:any){
     this.modalData = data;
-    console.log('this.modalData', this.modalData)
-     
     this._myservice.onStatusManufact(data.widgetId).subscribe( response =>{
       this.manufactArray = response.deviceRw
+      //modal
       this.modal.open(modalContent, { centered: true});
     })
- 
-    
   }
+
+
+  openSwitch(modalContent, datas:any){ 
+    this.modalDatas = datas
+   // console.log("workingssssss",   this.modalDatas.name )
+    this._myservice.onStatusOptimization(datas.id).subscribe(respos =>
+      {
+          
+              
+              this.checkBoxes = respos
+              
+           
+      })
+     //modal
+     this.modal.open(modalContent, { centered: true});
+   
+  }
+  
+
+
+ 
+ 
 
 
 
@@ -74,7 +81,7 @@ export class StatusComponent implements OnInit {
       {
         this.loading = false;
         this.statusListArray = statuslistsData  
-        
+
       });
   }
  

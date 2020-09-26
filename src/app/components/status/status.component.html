@@ -44,40 +44,7 @@
                                                     <input class="big_input" type="text" [(ngModel)]="statusList2.activityLogMessage" name="" />
                                                 </div>
                                                 <div class="power_icons">
-                                                    <i class="fa fa-power-off clr_green" (click)="open(confirm_optimization)"></i>
-                                                    <!-- Modal Optimization-->
-                                                    <div id="eos-setting">
-                                                        <!-- Modal -->
-                                                             <ng-template #confirm_optimization class="modal fade new" role="dialog">
-                                                            <div class="modal-dialog">
-                                                                <!-- Modal content-->
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                        <h4 class="modal-title">EOS Optimization control</h4>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="eos-btn-grp">
-                                                                            <button class="selectnone" (click)="UnCheckAllOptions()">Select None</button>
-                                                                            <button class="selectall" (click)="CheckAllOptions()">Select All</button>
-                                                                        </div>
-                                                                        <div class="checkbox-list-select">
-                                                                            <div *ngFor="let checkbox of checkboxes"><input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value" /><span>{{checkbox.name}}</span></div>
-                                                                        </div>
-                                                                        <div class="eos-btn-grp">
-                                                                            <button class="optim_off">Selected optimization Off</button>
-                                                                            <button class="optim_on">Selected optimization On</button>
-                                                                        </div>
-                                                                        <div class="eos-btn-grp text-center">
-                                                                            <button class="cancel">Cancel</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            </ng-template>
-                                                      
-                                                    </div>
-                                                    <!--modal optimization End-->
+                                                    <i class="fa fa-power-off clr_green" (click)="openSwitch(confirm_optimization, statusList2)"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,3 +104,40 @@
         </div>
     </ng-template>
     <!--modal Setting icons end-->
+
+
+
+           <!-- Modal Optimization-->
+ 
+                 <ng-template #confirm_optimization class="modal fade new" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">EOS Optimization control</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="eos-btn-grp">
+                                <button class="selectnone" >Select None</button>
+                                <button class="selectall" >Select All</button>
+                            </div>
+                            <div class="checkbox-list-select">
+                                <div *ngFor="let checkbox of checkBoxes">
+                                    <!-- <input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value" /><span>{{checkbox.equipmentSetFields.name}}</span> -->
+                                    <input type="checkbox"/><span>{{checkbox.name}}</span>
+                                </div>
+                            </div>
+                            <div class="eos-btn-grp">
+                                <button class="optim_off">Selected optimization Off</button>
+                                <button class="optim_on">Selected optimization On</button>
+                            </div>
+                            <div class="eos-btn-grp text-center">
+                                <button class="cancel">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </ng-template>
+       
+        <!--modal optimization End-->
