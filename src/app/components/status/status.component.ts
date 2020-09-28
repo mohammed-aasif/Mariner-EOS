@@ -51,29 +51,17 @@ export class StatusComponent implements OnInit {
   }
 
 
-  openSwitch(modalContent, datas:any){ 
-    this.modalDatas = datas
-   // console.log("workingssssss",   this.modalDatas.name )
-    this._myservice.onStatusOptimization(datas.id).subscribe(respos =>
-      {
-          
-              
-              this.checkBoxes = respos
-              
-           
-      })
+  openSwitch(modalContent, data:any){  
+    this.modalDatas = data.attributes;
+    this._myservice.onStatusOptimization(data.attributes.CtrlPointLinkId).subscribe(respos => {
+      this.checkBoxes = respos
+    })
      //modal
      this.modal.open(modalContent, { centered: true});
    
   }
+ 
   
-
-
- 
- 
-
-
-
    eosRefresh()
   {
     this.loading = true;

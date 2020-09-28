@@ -90,16 +90,16 @@ export class ConfigService {
 
   // status setting click list options --> popup
 
-  onStatusManufact(id:any):Observable<any>
+  onStatusManufact(widgetId:any):Observable<any>
   {
-    return this.http.get('/dashboard/external/secure/dashboardService/status/devicerw?widgetId='+id);
+    return this.http.get('/dashboard/external/secure/dashboardService/status/devicerw?widgetId='+widgetId);
   }
 
   //status optimization click list option --> popup
   onStatusOptimization(id:any):Observable<any>
   {
-      return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id='+id)
-    //return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id=EOS%20Level%20000%20Offices')
+     // return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id='+id)
+    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id='+id)
   }
 }
 

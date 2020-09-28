@@ -33,19 +33,17 @@
                                     <li>
                                         <div class="eos_accordion_subHeader" *ngFor="let statusList1 of statusList.widgets">
                                             <div class="eos_accordion_nestedSubHeader" *ngFor="let statusList2 of statusList1.deviceRw">
-                                                <div class="chk_div">
-                                                    <span class="settings"><i (click)="open(confirm_settings, statusList2)" class="fa fa-wrench"></i></span>
-
-                                                
-                                                    <label class="chk_label">{{statusList2.name}}</label>
-                                                </div>
-                                                <div class="ipt">
-                                                    <input type="text" [(ngModel)]="statusList2.currentValue" name="" />
-                                                    <input class="big_input" type="text" [(ngModel)]="statusList2.activityLogMessage" name="" />
-                                                </div>
-                                                <div class="power_icons">
-                                                    <i class="fa fa-power-off clr_green" (click)="openSwitch(confirm_optimization, statusList2)"></i>
-                                                </div>
+                                                    <div class="chk_div">
+                                                        <span class="settings"><i (click)="open(confirm_settings, statusList2)" class="fa fa-wrench"></i></span>
+                                                        <label class="chk_label">{{statusList2.name}}</label>
+                                                    </div>
+                                                    <div class="ipt">
+                                                        <input type="text" [(ngModel)]="statusList2.currentValue" name="" />
+                                                        <input class="big_input" type="text" [(ngModel)]="statusList2.activityLogMessage" name="" />
+                                                    </div>
+                                                    <div class="power_icons">
+                                                        <i class="fa fa-power-off" [ngClass]="{ 'clr_green':statusList2.attributes.StatusView == 'OCC-MODE' }" (click)="openSwitch(confirm_optimization,statusList2)"></i>
+                                                    </div>
                                             </div>
                                         </div>
                                         <!--Modal End-->
@@ -119,13 +117,12 @@
                         </div>
                         <div class="modal-body">
                             <div class="eos-btn-grp">
-                                <button class="selectnone" >Select None</button>
-                                <button class="selectall" >Select All</button>
+                                <button class="selectnone" (click)="UnCheckAllOptions()">Select None</button>
+                                <button class="selectall" (click)="CheckAllOptions()">Select All</button>
                             </div>
                             <div class="checkbox-list-select">
                                 <div *ngFor="let checkbox of checkBoxes">
-                                    <!-- <input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value" /><span>{{checkbox.equipmentSetFields.name}}</span> -->
-                                    <input type="checkbox"/><span>{{checkbox.name}}</span>
+                                    <input type="checkbox" /><span>{{checkbox.name}}</span>
                                 </div>
                             </div>
                             <div class="eos-btn-grp">
