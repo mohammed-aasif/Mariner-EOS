@@ -130,18 +130,11 @@ export class StatusComponent implements OnInit {
   //On optimization -> popup
   OnOptimizationOn(datas:any)
   {
-      //console.log("value of datas array On :",datas)
-      
-        this.checkBoxes.forEach( res=>{
-         // console.log(res.id)
-           this._myservice.onUpdateStatus(res, true).subscribe(
-             // res =>
-            // {
-            // console.log("On Optimization",res)
-            
-            // }
-            );
-          }) 
+ 
+      this.storeNewSwitchArray.forEach( respo =>{
+        this._myservice.onUpdateStatus(respo, true).subscribe();
+      } )
+         
       
   
   }
@@ -149,11 +142,13 @@ export class StatusComponent implements OnInit {
   //Off optimization -> popup
   OnOptimizationOff(datas:any)
   { 
-    this.checkBoxes.forEach( res=>{
-        console.log(res.id)
-        this._myservice.onUpdateStatus(res, false).subscribe();
-      })
- 
+   
+    this.storeNewSwitchArray.forEach( respo =>{
+      this._myservice.onUpdateStatus(respo, false).subscribe();
+    } )
+  
+    
+    
   }
 
 
@@ -164,11 +159,7 @@ export class StatusComponent implements OnInit {
    if(checking.target.checked == true)
    {
        // console.log("working",checking)
-       this.storeNewSwitchArray.push(data)
-      //  this.storeNewSwitchArray.forEach( rest =>{
-      //    console.log(rest.name)
-      //  })
-
+         this.storeNewSwitchArray.push(data)
    }
    else
    {
