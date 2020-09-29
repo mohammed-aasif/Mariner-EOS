@@ -2092,13 +2092,13 @@ div#eos-setting .modal-header {
 div#eos-setting .modal-header .modal-header {
     color: #3e3e3e;
 }
-div#eos-setting button.close {
+/* div#eos-setting button.close {
     text-shadow: none;
     color: #424040;
     font-weight: 300;
     font-size: 26px;
     position: relative;
-}
+} */
 div#eos-setting .modal-body {
     padding: 0px;
     background-color: #e1ffcf;
@@ -2320,7 +2320,7 @@ div#eos-setting #myModal .hidden_flex.panel {
 }
 
 
-/**/
+/*new modal popup*/
 .modal-dialog.modal-dialog-centered .modal-content {
     box-shadow: unset;
     border: none;
@@ -2335,4 +2335,28 @@ div#eos-setting #myModal .hidden_flex.panel {
 button.close:focus {
     outline: none !important;
 }
+.modal-content {
+    background: #d7e8cd;
+}
+.modal-content .modal-header {
+    background: #86af8c;
+}
+.modal-content .modal-header button.close {
+    color: #e0e0e0;
+    opacity: 1;
+    text-shadow: none;
+    font-weight: 100;
+    font-size: 27px;
+}
+.modal-body {
+    background: #d7e8cd;
+}
+.modal-content .hidden_flex.panel {
+    height: auto !important;
+    margin-bottom: 0;
+    max-height: 400px;
+}
 /**/
+.ctrl_points .eos_accordion_header:nth-of-type(2) {
+    display: none;
+}

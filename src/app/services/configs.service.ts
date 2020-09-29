@@ -18,23 +18,17 @@ export class ConfigService {
   
   constructor(private http:HttpClient) { }
  
-
+  /***********************************************PLANNER PAGE********************************************************** */
   //filter by space select option
   onFilterBySpaces():Observable<any>
   {
         return this.http.get('/dashboard/external/secure/dashboardService/events/spaces');
-        //return this.http.get(this._spacesURL)
-         
   }
 
   //display event list in calendar
   onDisplayEvents():Observable<any>
   { 
- 
-       // let params = new HttpParams().set("startDate",'').set("endDate", '');  
-       // return this.http.get('/dashboard/external/secure/dashboardService/events/{{startDate}}/{{endDate}}',{params});
        return this.http.get('/dashboard/external/secure/dashboardService/events?startDate=01/09/2020&endDate=30/09/2020');
-       // return this.http.get(this._evenListURL);
   }
 //popup location select option
  onLocationService():Observable<any>
@@ -49,56 +43,57 @@ export class ConfigService {
   }
 
   // popup mode select option
- onModeDataService():Observable<any>
+   onModeDataService():Observable<any>
   {
     return this.http.get(this._popupModeURL)
   }
+  /***********************************************CONTROL POINT PAGE********************************************************** */
+   // control point select option
+   onControlListOptions():Observable<any>
+   {
+     let httpParams = new HttpParams({
+       fromObject:
+       {
+         widgetType : 'setpoints',
+       }
+     }) ;
+     return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayouts',{params:httpParams})
+   }
+ 
+   // control point description list
+   onControlDescriptionList(widgetId):Observable<any>
+   {
+     return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id=' + widgetId)
+   }
 
-  //status page
+  /***********************************************STATUS PAGE********************************************************** */
+
+  //status page initially displaying list
   onStatusService():Observable<any>
   {
     return this.http.get('/dashboard/external/secure/dashboardService/status/get')
   }
 
-  // control point select option
-  onControlListOptions():Observable<any>
-  {
-    let httpParams = new HttpParams({
-      fromObject:
-      {
-        widgetType : 'setpoints',
-      }
-    }) ;
-    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayouts',{params:httpParams})
-  }
-
-  // control point description list
-  onControlDescriptionList(widgetId):Observable<any>
-  {
-
-    // let httpParams = new HttpParams({
-    //   fromObject:
-    //   {
-    //     id : 'Parent_Widget1_ID',
-    //   }
-    // }) ;
-
-    // http://eos.stg2app01.mariner.local:8080/Dashboard/secure/dashboardService/widgets/getLayout?id=Parent_Widget1_ID
- 
-    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id=' + widgetId)
-  }
-
   // status setting click list options --> popup
-
   onStatusManufact(widgetId:any):Observable<any>
   {
     return this.http.get('/dashboard/external/secure/dashboardService/status/devicerw?widgetId='+widgetId);
   }
 
+    // status optimization  --> popup switch toggle
+    onUpdateStatus(data:any, status)
+    {
+      //dashboardService/widgets/enableControllableStatus?id=EOS_AHU30&status=false
+
+
+      return this.http.post('/dashboard/external/secure/dashboardService/widgets/enableControllableStatus?id='+ data.id +'&staus='+ status,status);
+    }
+
+    
+
   //status optimization click list option --> popup
   onStatusOptimization(id:any):Observable<any>
   {
-     // return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id='+id)
     return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id='+id)
   }
 }

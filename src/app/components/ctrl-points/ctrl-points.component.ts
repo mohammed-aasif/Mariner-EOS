@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../../services/configs.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CtrlPointsComponent implements OnInit {
 
-  public isCollapsed = -1;
+ 
   controlListArray;any = [];
 
   controlListOptions:any =[];
@@ -20,19 +20,10 @@ export class CtrlPointsComponent implements OnInit {
 
   selectedControlList: any;
   filterdOptions = [];
-
-  checkedList = [];
- 
-
-  arraylistsArray = []
-  loading = true;
-
-    
-  section: any = [];
-
-  
-  public items = ['item 1', 'item 2', 'item 3'];
-
+  checkboxes: any[] = []
+  checkedList:any = []; 
+  pushArray =[]
+  loading = true;  
   
   constructor(private modal: NgbModal,private _serve:ConfigService) {
     
@@ -41,27 +32,43 @@ export class CtrlPointsComponent implements OnInit {
   ngOnInit(): void { 
 
     // select dropdown
-  this._serve.onControlListOptions().subscribe(data2 => {
-
-        
+    this._serve.onControlListOptions().subscribe(data2 => {
     this.controlListOptions=data2;
     this.widgetId = data2[0].widgetId;
-    console.log("Control Point select - :" ,this.widgetId)
-    //console.log(data2);
     this.getControlList();
     });
+
+
+    this._serve.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
+      {
+        this.loading = false;
+        this.controlListArray = controlPointData; 
+        controlPointData.forEach( res => {
+         res.forEach( ress =>
+          {
+            console.log("equipmentSetFields", ress.equipmentSetFields.name)
+          })
+        })
+      })
+
+      
   }
 
+ //for displaying list of the selected dropdown
   getControlList()
   {
-     //for displaying list of the selected dropdown
+    
      this._serve.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
       {
         this.loading = false;
         this.controlListArray = controlPointData; 
+        controlPointData.forEach( res => {
+      //    console.log("Length check" , res)
+        })
       })
   }
 
+  //for displaying selected cheked-list in popup
   toggleEditable(checking,data)
   {
     console.log('data', data)
@@ -91,22 +98,11 @@ export class CtrlPointsComponent implements OnInit {
       {
         this.controlListArray = controlPointData;
       })
-      this.controlListArray.forEach( res => {
-         // console.log(res.equipmentSetFields) 
-          res.equipmentSetFields.forEach( repo1 =>  { 
-            console.log(repo1)
-            this.countLists = repo1.length
-          })
-          
-      });
-        
   }
 
 
 
-  checkboxes: any[] = [
 
-  ]
 
 
   CheckAllOptions() {
@@ -120,33 +116,70 @@ export class CtrlPointsComponent implements OnInit {
   UnCheckAllOptions()
   {
     if (this.checkboxes.every(val => val.checked == false))
-    this.checkboxes.forEach(val => { val.checked = true });
-  else
-    this.checkboxes.forEach(val => { val.checked = false });
+        this.checkboxes.forEach(val => { val.checked = true });
+     else
+         this.checkboxes.forEach(val => { val.checked = false });
   }
 
-  //modal
-  open(modalContent){
-    this.modal.open(modalContent, { centered: true});
-  }
+  
 
  
 //refresh button
   eosRefresh(widgetId)
   { 
-           this.loading = true;
-           //this.checkedList = null
-          this._serve.onControlDescriptionList(widgetId).subscribe( controlPointData => 
-          {
-            this.controlListArray = controlPointData;
-          })
+    this.loading = true;
+   
+    this._serve.onControlDescriptionList(widgetId).subscribe( controlPointData => 
+    {
+      this.controlListArray = controlPointData;
+      //this.checkedList = ""
+    })
 
-          this._serve.onControlListOptions().subscribe(data2 => {
-          this.controlListOptions=data2;
-          this.widgetId = data2[0].widgetId;   
-          this.getControlList();
-          });
+    this._serve.onControlListOptions().subscribe(data2 => {
+    this.controlListOptions=data2;
+    this.widgetId = data2[0].widgetId;   
+    this.getControlList();
+    });
   }
 
+
+
+    open(modalContent) {
+    this.modal.open(modalContent, { centered: true});
+      this.getDismissReason
+    }
+
+    private getDismissReason( ): string {
+      if (ModalDismissReasons.ESC) {
+        return;
+      } else if (ModalDismissReasons.BACKDROP_CLICK) {
+        return;
+      } 
+    }
+ 
+
+
+    openTwo(modalContent, datas) {  
+      console.log(datas)
+       //for displaying list of the selected dropdown
+       this._serve.onControlDescriptionList(datas).subscribe( controlPointData => 
+        {
+       
+          //this.pushArray = controlPointData.id; 
+          console.log("Optimization Buttons", controlPointData )
+        })
+      //default modal
+      this.modal.open(modalContent, { centered: true});
+       this.getDismissReasonOptimize
+      }
+  
+      private getDismissReasonOptimize( ): string {
+        if (ModalDismissReasons.ESC) {
+          return;
+        } else if (ModalDismissReasons.BACKDROP_CLICK) {
+          return;
+        } 
+      }
+   
 
 }

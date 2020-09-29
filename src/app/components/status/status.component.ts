@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from 'src/app/services/configs.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-status',
@@ -13,55 +13,85 @@ export class StatusComponent implements OnInit {
 
   public loading = true;
   manufactArray = [];
-  modalData:any = {};
-  modalDatas:any = {}
-  //modalOptimize:any = {}
+  storeSettingNewArray:any = [];
+  storeOptimizeNewArray:any = []
   checkBoxes:any = []
 
+  demoStoreArray = []
+
   countList;
-  
-  section: any = [];
+  switchControl;
   statusListArray:any =[];
+  storeNewSwitchArray:any= []
+  
 
   ngOnInit(): void {
  
+
    this.loading = true;
     this._myservice.onStatusService().subscribe( statuslistsData => 
       {
         this.loading = false;
         this.statusListArray = statuslistsData 
+        statuslistsData.forEach( res =>{
+         res.widgets.forEach( ress =>{
+        //  console.log( ress.deviceRw.length)  
+         })
+        })
       });
       }
 
 
-  
-
- 
-
- 
- 
-
+// for displaying Setting popup
   open(modalContent, data:any){
-    this.modalData = data;
+    this.loading = true;
+    this.storeSettingNewArray = data;
+ 
     this._myservice.onStatusManufact(data.widgetId).subscribe( response =>{
       this.manufactArray = response.deviceRw
-      //modal
-      this.modal.open(modalContent, { centered: true});
+      this.loading = false;
     })
-  }
-
-
-  openSwitch(modalContent, data:any){  
-    this.modalDatas = data.attributes;
-    this._myservice.onStatusOptimization(data.attributes.CtrlPointLinkId).subscribe(respos => {
-      this.checkBoxes = respos
-    })
-     //modal
-     this.modal.open(modalContent, { centered: true});
+    //modal default
+    this.modal.open(modalContent, { centered: true});
+     this.getDismissReasonSettingClose
    
   }
+
+  //for displaying Optimization popup
+  openSwitch(modalContent, data:any){ 
+    this.loading = true; 
+    this.storeOptimizeNewArray = data.attributes;
+   
+    this._myservice.onStatusOptimization(data.attributes.CtrlPointLinkId).subscribe(respos => {
+      this.checkBoxes = respos
+      this.loading = false;
+    })
+     //modal default
+     this.modal.open(modalContent, { centered: true});
+     this.getDismissReasonoptimize
+  }
+
+  private getDismissReasonSettingClose(): string {
+    if (ModalDismissReasons.ESC) {
+      return;
+    } else if (ModalDismissReasons.BACKDROP_CLICK) {
+     
+      return;
+
+    } 
+  }
+
+  private getDismissReasonoptimize(): string {
+    if (ModalDismissReasons.ESC) {
+      return;
+    } else if (ModalDismissReasons.BACKDROP_CLICK) {
+      return;
+    } 
+  }
+
+
  
-  
+  // refresh
    eosRefresh()
   {
     this.loading = true;
@@ -72,5 +102,91 @@ export class StatusComponent implements OnInit {
 
       });
   }
- 
+
+
+  CheckAllOptions() {
+    if (this.checkBoxes.every(val => val.checked == true))
+      this.checkBoxes.forEach(val => { val.checked = false });
+    else
+      this.checkBoxes.forEach(val => { val.checked = true });
+  }
+
+  UnCheckAllOptions() {
+    if (this.checkBoxes.every(val => val.checked == false))
+    {
+      this.checkBoxes.forEach(val => { val.checked = true });
+      console.log(this.checkBoxes.target.value)
+    }
+    
+    
+    else
+    {
+      this.checkBoxes.forEach(val => { val.checked = false });
+    }
+      
+  }
+
+
+  //On optimization -> popup
+  OnOptimizationOn(datas:any)
+  {
+      //console.log("value of datas array On :",datas)
+      
+        this.checkBoxes.forEach( res=>{
+         // console.log(res.id)
+           this._myservice.onUpdateStatus(res, true).subscribe(
+             // res =>
+            // {
+            // console.log("On Optimization",res)
+            
+            // }
+            );
+          }) 
+      
+  
+  }
+  
+  //Off optimization -> popup
+  OnOptimizationOff(datas:any)
+  { 
+
+      
+    
+        // this.checkBoxes.forEach( res=>{
+        //    console.log(res.id)
+        //     this._myservice.onUpdateStatus(res, false).subscribe( 
+        //   //    response => 
+        //   // { 
+               
+        //   //    console.log("Off optimization",res)
+        //   // }
+        //     );
+        //   })
+     
+      
+  }
+
+
+ //for displaying selected cheked-list in popup
+ toggleEditable(checking,data)
+ {
+  // console.log('data', data)
+   if(checking.target.checked == true)
+   {
+     
+     //console.log("working",checking)
+     this.storeNewSwitchArray.push(data)
+     
+   }
+   else
+   {
+    // console.log("not working")
+     this.storeNewSwitchArray = this.storeNewSwitchArray.filter(item=> item.name != data.name);
+   }
+   console.log('Last Console', this.storeNewSwitchArray);
+ }
+
+
+
+    
 }

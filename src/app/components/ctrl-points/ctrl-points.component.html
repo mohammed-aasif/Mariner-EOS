@@ -3,7 +3,7 @@
         <div class="col-lg-1 no-padding">
             <app-aside></app-aside>
         </div>
-        <div class="col-lg-11">
+        <div class="col-lg-11"> 
             <div class="eos_loader_response">
             <!-- <ng-template #loaded> -->
                 <div id="wrapper_content" >
@@ -38,7 +38,7 @@
                                         <h4><i class="fas fa-plus"></i><i class="fas fa-minus"></i>{{ctlLst.name}}</h4>
                                     </div>
                                     <div class="power_icons eos_ctrlPoint_toggle">
-                                        <i class="fa fa-power-off clr_green" (click)="open(eos_confirm_optimization)"></i>
+                                        <span  data-title="optimization on/off"> <i class="fa fa-power-off clr_green" (click)="openTwo(eos_confirm_optimization,ctlLst )"></i></span>
                                         <p class="countList">{{ctlLst.equipmentSetFields.length}}</p>
                                     </div>
                                 </div>
@@ -90,12 +90,14 @@
 
  
 <!-- Modal Optimization -->
-         <ng-template #eos_confirm_optimization class="modal fade new" role="dialog">
-            <div class="modal-dialog">
+         <ng-template #eos_confirm_optimization let-modal class="modal fade new">
+            <!-- <div class="modal-dialog"> -->
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
                         <h4 class="modal-title">EOS Optimization control</h4>
                     </div>
                     <div class="modal-body">
@@ -115,19 +117,21 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </ng-template> 
 
         
 <!-- Modal Selected show list in popup-->
-<ng-template #confirm_description class="modal fade new" role="dialog">
+<ng-template #confirm_description let-modal class="modal fade new" role="dialog">
     <div id="eos-setting">
         <div class="w_100">
-          <div class="modal-dialog">
+          <!-- <div class="modal-dialog"> -->
               <!-- Modal content-->
               <div class="modal-content">
                   <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                       <h4 class="modal-title"><span>Comparison Window</span></h4>
                   </div>
                   <div class="modal-body">
@@ -153,8 +157,12 @@
                       </div>
                   </div>
               </div>
-          </div>
+          <!-- </div> -->
         
         </div>
   </div>
 </ng-template>
+
+
+
+ 
