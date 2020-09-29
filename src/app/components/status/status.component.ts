@@ -149,41 +149,34 @@ export class StatusComponent implements OnInit {
   //Off optimization -> popup
   OnOptimizationOff(datas:any)
   { 
-
-      
-    
-        // this.checkBoxes.forEach( res=>{
-        //    console.log(res.id)
-        //     this._myservice.onUpdateStatus(res, false).subscribe( 
-        //   //    response => 
-        //   // { 
-               
-        //   //    console.log("Off optimization",res)
-        //   // }
-        //     );
-        //   })
-     
-      
+    this.checkBoxes.forEach( res=>{
+        console.log(res.id)
+        this._myservice.onUpdateStatus(res, false).subscribe();
+      })
+ 
   }
 
 
  //for displaying selected cheked-list in popup
  toggleEditable(checking,data)
  {
-  // console.log('data', data)
+   //console.log('data', data)
    if(checking.target.checked == true)
    {
-     
-     //console.log("working",checking)
-     this.storeNewSwitchArray.push(data)
-     
+       // console.log("working",checking)
+       this.storeNewSwitchArray.push(data)
+      //  this.storeNewSwitchArray.forEach( rest =>{
+      //    console.log(rest.name)
+      //  })
+
    }
    else
    {
-    // console.log("not working")
-     this.storeNewSwitchArray = this.storeNewSwitchArray.filter(item=> item.name != data.name);
+      console.log("not working")
+      this.storeNewSwitchArray = this.storeNewSwitchArray.filter(item=> item.name != data.name);
    }
-   console.log('Last Console', this.storeNewSwitchArray);
+  
+     console.log('Last Console', this.storeNewSwitchArray);
  }
 
 
