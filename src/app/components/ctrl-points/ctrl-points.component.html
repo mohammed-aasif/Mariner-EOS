@@ -12,6 +12,7 @@
                             <select [(ngModel)]="selectedControlList" (change)="onChange(selectedControlList)">
                                 <option *ngFor="let controlItems of controlListOptions" [value]="controlItems.widgetId">{{controlItems.name}}</option>
                             </select>
+                            
                             <div class="right_icons">
                                 <i class="fas fa-sync-alt" (click)="eosRefresh(widgetId)"></i>
                                 <i class="fas fa-ellipsis-v"></i>
@@ -32,13 +33,17 @@
                             </div>
                         </div>
                         <div class="eos_accordion_header"  [attr.id]="'accordion_' + i" *ngFor="let ctlLst of controlListArray;let i = index">
-                            <div class="eos_accordion_sub_header" >
+                            <div class="eos_accordion_sub_header">
                                 <div class="eos_accord">
                                     <div class="hide_show accordion" data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">
                                         <h4><i class="fas fa-plus"></i><i class="fas fa-minus"></i>{{ctlLst.name}}</h4>
                                     </div>
-                                    <div class="power_icons eos_ctrlPoint_toggle">
-                                        <span  data-title="optimization on/off"> <i class="fa fa-power-off clr_green" (click)="openTwo(eos_confirm_optimization,ctlLst )"></i></span>
+                                    <div class="power_icons eos_ctrlPoint_toggle" >
+                                     <span  data-title="optimization on/off" >
+                                        <i class="fa fa-power-off clr_green" 
+                                        (click)="openSwitch(eos_confirm_optimization,ctlLst )"
+                                        [ngClass]="{ 'clr_green':ctlLst.equipmentSetFields[0].controllable == true , 'clr_red':ctlLst.equipmentSetFields[0].controllable == false }"></i>
+                                      </span>
                                         <p class="countList">{{ctlLst.equipmentSetFields.length}}</p>
                                     </div>
                                 </div>
@@ -89,36 +94,6 @@
 
 
  
-<!-- Modal Optimization -->
-         <ng-template #eos_confirm_optimization let-modal class="modal fade new">
-            <!-- <div class="modal-dialog"> -->
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        <h4 class="modal-title">EOS Optimization control</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="eos-btn-grp">
-                            <button class="selectnone" (click)="UnCheckAllOptions()">Select None</button>
-                            <button class="selectall" (click)="CheckAllOptions()">Select All</button>
-                        </div>
-                        <div class="checkbox-list-select">
-                            <div *ngFor="let checkbox of checkboxes"><input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value" /><span>{{checkbox.name}}</span></div>
-                        </div>
-                        <div class="eos-btn-grp">
-                            <button class="optim_off">Selected optimization Off</button>
-                            <button class="optim_on">Selected optimization On</button>
-                        </div>
-                        <div class="eos-btn-grp text-center">
-                            <button class="cancel">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            <!-- </div> -->
-        </ng-template> 
 
         
 <!-- Modal Selected show list in popup-->
@@ -129,7 +104,7 @@
               <!-- Modal content-->
               <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
                         <span aria-hidden="true">&times;</span>
                       </button>
                       <h4 class="modal-title"><span>Comparison Window</span></h4>
@@ -165,4 +140,39 @@
 
 
 
- 
+    <!-- Modal Optimization -->
+    <ng-template #eos_confirm_optimization let-modal class="modal fade new">
+        <!-- <div class="modal-dialog"> -->
+            <!-- Modal content-->
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">EOS Optimization control</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="eos-btn-grp">
+                        <button class="selectnone" (click)="UnCheckSwitchList()">Select None</button>
+                        <button class="selectall" (click)="checkSwitchList()">Select All</button>
+                    </div>
+                    <div class="checkbox-list-select">
+                          <!-- <div *ngFor="let checkbox of checkBoxes"> 
+                            <input type="checkbox"   [(ngModel)]="ctlLst.checked" value="{{ctlLst}}" (change)="toggleEditableOptimSwitch($event, ctlLst)"/><span>{{ctlLst.equipmentSetFields.name}}</span>
+                         </div>   -->
+                         <div *ngFor="let ctlLst of checkBoxes"> 
+                            <input type="checkbox"   [(ngModel)]="ctlLst.checked" value="{{ctlLst}}" (change)="toggleEditableOptimSwitch($event, ctlLst)"/><span>{{ctlLst.name}}</span>
+                         </div>  
+                    </div>
+                    <div class="eos-btn-grp">
+                        <button class="optim_off" (click)="OnOptimizationOff(statusList2) ; modal.dismiss()">Selected optimization Off</button>
+                        <button class="optim_on" (click)="OnOptimizationOn(statusList2); modal.dismiss()"> Selected optimization On</button>
+                    </div>
+                    <div class="eos-btn-grp text-center">
+                        <button class="cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </ng-template> 
+<!-- End Modal Optimization -->

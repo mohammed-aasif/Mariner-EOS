@@ -54,41 +54,6 @@
                                                         ></i>
                                                     </span>
                                                 </div>
-                                                <!-- Modal Optimization-->
-
-                                                <ng-template #confirm_optimization let-modal class="modal fade new" role="dialog">
-                                                    <!-- <div class="modal-dialog"> -->
-                                                    <!-- Modal content-->
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                            <h4 class="modal-title">EOS Optimization control</h4>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="eos-btn-grp">
-                                                                <button class="selectnone" (click)="UnCheckAllOptions()">Select None</button>
-                                                                <button class="selectall" (click)="CheckAllOptions()">Select All</button>
-                                                            </div>
-                                                            <div class="checkbox-list-select">
-                                                                <div *ngFor="let checkbox of checkBoxes">
-                                                                    <input type="checkbox" [(ngModel)]="checkbox.checked" value="{{checkbox}}" (change)="toggleEditable($event, checkbox)"/><span>{{checkbox.name}}</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="eos-btn-grp">
-                                                                <button class="optim_off" (click)="OnOptimizationOff(statusList2)">Selected optimization Off</button>
-                                                                <button class="optim_on" (click)="OnOptimizationOn(statusList2)">Selected optimization On</button>
-                                                            </div>
-                                                            <div class="eos-btn-grp text-center">
-                                                                <button class="cancel">Cancel</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- </div> -->
-                                                </ng-template>
-
-                                                <!--modal optimization End-->
                                             </div>
                                         </div>
                                     </li>
@@ -104,7 +69,7 @@
     </div>
 </div>
 
-<!--Modal Setting icons-->
+<!--Modal Setting-->
 <ng-template #confirm_settings let-modal class="modal fade new" role="dialog">
     <div id="eos-setting">
         <div class="w_100">
@@ -112,7 +77,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title"><span>{{storeSettingNewArray.name}}</span></h4>
@@ -144,4 +109,43 @@
         </div>
     </div>
 </ng-template>
-<!--modal Setting icons end-->
+<!--modal Setting  end-->
+
+
+
+
+<!-- Modal Optimization-->
+
+<ng-template #confirm_optimization let-modal class="modal fade new" role="dialog">
+    <!-- <div class="modal-dialog"> -->
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">EOS Optimization control</h4>
+        </div>
+        <div class="modal-body">
+            <div class="eos-btn-grp">
+                <button class="selectnone" (click)="unCheckSwitchList()">Select None</button>
+                <button class="selectall" (click)="checkSwitchList()">Select All</button>
+            </div>
+            <div class="checkbox-list-select">
+                <div *ngFor="let checkbox of checkBoxes">
+                    <input type="checkbox" [(ngModel)]="checkbox.checked" value="{{checkbox}}" (change)="toggleEditable($event, checkbox)"/><span>{{checkbox.name}}</span>
+                </div>
+            </div>
+            <div class="eos-btn-grp">
+                <button class="optim_off" (click)="OnOptimizationOff(statusList2); modal.dismiss()">Selected optimization Off</button>
+                <button class="optim_on" (click)="OnOptimizationOn(statusList2); modal.dismiss()">Selected optimization On</button>
+            </div>
+            <div class="eos-btn-grp text-center">
+                <button class="cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</ng-template>
+
+<!--modal optimization End-->

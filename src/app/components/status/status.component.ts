@@ -9,7 +9,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class StatusComponent implements OnInit {
 
-  constructor(private modal: NgbModal,private _myservice:ConfigService) { }
+  constructor(private modal: NgbModal,private _configService:ConfigService) { }
 
   public loading = true;
   manufactArray = [];
@@ -18,9 +18,7 @@ export class StatusComponent implements OnInit {
   checkBoxes:any = []
 
   demoStoreArray = []
-
-  countList;
-  switchControl;
+  
   statusListArray:any =[];
   storeNewSwitchArray:any= []
   
@@ -29,13 +27,13 @@ export class StatusComponent implements OnInit {
  
 
    this.loading = true;
-    this._myservice.onStatusService().subscribe( statuslistsData => 
+    this._configService.onStatusService().subscribe( statuslistsData => 
       {
         this.loading = false;
         this.statusListArray = statuslistsData 
-        statuslistsData.forEach( res =>{
-         res.widgets.forEach( ress =>{
-        //  console.log( ress.deviceRw.length)  
+        statuslistsData.forEach( onStatusResponse =>{
+         onStatusResponse.widgets.forEach( ress =>{
+          //  console.log( ress.deviceRw.length)  
          })
         })
       });
@@ -47,7 +45,7 @@ export class StatusComponent implements OnInit {
     this.loading = true;
     this.storeSettingNewArray = data;
  
-    this._myservice.onStatusManufact(data.widgetId).subscribe( response =>{
+    this._configService.onStatusManufact(data.widgetId).subscribe( response =>{
       this.manufactArray = response.deviceRw
       this.loading = false;
     })
@@ -62,10 +60,11 @@ export class StatusComponent implements OnInit {
     this.loading = true; 
     this.storeOptimizeNewArray = data.attributes;
    
-    this._myservice.onStatusOptimization(data.attributes.CtrlPointLinkId).subscribe(respos => {
-      this.checkBoxes = respos
+    this._configService.onStatusOptimization(data.attributes.CtrlPointLinkId).subscribe(optimControl => {
+      this.checkBoxes = optimControl
       this.loading = false;
     })
+    
      //modal default
      this.modal.open(modalContent, { centered: true});
      this.getDismissReasonoptimize
@@ -95,7 +94,7 @@ export class StatusComponent implements OnInit {
    eosRefresh()
   {
     this.loading = true;
-    this._myservice.onStatusService().subscribe( statuslistsData => 
+    this._configService.onStatusService().subscribe( statuslistsData => 
       {
         this.loading = false;
         this.statusListArray = statuslistsData  
@@ -104,25 +103,22 @@ export class StatusComponent implements OnInit {
   }
 
 
-  CheckAllOptions() {
+  checkSwitchList() {
     if (this.checkBoxes.every(val => val.checked == true))
       this.checkBoxes.forEach(val => { val.checked = false });
     else
       this.checkBoxes.forEach(val => { val.checked = true });
   }
 
-  UnCheckAllOptions() {
+  unCheckSwitchList() {
     if (this.checkBoxes.every(val => val.checked == false))
     {
       this.checkBoxes.forEach(val => { val.checked = true });
       console.log(this.checkBoxes.target.value)
     }
-    
-    
-    else
-    {
+     
       this.checkBoxes.forEach(val => { val.checked = false });
-    }
+     
       
   }
 
@@ -131,9 +127,21 @@ export class StatusComponent implements OnInit {
   OnOptimizationOn(datas:any)
   {
  
-      this.storeNewSwitchArray.forEach( respo =>{
-        this._myservice.onUpdateStatus(respo, true).subscribe();
-      } )
+      this.storeNewSwitchArray.forEach( optimOn =>{
+        this._configService.onUpdateStatus(optimOn, true).subscribe();
+        //for making initialization changes
+        this.loading = true;
+        this._configService.onStatusService().subscribe( statuslistsData => 
+          {
+            this.loading = false;
+            this.statusListArray = statuslistsData 
+            statuslistsData.forEach( onStatusResponse =>{
+              onStatusResponse.widgets.forEach( ress =>{
+              //  console.log( ress.deviceRw.length)  
+              })
+            })
+          })
+        } )
          
       
   
@@ -143,11 +151,25 @@ export class StatusComponent implements OnInit {
   OnOptimizationOff(datas:any)
   { 
    
-    this.storeNewSwitchArray.forEach( respo =>{
-      this._myservice.onUpdateStatus(respo, false).subscribe();
-    } )
-  
+    this.storeNewSwitchArray.forEach( optimOff =>{
+      this._configService.onUpdateStatus(optimOff, false).subscribe();
+          //for making initialization changes
+      this.loading = true;
+      this._configService.onStatusService().subscribe( statuslistsData => 
+        {
+          this.loading = false;
+          this.statusListArray = statuslistsData 
+          statuslistsData.forEach( onStatusResponse =>{
+            onStatusResponse.widgets.forEach( ress =>{
+            //  console.log( ress.deviceRw.length)  
+            })
+          })
+        });
+        })
     
+   
+  
+    this.getDismissReasonoptimize
     
   }
 

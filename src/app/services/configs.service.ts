@@ -83,10 +83,8 @@ export class ConfigService {
     // status optimization  --> popup switch toggle
     onUpdateStatus(data:any, status)
     {
-      //dashboardService/widgets/enableControllableStatus?id=EOS_AHU30&status=false
 
-
-      return this.http.post('/dashboard/external/secure/dashboardService/widgets/enableControllableStatus?id='+ data.id +'&staus='+ status,status);
+      return this.http.post('/dashboard/external/secure/dashboardService/widgets/enableControllableStatus?id='+ data.id +'&status='+ status,status);
     }
 
     
