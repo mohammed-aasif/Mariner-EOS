@@ -16,24 +16,19 @@ export class StatusComponent implements OnInit {
   storeSettingNewArray:any = [];
   storeOptimizeNewArray:any = []
   checkBoxes:any = []
-
   demoStoreArray = []
-  
   statusListArray:any =[];
-  storeNewSwitchArray:any= []
-  
+  storeNewSwitchArray:any= [] 
+
 
   ngOnInit(): void {
- 
-
-   this.loading = true;
+    this.loading = true;
     this._configService.onStatusService().subscribe( statuslistsData => 
       {
         this.loading = false;
         this.statusListArray = statuslistsData 
-        statuslistsData.forEach( onStatusResponse =>{
-         onStatusResponse.widgets.forEach( ress =>{
-          //  console.log( ress.deviceRw.length)  
+        this.statusListArray.forEach( onStatusResponse =>{
+         onStatusResponse.widgets.forEach(  Count =>{
          })
         })
       });
@@ -116,17 +111,14 @@ export class StatusComponent implements OnInit {
       this.checkBoxes.forEach(val => { val.checked = true });
       console.log(this.checkBoxes.target.value)
     }
-     
       this.checkBoxes.forEach(val => { val.checked = false });
      
-      
   }
 
 
   //On optimization -> popup
   OnOptimizationOn(datas:any)
   {
- 
       this.storeNewSwitchArray.forEach( optimOn =>{
         this._configService.onUpdateStatus(optimOn, true).subscribe();
         //for making initialization changes
@@ -136,60 +128,45 @@ export class StatusComponent implements OnInit {
             this.loading = false;
             this.statusListArray = statuslistsData 
             statuslistsData.forEach( onStatusResponse =>{
-              onStatusResponse.widgets.forEach( ress =>{
-              //  console.log( ress.deviceRw.length)  
+              onStatusResponse.widgets.forEach( ress =>{ 
               })
             })
           })
-        } )
-         
-      
+        })
   
   }
   
   //Off optimization -> popup
   OnOptimizationOff(datas:any)
   { 
-   
     this.storeNewSwitchArray.forEach( optimOff =>{
       this._configService.onUpdateStatus(optimOff, false).subscribe();
-          //for making initialization changes
       this.loading = true;
       this._configService.onStatusService().subscribe( statuslistsData => 
         {
           this.loading = false;
           this.statusListArray = statuslistsData 
           statuslistsData.forEach( onStatusResponse =>{
-            onStatusResponse.widgets.forEach( ress =>{
-            //  console.log( ress.deviceRw.length)  
+            onStatusResponse.widgets.forEach( ress =>{ 
             })
           })
-        });
         })
-    
-   
-  
+        })
     this.getDismissReasonoptimize
-    
   }
 
 
  //for displaying selected cheked-list in popup
  toggleEditable(checking,data)
  {
-   //console.log('data', data)
    if(checking.target.checked == true)
    {
-       // console.log("working",checking)
          this.storeNewSwitchArray.push(data)
    }
    else
    {
-      console.log("not working")
       this.storeNewSwitchArray = this.storeNewSwitchArray.filter(item=> item.name != data.name);
    }
-  
-     console.log('Last Console', this.storeNewSwitchArray);
  }
 
 

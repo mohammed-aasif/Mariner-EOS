@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlannerComponent } from '../app/components/planner/planner.component';
 import { CtrlPointsComponent } from '../app/components/ctrl-points/ctrl-points.component';
 import { StatusComponent } from '../app/components/status/status.component';
+import { GraphicsComponent } from '../app/components/graphics/graphics.component'
  
 
 const routes: Routes = [
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path:'status',component:StatusComponent
+  },
+  {
+    path:'graphics',component:GraphicsComponent
   }  
 ];
 

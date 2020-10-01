@@ -35,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {DpDatePickerModule} from 'ng2-date-picker';
 
 import { NgxLoadingModule } from 'ngx-loading';
+import { GraphicsComponent } from './components/graphics/graphics.component';
  
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NgxLoadingModule } from 'ngx-loading';
     PlannerComponent,
     AsideComponent,
     CtrlPointsComponent,
-    StatusComponent
+    StatusComponent,
+    GraphicsComponent
   ],
   imports: [
     BrowserAnimationsModule,

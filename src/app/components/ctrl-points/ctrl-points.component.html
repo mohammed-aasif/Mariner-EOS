@@ -116,9 +116,9 @@
                                   <div class="chk_div">
                                       <label class="chk_label">{{item.name}}</label>
                                   </div>
-                                  <div class="ipt">
-                                      <input type="text" [(ngModel)]="item.currentValue"  name="" />
-                                      <input type="text" [(ngModel)]="item.currentEosValue" name="" />
+                                  <div class="ipt"> 
+                                     <input type="text" [(ngModel)]="item.currentValue"  name="" /> 
+                                     <input type="text" [(ngModel)]="item.currentEOSValue" name="" />  
                                   </div>
                                   <div class="status">
                                       <label [ngClass]="{ 'readable_bg': item.readable == true}" data-title="Readable" class="blue_bg">R</label>
@@ -137,7 +137,7 @@
         </div>
   </div>
 </ng-template>
-
+<!--End Modal Selected show list in popup-->
 
 
     <!-- Modal Optimization -->
@@ -169,7 +169,7 @@
                         <button class="optim_on" (click)="OnOptimizationOn(statusList2); modal.dismiss()"> Selected optimization On</button>
                     </div>
                     <div class="eos-btn-grp text-center">
-                        <button class="cancel">Cancel</button>
+                        <button class="cancel" (click)="modal.dismiss()">Cancel</button>
                     </div>
                 </div>
             </div>

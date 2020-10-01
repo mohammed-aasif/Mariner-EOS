@@ -632,8 +632,7 @@ label.green_bg {
     border-radius: 10px;
     background: #d5d5d5;
 }
-
-.status_component .top_head h4 {
+h4.eos_title {
     font-size: 16px;
     border: none;
     color: #fff;
@@ -674,7 +673,8 @@ input.big_input {
     font-size: 20px;
 }
 
-.status_component .right_icons i:nth-child(1) {
+.status_component .right_icons i:nth-child(1),
+.graphics  .right_icons i:nth-child(1){
     padding: 0px;
     border: none;
 }
@@ -2359,4 +2359,31 @@ button.close:focus {
 /**/
 .ctrl_points .eos_accordion_header:nth-of-type(2) {
     display: none;
+}
+
+
+/*graphics*/
+img#bg_graps {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+div#eos_graphs {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+.eos_graphChart {
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+table#eos_chart {
+    width: 660px;
+    margin-left: 175px;
 }

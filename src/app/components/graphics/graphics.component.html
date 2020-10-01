@@ -1,0 +1,42 @@
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-1 no-padding">
+            <app-aside></app-aside>
+        </div>
+        <div class="col-lg-11"> 
+            <div class="eos_loader_response">
+            <!-- <ng-template #loaded> -->
+                <div id="wrapper_content" >
+                    <div class="graphics">
+                        <div class="top_head">
+                            <h4  class="eos_title">BowlView</h4>
+                            <div class="right_icons">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                        </div>
+                        <div id="eos_graphs">
+                            <img id="bg_graps" src="../../../assets/images/graphics/stadium.png" alt="">
+                            <div class="eos_graphChart">
+                                <table id="eos_chart">
+                                   <tbody>
+                                       <tr *ngFor="let items of graphicsDetails">
+                                           <td *ngFor="let items1 of items.devicerws">{{items1.name}}</td>
+                                       </tr>
+                                   </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+           
+           
+        </div>
+    </div>
+</div>
+ 
+ 
+ 
+
+
+  

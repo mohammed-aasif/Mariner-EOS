@@ -94,6 +94,14 @@ export class ConfigService {
   {
     return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id='+id)
   }
+
+  /***********************************************GRAPHIC PAGE********************************************************** */
+  //for graphics page
+  onGetGraphicsDetails():Observable<any>
+  {
+    return this.http.get('/dashboard/external/secure/dashboardService/bowl/data')
+  }
+
 }
 
 
