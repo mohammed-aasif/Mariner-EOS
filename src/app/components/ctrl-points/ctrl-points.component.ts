@@ -15,7 +15,7 @@ export class CtrlPointsComponent implements OnInit {
   controlListArray;any = [];
   controlListOptions:any =[];
   plannerData:any = []
-  widgetId;
+  setPointId;
   selectedControlList: any;
   filterdOptions = [];
   checkBoxes: any[] = []
@@ -30,12 +30,12 @@ export class CtrlPointsComponent implements OnInit {
     // select dropdown
     this._configService.onControlListOptions().subscribe(selectResponse => { 
     this.controlListOptions=selectResponse;
-    this.widgetId = selectResponse[0].widgetId;
-    this.selectedControlList = this.widgetId
+    this.setPointId = selectResponse[0].widgetId;
+    this.selectedControlList = this.setPointId
     this.getControlList();
     });
 
-    this._configService.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
+    this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
       {
         this.loading = false;
         this.controlListArray = controlPointData; 
@@ -45,7 +45,7 @@ export class CtrlPointsComponent implements OnInit {
  //for displaying list of the selected dropdown
   getControlList()
   {
-     this._configService.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
+     this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
       {
         this.loading = false;
         this.controlListArray = controlPointData; 
@@ -75,7 +75,7 @@ export class CtrlPointsComponent implements OnInit {
 
     this._configService.onControlListOptions().subscribe(selectResponse => {
     this.controlListOptions=selectResponse;
-    this.widgetId = selectResponse[0].widgetId;   
+    this.setPointId = selectResponse[0].widgetId;   
     this.getControlList();
     });
   }
@@ -153,12 +153,12 @@ export class CtrlPointsComponent implements OnInit {
         // for making initialization
         this._configService.onControlListOptions().subscribe(selectResponse => { 
         this.controlListOptions=selectResponse;
-        this.widgetId = selectResponse[0].widgetId;
-        this.selectedControlList = this.widgetId
+        this.setPointId = selectResponse[0].widgetId;
+        this.selectedControlList = this.setPointId
         this.getControlList();
         });
         this.loading = true;
-        this._configService.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
+        this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
           {
             this.loading = false;
             this.controlListArray = controlPointData; 
@@ -175,12 +175,12 @@ export class CtrlPointsComponent implements OnInit {
       // for making initialization
       this._configService.onControlListOptions().subscribe(selectResponse => { 
       this.controlListOptions=selectResponse;
-      this.widgetId = selectResponse[0].widgetId;
-      this.selectedControlList = this.widgetId
+      this.setPointId = selectResponse[0].widgetId;
+      this.selectedControlList = this.setPointId
       this.getControlList();
       });
       this.loading = true;
-      this._configService.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
+      this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
         {
           this.loading = false;
           this.controlListArray = controlPointData; 

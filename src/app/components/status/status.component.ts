@@ -132,7 +132,6 @@ export class StatusComponent implements OnInit {
             })
           })
         })
-  
   }
   
   //Off optimization -> popup
