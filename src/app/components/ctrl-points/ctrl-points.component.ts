@@ -28,13 +28,12 @@ export class CtrlPointsComponent implements OnInit {
 
   ngOnInit(): void { 
     // select dropdown
-    this._configService.onControlListOptions().subscribe(data2 => { 
-    this.controlListOptions=data2;
-    this.widgetId = data2[0].widgetId;
+    this._configService.onControlListOptions().subscribe(selectResponse => { 
+    this.controlListOptions=selectResponse;
+    this.widgetId = selectResponse[0].widgetId;
     this.selectedControlList = this.widgetId
     this.getControlList();
     });
-
 
     this._configService.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
       {
@@ -74,9 +73,9 @@ export class CtrlPointsComponent implements OnInit {
       this.checkedList = [];
     })
 
-    this._configService.onControlListOptions().subscribe(data2 => {
-    this.controlListOptions=data2;
-    this.widgetId = data2[0].widgetId;   
+    this._configService.onControlListOptions().subscribe(selectResponse => {
+    this.controlListOptions=selectResponse;
+    this.widgetId = selectResponse[0].widgetId;   
     this.getControlList();
     });
   }
@@ -96,8 +95,6 @@ export class CtrlPointsComponent implements OnInit {
 
   //for displaying Optimization popup
   openSwitch(modalContent, datas:any){ 
-
-    console.log("aaaa", datas) 
       this._configService.onControlDescriptionList(this.selectedControlList).subscribe( controlPointData => 
         {
           this.checkBoxes = controlPointData
@@ -152,9 +149,21 @@ export class CtrlPointsComponent implements OnInit {
     OnOptimizationOn(datas:any)
     {
         this.storeNewSwitchArray.forEach( optimOn =>{ 
-          this._configService.onUpdateStatus(optimOn, true).subscribe();
-          
-        } )
+        this._configService.onUpdateStatus(optimOn, true).subscribe();
+        // for making initialization
+        this._configService.onControlListOptions().subscribe(selectResponse => { 
+        this.controlListOptions=selectResponse;
+        this.widgetId = selectResponse[0].widgetId;
+        this.selectedControlList = this.widgetId
+        this.getControlList();
+        });
+        this.loading = true;
+        this._configService.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
+          {
+            this.loading = false;
+            this.controlListArray = controlPointData; 
+          })
+        })
     }
 
     
@@ -162,8 +171,21 @@ export class CtrlPointsComponent implements OnInit {
     OnOptimizationOff(datas:any)
     { 
       this.storeNewSwitchArray.forEach( optimOff =>{
-        this._configService.onUpdateStatus(optimOff, false).subscribe(); 
-      } )
+      this._configService.onUpdateStatus(optimOff, false).subscribe(); 
+      // for making initialization
+      this._configService.onControlListOptions().subscribe(selectResponse => { 
+      this.controlListOptions=selectResponse;
+      this.widgetId = selectResponse[0].widgetId;
+      this.selectedControlList = this.widgetId
+      this.getControlList();
+      });
+      this.loading = true;
+      this._configService.onControlDescriptionList(this.widgetId).subscribe( controlPointData => 
+        {
+          this.loading = false;
+          this.controlListArray = controlPointData; 
+        })
+      })
       this.getDismissReasonSwitchOff
     }
 
@@ -183,7 +205,6 @@ export class CtrlPointsComponent implements OnInit {
  //for displaying selected cheked-list in popup
  toggleEditableOptimSwitch(getListSwitch,data)
  {
-   console.log('data', data)
    if(getListSwitch.target.checked == true)
    {
          this.storeNewSwitchArray.push(data)

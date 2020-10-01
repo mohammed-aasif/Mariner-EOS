@@ -7,15 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ConfigService {
 
-
-   private _spacesURL = 'assets/api/spaces.json'
-   private _evenListURL = 'assets/api/eventlist.json';
-   private _popupSelectURL = 'assets/api/locationselectoption.json';
-   private _popupTypeURL = 'assets/api/typeselectoption.json';
-   private _popupModeURL = 'assets/api/modeselectoption.json';
-   private _status = 'assets/api/status.json';
    
-  
   constructor(private http:HttpClient) { }
  
   /***********************************************PLANNER PAGE********************************************************** */
@@ -29,23 +21,6 @@ export class ConfigService {
   onDisplayEvents():Observable<any>
   { 
        return this.http.get('/dashboard/external/secure/dashboardService/events?startDate=01/09/2020&endDate=30/09/2020');
-  }
-//popup location select option
- onLocationService():Observable<any>
-  {
-    return this.http.get(this._popupSelectURL)
-  }
-
-  // popup type select option
- onTypeDataService():Observable<any>
-  {
-    return this.http.get(this._popupTypeURL)
-  }
-
-  // popup mode select option
-   onModeDataService():Observable<any>
-  {
-    return this.http.get(this._popupModeURL)
   }
   /***********************************************CONTROL POINT PAGE********************************************************** */
    // control point select option

@@ -10,8 +10,6 @@ import { ConfigService } from '../../services/configs.service';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
  
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
- // import custom validator to validate that password and confirm password fields match
-import { MustMatch } from '../../_helpers/must-watch.validator';
 var moment = require("moment");
 declare var require: any;
 
@@ -80,84 +78,6 @@ export class PlannerComponent implements OnInit {
   refresh: Subject<any> = new Subject();
   
   events: CalendarEvent[] = [
-    // {
-    //   start: subDays(startOfDay(new Date()), 30),
-    //   end: addDays(new Date(),30),
-    //   //startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
-    //   title: 'A 3 day event',
-    //   color: colors.red,
-    //   actions: this.actions,
-    //   allDay: true,
-    //   resizable: {
-    //   beforeStart: true,
-    //   afterEnd: true,
-    //   },
-    //   draggable: true,
-    // },
-    // {
-    //   start: subDays(startOfDay(new Date()), 30),
-    //   end: addDays(new Date(), 30),
-    //   title: 'Seeni',
-    //   color: colors.red,
-    //   actions: this.actions,
-    //   allDay: true,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true,
-    //   },
-    //   draggable: true,
-    // },
-    // {
-    //   start: subDays(startOfDay(new Date()), 30),
-    //   end: addDays(new Date(), 30),
-    //   title: 'Test',
-    //   color: colors.red,
-    //   actions: this.actions,
-    //   allDay: true,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true,
-    //   },
-    //   draggable: true,
-    // },
-    // {
-    //   start: subDays(startOfDay(new Date()), 30),
-    //   end: addDays(new Date(), 30),
-    //   title: 'Praveen',
-    //   color: colors.red,
-    //   actions: this.actions,
-    //   allDay: true,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true,
-    //   },
-    //   draggable: true,
-    // },
-    // {
-    //   start: startOfDay(new Date()),
-    //   title: 'An event with no end date',
-    //   color: colors.yellow,
-    //   actions: this.actions,
-    // },
-    // {
-    //   start: subDays(endOfMonth(new Date()), 30),
-    //   end: addDays(endOfMonth(new Date()), 30),
-    //   title: 'A long event that spans 2 months',
-    //   color: colors.blue,
-    //   allDay: true,
-    // },
-    // {
-    //   start: addHours(startOfDay(new Date()), 30),
-    //   end: addHours(new Date(),30),
-    //   title: 'A draggable and resizable event',
-    //   color: colors.yellow,
-    //   actions: this.actions,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true,
-    //   },
-    //   draggable: true,
-    // },
   ];
 
   activeDayIsOpen: boolean = true;
@@ -171,26 +91,6 @@ export class PlannerComponent implements OnInit {
 
 
   ngOnInit(): void {
-     //for adding buttons 
-  //   $('document').ready(function(){
-
-  //    //add button
-  //     $(".cal-cell.cal-day-cell ").append("<button class='addSchedule'>+</button>");
-      
-  
-  //     $(".cal-cell.cal-day-cell  ").mouseover(function()
-  //     {
-  //       $(this).find('.addSchedule').css('display','block')
-      
-  //     });
-  //     $(".cal-cell.cal-day-cell  ").mouseout(function()
-  //     {
-  //       $('.addSchedule').css('display','none');
-      
-  //     }); 
-   
-  //  });
-   
 
   this.eosAddEventForm = this.formBuilder.group({
     s_eventName: ['', Validators.required],
@@ -213,25 +113,7 @@ export class PlannerComponent implements OnInit {
     c_endTime: ['', Validators.required],
     c_notes: ['', Validators.required], 
   });
-
-
-    // this.eosAddEventForm = new FormGroup({
-    //   's_eventName': new FormControl('',[Validators.required]),
-    //   's_startDate': new FormControl('',[Validators.required]),
-    //   's_startTime': new FormControl('',[Validators.required]),
-    //   's_courseType': new FormControl('lightAgency',[Validators.required]),
-    //   's_endDate': new FormControl('',[Validators.required]),
-    //   's_endTime': new FormControl('',[Validators.required]),
-    //   's_notes': new FormControl('',[Validators.required]),
-    //   'c_eventName': new FormControl('',[Validators.required]),
-    //   'c_startDate': new FormControl('',[Validators.required]),
-    //   'c_startTime': new FormControl('',[Validators.required]),
-    //   'c_location': new FormControl('BLDGA - 24/7',[Validators.required]),
-    //   'c_mode': new FormControl('BLDGA - 24/7 - occupied',[Validators.required]),
-    //   'c_endDate': new FormControl('',[Validators.required]),
-    //   'c_endTime': new FormControl('',[Validators.required]),
-    //   'c_notes': new FormControl('',[Validators.required]),
-    // });
+ 
 
     this.space_req_Form = new FormGroup({
        'f_location': new FormControl(null,Validators.required),
@@ -284,24 +166,6 @@ export class PlannerComponent implements OnInit {
 //  console.log("filterRes ", filterRes);
       this.filterData = filterRes;
     });
-
-    this._serve.onLocationService().subscribe(data => {
-        
-        this.selectdata=data;
-        //console.log(data);
-    });
-
-    this._serve.onTypeDataService().subscribe(data1 => {
-        
-        this.typeData=data1;
-       //console.log(data1);
-    });
-    this._serve.onModeDataService().subscribe(data2 => {
-        
-        this.modeData=data2;
-       //console.log(data2);
-    });
-
 
   }
     //event handler for the select element's change event

@@ -109,7 +109,6 @@ export class StatusComponent implements OnInit {
     if (this.checkBoxes.every(val => val.checked == false))
     {
       this.checkBoxes.forEach(val => { val.checked = true });
-      console.log(this.checkBoxes.target.value)
     }
       this.checkBoxes.forEach(val => { val.checked = false });
      

@@ -10,14 +10,6 @@
     <a *ngFor="let item of day.events" style="margin: 5px;" (click)="handleEvent('Edited', item)">{{item.title}}</a>
 </ng-template>
 <div id="wrapperSchedule">
-    <!-- <div class="col-lg-12">
-    <p>{{counts}}</p>
-    <ul id="scrolls">
-       <li *ngFor="let itemslist of statuslists">
-          <p>{{itemslist.name}} {{itemslist.startHour}} - {{itemslist.endHour}}</p>
-       </li>
-    </ul>
- </div>  -->
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-1 no-padding">
@@ -45,18 +37,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-lg-12">
-                                <article>
-                                    <select (change)="selectChangeHandler($event)">
-                                        <option value="Monday">Monday</option>
-                                        <option value="Tuesday">Tuesday</option>
-                                        <option value="Wednesday">Wednesday</option>
-                                        <option value="Thursday">Thursday</option>
-                                        <option value="Friday">Friday</option>
-                                    </select>
-                                    <p><span>You selected: </span><b>{{selectedDay}}</b></p>
-                                </article>
-                            </div> -->
+ 
                             <div class="col-md-5 select_content pad-0">
                                 <label>Filter By Space:</label>
                                 <select class="eos_filterSelect"   (change)="onChange($event.target.value)">
@@ -598,28 +579,24 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <input type="text" name="" value="13.5" formControlName="f_minTemp">
-                            <!-- <small *ngIf="!space_req_Form.get('f_minTemp').valid && space_req_Form.get('f_minTemp').touched">Min Temp is required</small> -->
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <label>Humid (RH%)</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <input type="text" name="" value="50" formControlName="f_humid">
-                            <!-- <small *ngIf="!space_req_Form.get('f_humid').valid && space_req_Form.get('f_humid').touched">Humid is required</small> -->
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <label>Max Temp</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <input type="text" name="" value="15" formControlName="f_maxtemp">
-                            <!-- <small *ngIf="!space_req_Form.get('f_maxtemp').valid && space_req_Form.get('f_maxtemp').touched">Max Temp is required</small> -->
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <label>Fresh Air Required</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <input type="text" name="" value="1" formControlName="f_freshAir">
-                            <!-- <small *ngIf="!space_req_Form.get('f_freshAir').valid && space_req_Form.get('f_freshAir').touched">Fresh Air is required</small> -->
                         </div>
                     </div>
                     <div class="flx_btn">
