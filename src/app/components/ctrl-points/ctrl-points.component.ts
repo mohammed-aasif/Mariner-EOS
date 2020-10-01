@@ -28,13 +28,15 @@ export class CtrlPointsComponent implements OnInit {
 
   ngOnInit(): void { 
     // select dropdown
+    this.loading = true;
     this._configService.onControlListOptions().subscribe(selectResponse => { 
-    this.controlListOptions=selectResponse;
-    this.setPointId = selectResponse[0].widgetId;
-    this.selectedControlList = this.setPointId
-    this.getControlList();
+      this.loading = false;
+      this.controlListOptions=selectResponse;
+      this.setPointId = selectResponse[0].widgetId;
+      this.selectedControlList = this.setPointId
+      this.getControlList();
     });
-
+    this.loading = true;
     this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
       {
         this.loading = false;
@@ -44,7 +46,8 @@ export class CtrlPointsComponent implements OnInit {
 
  //for displaying list of the selected dropdown
   getControlList()
-  {
+  {  
+     this.loading = true;
      this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
       {
         this.loading = false;
@@ -55,8 +58,10 @@ export class CtrlPointsComponent implements OnInit {
  // for displaying selected api list 
    onChange(widgetId) { 
     //for displaying list of the selected dropdown
+    this.loading = true;
     this._configService.onControlDescriptionList(widgetId).subscribe( controlPointData => 
       {
+           this.loading = false;
         this.controlListArray = controlPointData;
       })
   }
@@ -74,9 +79,9 @@ export class CtrlPointsComponent implements OnInit {
     })
 
     this._configService.onControlListOptions().subscribe(selectResponse => {
-    this.controlListOptions=selectResponse;
-    this.setPointId = selectResponse[0].widgetId;   
-    this.getControlList();
+      this.controlListOptions=selectResponse;
+      this.setPointId = selectResponse[0].widgetId;   
+      this.getControlList();
     });
   }
 
@@ -151,11 +156,11 @@ export class CtrlPointsComponent implements OnInit {
         this.storeNewSwitchArray.forEach( optimOn =>{ 
         this._configService.onUpdateStatus(optimOn, true).subscribe();
         // for making initialization
-        this._configService.onControlListOptions().subscribe(selectResponse => { 
-        this.controlListOptions=selectResponse;
-        this.setPointId = selectResponse[0].widgetId;
-        this.selectedControlList = this.setPointId
-        this.getControlList();
+          this._configService.onControlListOptions().subscribe(selectResponse => { 
+          this.controlListOptions=selectResponse;
+          this.setPointId = selectResponse[0].widgetId;
+          this.selectedControlList = this.setPointId
+          this.getControlList();
         });
         this.loading = true;
         this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
@@ -174,10 +179,10 @@ export class CtrlPointsComponent implements OnInit {
       this._configService.onUpdateStatus(optimOff, false).subscribe(); 
       // for making initialization
       this._configService.onControlListOptions().subscribe(selectResponse => { 
-      this.controlListOptions=selectResponse;
-      this.setPointId = selectResponse[0].widgetId;
-      this.selectedControlList = this.setPointId
-      this.getControlList();
+        this.controlListOptions=selectResponse;
+        this.setPointId = selectResponse[0].widgetId;
+        this.selectedControlList = this.setPointId
+        this.getControlList();
       });
       this.loading = true;
       this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
@@ -207,7 +212,7 @@ export class CtrlPointsComponent implements OnInit {
  {
    if(getListSwitch.target.checked == true)
    {
-         this.storeNewSwitchArray.push(data)
+      this.storeNewSwitchArray.push(data)
    }
    else
    {

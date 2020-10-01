@@ -1,74 +1,71 @@
- 
-    <div class="col-lg-12">
-        <div class="row">
-            <div class="col-lg-1 no-padding">
-                <app-aside></app-aside>
-            </div>
-            <div class="col-lg-11"> 
-                <div class="eos_loader_response">
-                    <div class="status_component">
-                        <div class="top_head">
-                            <h4 class="eos_title">Status</h4>
-                            <div class="right_icons">
-                                <i class="fas fa-sync-alt" (click)="eosRefresh()"></i>
-                            </div>
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-1 no-padding">
+            <app-aside></app-aside>
+        </div>
+        <div class="col-lg-11">
+            <div class="eos_loader_response">
+                <div class="status_component">
+                    <div class="top_head">
+                        <h4 class="eos_title">Status</h4>
+                        <div class="right_icons">
+                            <i class="fas fa-sync-alt" (click)="eosRefresh()"></i>
                         </div>
-                        <div class="head_text">
-                            <div class="head_inner">
-                                <h4>Status</h4>
-                            </div>
-                            <div class="head_inner">
-                                <h4>Status</h4>
-                            </div>
+                    </div>
+                    <div class="head_text">
+                        <div class="head_inner">
+                            <h4>Status</h4>
                         </div>
+                        <div class="head_inner">
+                            <h4>Status</h4>
+                        </div>
+                    </div>
 
-                        <div class="eos_accordion_header" [attr.id]="'accordion_' + i" *ngFor="let statusList of statusListArray; let i = index;">
-                            <div class="hide_show accordion" data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">
-                                <h4><i class="fas fa-plus"></i><i class="fas fa-minus"></i> {{statusList.name}}</h4>
-                                <p>{{statusList.widgets[0].deviceRw.length}}</p>  
-                            </div>
-                            <div [attr.id]="'collapseOne_' + i" class="hidden_flex panel panel-collapse collapse in">
-                                <ul>
-                                    <li>
-                                        <div class="eos_accordion_subHeader" *ngFor="let statusList1 of statusList.widgets">
-                                            <div class="eos_accordion_nestedSubHeader" *ngFor="let statusList2 of statusList1.deviceRw">
-                                                <div class="chk_div">
-                                                    <span class="settings"><i (click)="open(confirm_settings, statusList2)" class="fa fa-wrench"></i></span>
-                                                    <label class="chk_label">{{statusList2.name}}</label>
-                                                </div>
-                                                <div class="ipt">
-                                                    <input type="text" [(ngModel)]="statusList2.currentValue" name="" />
-                                                    <input class="big_input" type="text" [(ngModel)]="statusList2.activityLogMessage" name="" />
-                                                </div>
-                                                <div class="power_icons">
-                                                    <span data-title="optimization on/off">
-                                                        <i
-                                                            class="fa fa-power-off" 
-                                                            [ngClass]="{ 'clr_green':statusList2.controllable == true , 'clr_red':statusList2.controllable == false }"
-                                                            (click)="openSwitch(confirm_optimization,statusList2)"
-                                                        ></i>
-                                                    </span>
-                                                </div>
+                    <div class="eos_accordion_header" [attr.id]="'accordion_' + i" *ngFor="let statusList of statusListArray; let i = index;">
+                        <div class="hide_show accordion" data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">
+                            <h4><i class="fas fa-plus"></i><i class="fas fa-minus"></i> {{statusList.name}}</h4>
+                            <p>{{statusList.widgets[0].deviceRw.length}}</p>
+                        </div>
+                        <div [attr.id]="'collapseOne_' + i" class="hidden_flex panel panel-collapse collapse in">
+                            <ul>
+                                <li>
+                                    <div class="eos_accordion_subHeader" *ngFor="let statusList1 of statusList.widgets">
+                                        <div class="eos_accordion_nestedSubHeader" *ngFor="let statusList2 of statusList1.deviceRw">
+                                            <div class="chk_div">
+                                                <span class="settings"><i (click)="open(confirm_settings, statusList2)" class="fa fa-wrench"></i></span>
+                                                <label class="chk_label">{{statusList2.name}}</label>
+                                            </div>
+                                            <div class="ipt">
+                                                <input type="text" [(ngModel)]="statusList2.currentValue" name="" />
+                                                <input class="big_input" type="text" [(ngModel)]="statusList2.activityLogMessage" name="" />
+                                            </div>
+                                            <div class="power_icons">
+                                                <span data-title="optimization on/off">
+                                                    <i
+                                                        class="fa fa-power-off"
+                                                        [ngClass]="{ 'clr_green':statusList2.controllable == true , 'clr_red':statusList2.controllable == false }"
+                                                        (click)="openSwitch(confirm_optimization,statusList2)"
+                                                    ></i>
+                                                </span>
                                             </div>
                                         </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <ng-template #customLoadingTemplate id="uiLoaders" style="width: 100%; height: 100vh;"></ng-template>
-                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
             </div>
+            <ng-template #customLoadingTemplate id="uiLoaders" style="width: 100%; height: 100vh;"></ng-template>
+            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
         </div>
     </div>
- 
+</div>
 
 <!--Modal Setting-->
 <ng-template #confirm_settings let-modal class="modal fade new" role="dialog">
     <div id="eos-setting">
         <div class="w_100">
-            <!-- <div class="modal-dialog"> -->
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -100,14 +97,10 @@
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
         </div>
     </div>
 </ng-template>
 <!--modal Setting  end-->
-
-
-
 
 <!-- Modal Optimization-->
 
@@ -127,9 +120,7 @@
                 <button class="selectall" (click)="checkSwitchList()">Select All</button>
             </div>
             <div class="checkbox-list-select">
-                <div *ngFor="let checkbox of checkBoxes">
-                    <input type="checkbox" [(ngModel)]="checkbox.checked" value="{{checkbox}}" (change)="toggleEditable($event, checkbox)"/><span>{{checkbox.name}}</span>
-                </div>
+                <div *ngFor="let checkbox of checkBoxes"><input type="checkbox" [(ngModel)]="checkbox.checked" value="{{checkbox}}" (change)="toggleEditable($event, checkbox)" /><span>{{checkbox.name}}</span></div>
             </div>
             <div class="eos-btn-grp">
                 <button class="optim_off" (click)="OnOptimizationOff(statusList2); modal.dismiss()">Selected optimization Off</button>
