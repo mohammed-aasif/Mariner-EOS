@@ -2394,7 +2394,7 @@ div#eos_graphs {
     font-size: 15px;
     padding: 3px;
     text-align: center;
-    margin-right: 8px;
+    margin-right: 5px;
 }
 .statusTrue
 {
@@ -2506,7 +2506,7 @@ div#eos_graphs {
     display: flex;
     align-items: center;
     top: 55.1%;
-    left: 39.9%;
+    left: 40.5%;
 }
 #eos_chart ul li:nth-child(13) i {
     margin-right: unset;
@@ -2517,14 +2517,14 @@ div#eos_graphs {
     display: flex;
     align-items: center;
     top: 59.6%;
-    left: 39.5%;
+    left: 40.5%;
 }
 #eos_chart ul li:nth-child(16) {
     position: absolute;
     display: flex;
     align-items: center;
-    top: 53%;
-    left: 46.2%;
+    top: 53.2%;
+    left: 46.6%;
     flex-direction: column;
 }
 #eos_chart ul li:nth-child(8) {
@@ -2540,8 +2540,8 @@ div#eos_graphs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 52.7%;
-    left: 51.4%;
+    top: 52.9%;
+    left: 51.5%;
 }
 #eos_chart ul li:nth-child(14) {
     position: absolute;
@@ -2549,7 +2549,7 @@ div#eos_graphs {
     flex-direction: column-reverse;
     align-items: center;
     top: 59.7%;
-    left: 51.2%;
+    left: 51.5%;
 }
 #eos_chart ul li:nth-child(10) {
     position: absolute;
@@ -2574,4 +2574,28 @@ border-radius: 100px;
 .fanIconTwo
 {
     border-radius: 0px;
+}
+.eos_UserStatus i {
+    padding: 2px;
+    font-size: 10px;
+    color:#ffffff;
+}
+.eos_UserStatus {
+    display: flex;
+    border: 1px solid #cccccc70;
+    padding: 3px;
+    width: auto;
+    position: absolute;
+    text-align: center;
+    background: #fff;
+
+}
+.lockGreen {
+    background: #0080004d;
+}
+.lockRed {
+    background: #ff00004f;
+}
+.lockGray {
+    background: #80808069;
 }

@@ -11,24 +11,33 @@
                         <div class="top_head">
                             <h4  class="eos_title">BowlView</h4>
                             <div class="right_icons">
-                                <i class="fas fa-sync-alt"></i>
+                                <i class="fas fa-sync-alt" (click)="eosRefresh()"></i>
                             </div>
                         </div>
                         <div id="eos_graphs">
+                           <div class="mobGraphics">
                             <img id="bg_graps" src="../../../assets/images/graphics/stadium.png" alt="">
                             <div class="eos_graphChart">
                                 <div id="eos_chart">
                                     <ul>
-                                        <li *ngFor="let items of graphicsDetails;index as i">
-                                            {{i}} {{items.name}}
-                                            <i 
+                                        <li *ngFor="let items of graphicsDetails">
+                                            <span>{{items.name}}</span>
+                                            <i (click)="onShowStatus()"  
                                             [ngClass]="{ 'statusFalse': items.status == false,'statusTrue': items.status == true,'fanIconOne': items.icon == 'fan1','fanIconTwo': items.icon == 'fan2' }"
                                             class="fas fa-fan">
-                                            </i>
+                                        </i>
+                                        <div class="eos_UserStatus" *ngIf="statusToggle">
+                                            <i class="fas fa-lock lockGreen"></i>
+                                            <i class="fas fa-lock lockRed"></i>
+                                            <i class="fas fa-lock lockGray"></i>
+                                        </div> 
                                         </li>
                                     </ul>
                                 </div>
                             </div>
+                           </div>
+                           <ng-template #customLoadingTemplate id="uiLoaders" style="width: 100%; height: 100vh;"></ng-template>
+                           <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
                         </div>
                     </div>
                 </div>
