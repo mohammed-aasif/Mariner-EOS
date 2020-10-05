@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ConfigService {
 
-   
+  api_Url = '/dashboard/external/secure/dashboardService';
   constructor(private http:HttpClient) { }
  
   /***********************************************PLANNER PAGE********************************************************** */
@@ -22,7 +22,8 @@ export class ConfigService {
   { 
        return this.http.get('/dashboard/external/secure/dashboardService/events?startDate=01/09/2020&endDate=30/09/2020');
   }
-  /***********************************************CONTROL POINT PAGE********************************************************** */
+//CONTROL POINT PAGE
+  
    // control point select option
    onControlListOptions():Observable<any>
    {
@@ -32,16 +33,16 @@ export class ConfigService {
          widgetType : 'setpoints',
        }
      }) ;
-     return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayouts',{params:httpParams})
+     return this.http.get(this.api_Url+'/widgets/getLayouts',{params:httpParams})
    }
  
    // control point description list
    onControlDescriptionList(widgetId):Observable<any>
    {
-     return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id=' + widgetId)
+     return this.http.get(this.api_Url+'/widgets/getLayout?id=' + widgetId)
    }
 
-  /***********************************************STATUS PAGE********************************************************** */
+  //STATUS PAGE 
 
   //status page initially displaying list
   onStatusService():Observable<any>
@@ -52,14 +53,14 @@ export class ConfigService {
   // status setting click list options --> popup
   onStatusManufact(widgetId:any):Observable<any>
   {
-    return this.http.get('/dashboard/external/secure/dashboardService/status/devicerw?widgetId='+widgetId);
+    return this.http.get(this.api_Url+'/status/devicerw?widgetId='+widgetId);
   }
 
     // status optimization  --> popup switch toggle
     onUpdateStatus(data:any, status)
     {
 
-      return this.http.post('/dashboard/external/secure/dashboardService/widgets/enableControllableStatus?id='+ data.id +'&status='+ status,status);
+      return this.http.post(this.api_Url+'/widgets/enableControllableStatus?id='+ data.id +'&status='+ status,status);
     }
 
     
@@ -67,7 +68,7 @@ export class ConfigService {
   //status optimization click list option --> popup
   onStatusOptimization(id:any):Observable<any>
   {
-    return this.http.get('/dashboard/external/secure/dashboardService/widgets/getLayout?id='+id)
+    return this.http.get(this.api_Url+'/widgets/getLayout?id='+id)
   }
 
   /***********************************************GRAPHIC PAGE********************************************************** */

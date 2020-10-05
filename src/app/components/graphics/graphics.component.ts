@@ -12,10 +12,12 @@ export class GraphicsComponent implements OnInit {
 
   ngOnInit(): void {
     this._configService.onGetGraphicsDetails().subscribe( responses => {
-      responses.devicerws.forEach( rest => {
-        console.log(rest)
-        this.graphicsDetails = rest.devicerws
-      }) 
+      console.log(responses.devicerws)
+      this.graphicsDetails = responses.devicerws
+      // responses.devicerws.forEach( rest => {
+      
+      //   this.graphicsDetails = rest.devicerws
+      // }) 
     })
   }
  

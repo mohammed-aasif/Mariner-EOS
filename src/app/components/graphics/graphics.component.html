@@ -17,13 +17,17 @@
                         <div id="eos_graphs">
                             <img id="bg_graps" src="../../../assets/images/graphics/stadium.png" alt="">
                             <div class="eos_graphChart">
-                                <table id="eos_chart">
-                                   <tbody>
-                                       <tr *ngFor="let items of graphicsDetails">
-                                           <td *ngFor="let items1 of items.devicerws">{{items1.name}}</td>
-                                       </tr>
-                                   </tbody>
-                                </table>
+                                <div id="eos_chart">
+                                    <ul>
+                                        <li *ngFor="let items of graphicsDetails;index as i">
+                                            {{i}} {{items.name}}
+                                            <i 
+                                            [ngClass]="{ 'statusFalse': items.status == false,'statusTrue': items.status == true,'fanIconOne': items.icon == 'fan1','fanIconTwo': items.icon == 'fan2' }"
+                                            class="fas fa-fan">
+                                            </i>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -2383,7 +2383,195 @@ div#eos_graphs {
     position: absolute;
     top: 0;
 }
-table#eos_chart {
-    width: 660px;
+#eos_chart {
+    width: 54.8%;
     margin-left: 175px;
+}
+.statusFalse
+{
+    background: red;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 3px;
+    text-align: center;
+    margin-right: 8px;
+}
+.statusTrue
+{
+    background: #aed5b4;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 3px;
+    text-align: center;
+    /* border-radius: 100px; */
+    margin-right: 5px;
+}
+#eos_chart ul li {
+    list-style: none;
+    font-size: 8px;
+    font-weight: 600;
+    /* display: none; */
+       
+}
+#eos_chart ul {
+    padding: 0;
+}
+#eos_chart ul li:first-child {
+    position: absolute;  
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 40%;
+    left: 64%;
+}
+#eos_chart ul li:nth-child(15) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 75%;
+    left: 65%;
+}
+#eos_chart ul li:nth-child(17) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 75%;
+    left: 35%;
+}
+#eos_chart ul li:nth-child(9) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 40%;
+    left: 35%;
+}
+#eos_chart ul li:nth-child(2) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 53%;
+    left: 71%;
+}
+#eos_chart ul li:nth-child(12) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 59%;
+    left: 71%;
+}
+#eos_chart ul li:nth-child(18) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 63%;
+    left: 70.8%;
+}
+ 
+#eos_chart ul li:nth-child(5) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 51%;
+    left: 30%;
+}
+#eos_chart ul li:nth-child(7) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 57%;
+    left: 30%;
+}
+#eos_chart ul li:nth-child(4) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 63%;
+    left: 30%;
+}
+#eos_chart ul li:nth-child(6) i {
+    margin-right: unset;
+    margin-left: 5px;
+}
+#eos_chart ul li:nth-child(6) {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 55.1%;
+    left: 39.9%;
+}
+#eos_chart ul li:nth-child(13) i {
+    margin-right: unset;
+    margin-left: 5px;
+}
+#eos_chart ul li:nth-child(13) {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 59.6%;
+    left: 39.5%;
+}
+#eos_chart ul li:nth-child(16) {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 53%;
+    left: 46.2%;
+    flex-direction: column;
+}
+#eos_chart ul li:nth-child(8) {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    top: 59.7%;
+    left: 46.4%;
+}
+#eos_chart ul li:nth-child(3) {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 52.7%;
+    left: 51.4%;
+}
+#eos_chart ul li:nth-child(14) {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    top: 59.7%;
+    left: 51.2%;
+}
+#eos_chart ul li:nth-child(10) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 54.6%;
+    left: 55%;
+}
+#eos_chart ul li:nth-child(11) {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    top: 59.6%;
+    left: 55%;
+}
+.fanIconOne
+{
+border-radius: 100px;
+}
+.fanIconTwo
+{
+    border-radius: 0px;
 }
