@@ -22,8 +22,10 @@ export class CtrlPointsComponent implements OnInit {
   checkedList:any = []; 
   storeNewSwitchArray:any =[]
   loading = true;  
-  storeOptimizeNewArray:any = []
- 
+  storeOptimizeNewArray:any = [];
+
+  valuehidden:boolean = false;
+
   constructor(private modal: NgbModal,private _configService:ConfigService) {}
 
   ngOnInit(): void { 
@@ -33,17 +35,17 @@ export class CtrlPointsComponent implements OnInit {
       this.loading = false;
       this.controlListOptions=selectResponse;
       this.setPointId = selectResponse[0].widgetId;
-      this.selectedControlList = this.setPointId
+      this.selectedControlList = this.setPointId 
       this.getControlList();
     });
     this.loading = true;
     this._configService.onControlDescriptionList(this.setPointId).subscribe( controlPointData => 
       {
         this.loading = false;
-        this.controlListArray = controlPointData; 
+        this.controlListArray = controlPointData;
       })
      }
-
+     
  //for displaying list of the selected dropdown
   getControlList()
   {  
@@ -52,17 +54,24 @@ export class CtrlPointsComponent implements OnInit {
       {
         this.loading = false;
         this.controlListArray = controlPointData; 
+        controlPointData.forEach( reso => {
+          reso.equipmentSetFields.forEach( resot => { 
+          if(resot.controllable == false)
+            {
+               this.valuehidden == false  
+            }
+          })
+        })
       })
   }
  
  // for displaying selected api list 
    onChange(widgetId) { 
-    //for displaying list of the selected dropdown
     this.loading = true;
     this._configService.onControlDescriptionList(widgetId).subscribe( controlPointData => 
       {
            this.loading = false;
-        this.controlListArray = controlPointData;
+           this.controlListArray = controlPointData;
       })
   }
 
@@ -107,6 +116,28 @@ export class CtrlPointsComponent implements OnInit {
       //modal default
      this.modal.open(modalContent, { centered: true});
      this.getDismissReasonSettingClose
+
+       
+  }
+
+
+  onPrintEquipValue(valuesData)
+  {
+    var obj:boolean;
+    valuesData.forEach( res => {
+      if(res.controllable == true)
+        {
+          obj =  true;
+        }
+      })
+   
+      if(obj ==  true)
+      {
+        return  true;
+      }
+      else{
+        return false;
+      }
   }
 
   private getDismissReasonSettingClose(): string {

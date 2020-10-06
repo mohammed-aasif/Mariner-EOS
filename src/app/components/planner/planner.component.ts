@@ -6,10 +6,11 @@ import {startOfDay,endOfDay,subDays,addDays,endOfMonth,isSameDay,isSameMonth,add
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {CalendarEvent,CalendarEventAction,CalendarEventTimesChangedEvent,CalendarView,} from 'angular-calendar';
-import { ConfigService } from '../../services/configs.service';
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
- 
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ConfigService } from '../../services/configs.service'; 
+ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+ import Swal from 'sweetalert2'
+
+
 var moment = require("moment");
 declare var require: any;
 
@@ -30,7 +31,7 @@ export class PlannerComponent implements OnInit {
   space_req_Form:FormGroup
   file_Form:FormGroup
   submitted = false;
- recurrring_visibleDivision:boolean = false;
+  recurrring_visibleDivision:boolean = false;
 
   filterData=[];
   statuslists = [];
@@ -38,9 +39,7 @@ export class PlannerComponent implements OnInit {
   typeData=[];
   modeData=[];
   counts;
-  plannerData = [];
-
-  
+  plannerData = []; 
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
   @ViewChild(ContextMenuComponent) public basicMenu: ContextMenuComponent;
@@ -127,46 +126,51 @@ export class PlannerComponent implements OnInit {
     this.file_Form = new FormGroup({
       'f_fileUpload': new FormControl(null,Validators.required),
     });        
- 
-    
-
-
-
-     
-    //this._serve.onStatusService().subscribe(statuslistsData =>this.products = statuslistsData)
   
+  
+
+    
     this._serve.onDisplayEvents().subscribe( eventListData =>  
       {
-    console.log("eventListData ", eventListData);
+      ////console.log("eventListData ", eventListData);
         this.plannerData = eventListData;
-
-
        // this.filterData.unshift({id:52, name: "Show All Spaces"});
-         
-          
-         
         for(let i=0;i<eventListData.length;i++)
         {
-             
             var obj:any =  {}
-
             obj.title = eventListData[i].name;
             obj.id = eventListData[i].id;
             obj.start = new Date(moment(eventListData[i].startDt + '' + eventListData[i].startHour, "DD/MM/YYYY hh:mm")) 
             obj.end = new Date(moment(eventListData[i].endDt+ '' + eventListData[i].endHour, "DD/MM/YYYY hh:mm")); 
             this.events.push(obj);
-              // console.log("Total Events" ,obj);
         } 
         this.refresh.next(); 
-      }
-      )  
-
- 
+      })  
+      
     this._serve.onFilterBySpaces().subscribe(filterRes => {
-//  console.log("filterRes ", filterRes);
       this.filterData = filterRes;
     });
 
+    this._serve.onLocationService().subscribe(data => {
+        
+        this.selectdata=data;
+        ////console.log(data);
+    });
+
+    this._serve.onTypeDataService().subscribe(data1 => {
+        
+        this.typeData=data1;
+       ////console.log(data1);
+    });
+    this._serve.onModeDataService().subscribe(data2 => {
+        
+        this.modeData=data2;
+       ////console.log(data2);
+    });
+
+
+
+ 
   }
     //event handler for the select element's change event
     selectChangeHandler (event: any) {
@@ -174,19 +178,23 @@ export class PlannerComponent implements OnInit {
       this.filterData = event.target.value;
     }
   
+  //Recurring Check box header...
   onRecurranceEvents()
   {
-    
+    this._serve.onDisplayEvents().subscribe( response => {
+      console.log("eventsdata",response)
+    })
   }
-   //console.log("space.fkSpaceId.id == deviceValue ", space.fkSpaceId.id == deviceValue);  this will come in return...
+   ////console.log("space.fkSpaceId.id == deviceValue ", space.fkSpaceId.id == deviceValue);  this will come in return...
     onChange(deviceValue) { 
  
       var plannerFiltered = this.plannerData.filter(item=>{
         // I am finding data label by using permission label.
-        var spaceList = item.spaceEventSet.filter(space=>{ return space.fkSpaceId.id == deviceValue; })
+        var spaceList = item.spaceEventSet.filter(space=>
+          { return space.fkSpaceId.id == deviceValue;
+           })
  
         if (spaceList.length>0) {
-          console.log("spaceList ", spaceList)
           return true;
         }
          
@@ -200,11 +208,9 @@ export class PlannerComponent implements OnInit {
             obj.start = new Date(moment(plannerFiltered[i].startDt + '' + plannerFiltered[i].startHour, "DD/MM/YYYY hh:mm")) 
             obj.end = new Date(moment(plannerFiltered[i].endDt+ '' + plannerFiltered[i].endHour, "DD/MM/YYYY hh:mm")); 
             this.events.push(obj);
-            console.log("Total Events" ,obj); 
         } 
         this.refresh.next();
     }
-
 
 
 // convenience getter for easy access to form fields
@@ -216,12 +222,20 @@ onSubmit() {
 
     // stop here if form is invalid
     if (this.eosAddEventForm.invalid) {
-        return;
+        Swal.fire({
+        title: 'Invalid Entry',
+        text: 'Please enter a name for the event',
+        icon: 'warning',
+        customClass: {container: 'confirmName'},
+      // showCancelButton: true,
+        confirmButtonText: 'Ok', 
+      })
     } 
     else
     {
       alert(JSON.stringify(this.eosAddEventForm.value, null, 4));
-      console.log("the values are standard" + JSON.stringify(this.eosAddEventForm.value, null, 4))
+      //this.plannerData =  this.eosAddEventForm.value;
+      //console.log("the values are standard" + JSON.stringify(this.eosAddEventForm.value, null, 4))
     }
  
 }
@@ -234,7 +248,7 @@ onReset() {
 
 
 //custom form
-onSubmits() {
+onSubmits(modalContent) {
   this.submitted = true;
 
   // stop here if form is invalid
@@ -244,7 +258,8 @@ onSubmits() {
   else
   {
     alert(JSON.stringify(this.eosAddEventFormCustom.value, null, 4));
-    console.log("the values are customs" + JSON.stringify(this.eosAddEventFormCustom.value, null, 3))
+   
+    //console.log("the values are customs" + JSON.stringify(this.eosAddEventFormCustom.value, null, 3))
   }
 
 }
@@ -274,7 +289,7 @@ onResetCustom() {
  
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-  console.log("dayClicked ");
+  //console.log("dayClicked ");
 
     if (isSameMonth(date, this.viewDate)) {
       if (
@@ -310,8 +325,8 @@ onResetCustom() {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
- console.log("event ", event);
- console.log("action ", action);
+ //console.log("event ", event);
+ //console.log("action ", action);
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
   }
@@ -352,24 +367,22 @@ onResetCustom() {
 
   getEventColor(value) {
     switch(value) {
-      case "acc36d70-ee04-11ea-a5af-000c2930f1f3":{
-        return '5px solid purple';
+      case 44:{
+        return '5px solid blue';
       }
-      case  "e3fce390-f46f-11ea-8620-000c2930f1f3":{
-        return '5px solid purple';
-      }
-      case  "7628b2c0-ee04-11ea-a5af-000c2930f1f3": {
-        return '5px solid green';
-      }
-      case 1408:
-        return '5px solid red';
+      
+      case 31:
+        {
+          return '5px solid red';
+        }
+        
       default:
         return '5px solid yellow';
     }
 // switch (value) {
 	
 //    default: {
-//       console.log("Invalid choice");
+//       //console.log("Invalid choice");
 //       break;
 //    }
 // }

@@ -18,8 +18,7 @@ export class StatusComponent implements OnInit {
   checkBoxes:any = []
   demoStoreArray = []
   statusListArray:any =[];
-  storeNewSwitchArray:any= [] 
-
+  storeNewSwitchArray:any= [];
 
   ngOnInit(): void {
     this.loading = true;
@@ -64,6 +63,27 @@ export class StatusComponent implements OnInit {
      this.modal.open(modalContent, { centered: true});
      this.getDismissReasonoptimize
   }
+
+
+  onPrintEquipValue(valuesData)
+  {
+    var obj:boolean;
+    valuesData.forEach( res => {
+      if(res.controllable == true)
+        {
+          obj =  true;
+        }
+      })
+   
+      if(obj ==  true)
+      {
+        return  true;
+      }
+      else{
+        return false;
+      }
+  }
+
 
   private getDismissReasonSettingClose(): string {
     if (ModalDismissReasons.ESC) {

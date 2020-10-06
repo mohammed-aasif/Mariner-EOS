@@ -19,7 +19,7 @@
                 <div id="wrapper_content">
                     <div id="eos_sheduler">
                         <div class="row topbg">
-                            <div class="col-md-3 pad-0">
+                            <div class="col-md-4 pad-0">
                                 <div class="btn-group month_div">
                                     <label>Year:</label>
                                     <select>
@@ -30,7 +30,7 @@
                                         <div class="tri"></div>
                                     </div>
                                     <select class="month_select">
-                                        <option>September</option>
+                                        <option>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</option>
                                     </select>
                                     <div class="next" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
                                         <div class="tri"></div>
@@ -38,9 +38,9 @@
                                 </div>
                             </div>
  
-                            <div class="col-md-5 select_content pad-0">
+                            <div class="col-md-4 select_content pad-0">
                                 <label>Filter By Space:</label>
-                                <select class="eos_filterSelect"   (change)="onChange($event.target.value)">
+                                <select class="eos_filterSelect"  (change)="onChange($event.target.value)">
                                      <option value="0"> Show All Spaces </option> 
                                     <option   *ngFor="let spaceItem of filterData" [value]="spaceItem.id">{{spaceItem.name}}</option>
                                   </select>
@@ -80,6 +80,7 @@
             </div>
         </div>
     </div>
+    
     <ng-template #modalContent let-close="close">
      <div id="eos-events-form">
          
@@ -141,7 +142,7 @@
                                                 <div class="temp_calc eos_bg_white">
                                                     <div class="form-group eos_flex_forms">
                                                         <div class="scrollable_lists">
-                                                            <lable class="checkbox_eos" *ngFor="let location of selectdata">
+                                                            <lable class="checkbox_eos" *ngFor="let location of filterData">
                                                                 <input id=" " class="e-field rt_checked" type="checkbox" name=" " />
                                                                 <small>{{location.name}}</small>
                                                             </lable>
@@ -311,7 +312,7 @@
                                             <div class="form-group eos_flex_forms eos_column">
                                                 <label class="w-100">Location:</label>
                                                 <select name="" class="form-control" id="" formControlName="c_location" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_location.errors }">
-                                                    <option value="BLDGA - 24/7" *ngFor="let location of selectdata">{{location.name}}</option>
+                                                    <option value="BLDGA - 24/7" *ngFor="let location of filterData">{{location.name}}</option>
                                                     <!-- <option value="BLDGA - 24/7">BLDGA - 24/7</option> -->
                                                 </select>
                                                 <div *ngIf="submitted && formValuesCustom.c_location.errors" class="invalid-feedback">
@@ -434,12 +435,11 @@
 </ng-template>
 
 
-
-
-<!-- <button (click)="open(confirm_delete)">canfirm Delete</button>
+<!-------------------------------------------------------------------------INSIDE POPUP (ok , cancel) etc------------------------------------------------------------------------------->
+ <button (click)="open(confirm_delete)">canfirm Delete</button>
 <button (click)="open(invalid_entry)">invalid entry</button>
 <button (click)="open(save_complete)">save complete</button>
-<button (click)="open(space_req)">Space Requirement</button> -->
+<button (click)="open(space_req)">Space Requirement</button>  
 
 
 
@@ -514,7 +514,6 @@
                 <span class="orange">!</span>
                 <p>Please enter a Name for the event</p>
             </div>
-
             <div class="flx_btn">
                 <button class="delete">Ok</button>
             </div>

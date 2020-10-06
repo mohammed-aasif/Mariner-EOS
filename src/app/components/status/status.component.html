@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="ipt">
                                     <input type="text" [(ngModel)]="menus.currentEosValue" name="" />
-                                    <input type="text" [(ngModel)]="menus.currentValue" name="" />
+                                    <input type="text"  [(ngModel)]="menus.currentValue" name="" />
                                 </div>
                                 <div class="status">
                                     <label [ngClass]="{ 'readable_bg': menus.readable == true}" data-title="Readable" class="blue_bg">R</label>
@@ -120,7 +120,12 @@
                 <button class="selectall" (click)="checkSwitchList()">Select All</button>
             </div>
             <div class="checkbox-list-select">
-                <div *ngFor="let checkbox of checkBoxes"><input type="checkbox" [(ngModel)]="checkbox.checked" value="{{checkbox}}" (change)="toggleEditable($event, checkbox)" /><span>{{checkbox.name}}</span></div>
+                <div *ngFor="let checkbox of checkBoxes">
+                    <div class="flex" *ngIf="onPrintEquipValue(checkbox.equipmentSetFields)">
+                        <input type="checkbox" [(ngModel)]="checkbox.checked" value="{{checkbox}}" (change)="toggleEditable($event, checkbox)" />
+                        <span>{{checkbox.name}}</span>
+                    </div>
+                </div>
             </div>
             <div class="eos-btn-grp">
                 <button class="optim_off" (click)="OnOptimizationOff(statusList2); modal.dismiss()">Selected optimization Off</button>

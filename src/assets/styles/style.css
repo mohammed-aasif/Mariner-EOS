@@ -1621,6 +1621,7 @@ small.ng-star-inserted {
 .info_content {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .confirm_delete .flx_btn {
@@ -2067,6 +2068,7 @@ button[disabled] {
     width: 70px;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 .eos_ctrlPoint_toggle i {
     margin-right: 15px;
@@ -2598,4 +2600,15 @@ border-radius: 100px;
 }
 .lockGray {
     background: #80808069;
+}
+.flexibles {
+    width: 50%;
+}
+ 
+.confirm_delete .modal-header {
+    background: #ff6600;
+}
+.confirm_delete .flx_btn {
+    max-width: 100%;
+    justify-content: center;
 }

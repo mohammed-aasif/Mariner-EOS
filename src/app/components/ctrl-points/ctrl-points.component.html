@@ -38,8 +38,8 @@
                                     <div class="hide_show accordion" data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">
                                         <h4><i class="fas fa-plus"></i><i class="fas fa-minus"></i>{{ctlLst.name}}</h4>
                                     </div>
-                                    <div class="power_icons eos_ctrlPoint_toggle">
-                                        <span data-title="optimization on/off">
+                                    <div class="power_icons eos_ctrlPoint_toggle"> 
+                                        <span data-title="optimization on/off" *ngIf="onPrintEquipValue(ctlLst.equipmentSetFields)">
                                             <i
                                                 class="fa fa-power-off clr_green"
                                                 (click)="openSwitch(eos_confirm_optimization,ctlLst )"
@@ -49,12 +49,13 @@
                                         <p class="countList">{{ctlLst.equipmentSetFields.length}}</p>
                                     </div>
                                 </div>
-
                                 <div [attr.id]="'collapseOne_' + i" class="hidden_flex panel panel-collapse collapse in">
                                     <ul id="eos_height_adjusant">
                                         <li>
                                             <div class="flexibles" *ngFor="let ctlLst1 of ctlLst.equipmentSetFields">
+                                                
                                                 <div class="controlListBlocks">
+                                                   
                                                     <div class="chk_div">
                                                         <input type="checkbox" name="" value="{{ctlLst1}}" (change)="toggleEditable($event, ctlLst1)" />
                                                         <label class="chk_label">{{ctlLst1.name}}</label>
@@ -144,7 +145,12 @@
                 <button class="selectall" (click)="checkSwitchList()">Select All</button>
             </div>
             <div class="checkbox-list-select"> 
-                <div *ngFor="let ctlLst of checkBoxes"><input type="checkbox" [(ngModel)]="ctlLst.checked" value="{{ctlLst}}" (change)="toggleEditableOptimSwitch($event, ctlLst)" /><span>{{ctlLst.name}}</span></div>
+                <div *ngFor="let ctlLst of checkBoxes">
+                    <div class="flex" *ngIf="onPrintEquipValue(ctlLst.equipmentSetFields)">
+                        <input type="checkbox" [(ngModel)]="ctlLst.checked" value="{{ctlLst}}" (change)="toggleEditableOptimSwitch($event, ctlLst)" />
+                        <span>{{ctlLst.name}}</span>
+                    </div>
+                </div>
             </div>
             <div class="eos-btn-grp">
                 <button class="optim_off" (click)="OnOptimizationOff(statusList2) ; modal.dismiss()">Selected optimization Off</button>

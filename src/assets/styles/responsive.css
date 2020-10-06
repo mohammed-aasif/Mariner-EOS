@@ -44,6 +44,13 @@
 	  }
 	  
 }
+@media screen and (max-width:991px)
+{
+	.flexibles , .controlListBlocks{
+		width: 100%;
+	}
+ 
+}
 
 
 @media screen and (min-width:1000px)
@@ -66,7 +73,7 @@
 /*ctrl_points End*/
 
 /*Graphics*/
-@media screen and (max-width:1400px)
+@media screen and (max-width:1024px)
 {
 	.mobGraphics {
 		width: 1200px; 
