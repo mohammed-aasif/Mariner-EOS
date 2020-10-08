@@ -26,13 +26,13 @@
                                         <option>2020</option>
                                     </select>
                                     <label>Month:</label>
-                                    <div class="prev" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                    <div class="prev" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay(viewDate)">
                                         <div class="tri"></div>
                                     </div>
                                     <select class="month_select">
                                         <option>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</option>
                                     </select>
-                                    <div class="next" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                    <div class="next" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay(viewDate)">
                                         <div class="tri"></div>
                                     </div>
                                 </div>

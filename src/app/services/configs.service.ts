@@ -39,8 +39,8 @@ export class ConfigService {
 	}
 
 	//display event list in calendar
-	onDisplayEvents(): Observable < any > {
-		return this.http.get(this.api_Url + '/events?startDate=01/10/2020&endDate=31/10/2020');
+	onDisplayEvents(startDates:any, endDates:any): Observable < any > {
+		return this.http.get(this.api_Url + '/events?startDate='+startDates +'&endDate='+endDates);
 	}
 	//CONTROL POINT PAGE
 
@@ -60,9 +60,10 @@ export class ConfigService {
 	onControlDescriptionList(widgetId): Observable < any > {
 		return this.http.get(this.api_Url + '/widgets/getLayout?id=' + widgetId)
 	}
-	onAddlistEvent(reqObj):Observable < any >
+	//popup add event post
+	onAddlistEvent(datas):Observable < any >
 	{
-		return this.http.get(this.api_Url+'events/add');
+		return this.http.get(this.api_Url+'/events/add',datas);
 	}
 
 	//STATUS PAGE 

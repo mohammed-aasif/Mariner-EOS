@@ -39,7 +39,7 @@ export class PlannerComponent implements OnInit {
   typeData=[];
   modeData=[];
   counts;
-  plannerData = []; 
+  plannerData = [];  
 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
   @ViewChild(ContextMenuComponent) public basicMenu: ContextMenuComponent;
@@ -80,8 +80,7 @@ export class PlannerComponent implements OnInit {
   ];
 
   activeDayIsOpen: boolean = true;
-  showAll = false;
-
+  showAll = false; 
 
   
 
@@ -141,25 +140,30 @@ export class PlannerComponent implements OnInit {
       'f_fileUpload': new FormControl(null,Validators.required),
     });        
   
-  
 
+    var date = new Date();
     
-    this._serve.onDisplayEvents().subscribe( eventListData =>  
-      {
-      ////console.log("eventListData ", eventListData);
-        this.plannerData = eventListData;
-       // this.filterData.unshift({id:52, name: "Show All Spaces"});
-        for(let i=0;i<eventListData.length;i++)
-        {
-            var obj:any =  {}
-            obj.title = eventListData[i].name;
-            obj.id = eventListData[i].id; 
-            obj.start = new Date(moment(eventListData[i].startDt + '' + eventListData[i].startHour, "DD/MM/YYYY hh:mm").startOf('day')) 
-            obj.end = new Date(moment(eventListData[i].endDt+ '' + eventListData[i].endHour, "DD/MM/YYYY hh:mm")); 
-            this.events.push(obj);
-        } 
-        this.refresh.next(); 
-      })  
+    //initillay displaying event list in day view.....
+
+    // this._serve.onDisplayEvents(startDate,endDate).subscribe( eventListData =>  
+    //   {
+    //     this.plannerData = eventListData;
+    //    // this.filterData.unshift({id:52, name: "Show All Spaces"});
+    //     for(let i=0;i<eventListData.length;i++)
+    //     {
+    //         var obj:any =  {}
+    //         obj.title = eventListData[i].name;
+    //         obj.id = eventListData[i].id; 
+    //         obj.start = new Date(moment(eventListData[i].startDt + '' + eventListData[i].startHour, "DD/MM/YYYY hh:mm")) 
+    //         obj.end = new Date(moment(eventListData[i].endDt+ '' + eventListData[i].endHour, "DD/MM/YYYY hh:mm")); 
+    //         this.events.push(obj);
+    //     } 
+    //     this.refresh.next(); 
+    //   }) 
+
+    //initillay displaying event list in day view.....
+    this.closeOpenMonthViewDay(date)
+  
       
     this._serve.onFilterBySpaces().subscribe(filterRes => {
       this.filterData = filterRes;
@@ -182,11 +186,44 @@ export class PlannerComponent implements OnInit {
         this.modeData=data2;
        ////console.log(data2);
     });
+ 
+    //end OnInit
+  }
 
+  
+  // month change prev and next button clicks ...
+  closeOpenMonthViewDay(viewDate) {
+     var startOfMonth = moment(viewDate).startOf('month').format('DD/MM/YYYY');
+    console.log("StartMonth Console",startOfMonth)
+    var endOfMonth   = moment(viewDate).endOf('month').format('DD/MM/YYYY');
+    console.log("EndMonth Console",endOfMonth);
+    this.getmonthData(startOfMonth,endOfMonth);
+    this.activeDayIsOpen = false;
+  }
 
+     getmonthData(startDate,endDate)
+    {
+       this._serve.onDisplayEvents(startDate,endDate).subscribe( eventListData =>  
+      {
+      ////console.log("eventListData ", eventListData);
+        this.plannerData = eventListData;
+       // this.filterData.unshift({id:52, name: "Show All Spaces"});
+        for(let i=0;i<eventListData.length;i++)
+        {
+            var obj:any =  {}
+            obj.title = eventListData[i].name;
+            obj.id = eventListData[i].id; 
+            obj.start = new Date(moment(eventListData[i].startDt + '' + eventListData[i].startHour, "DD/MM/YYYY hh:mm")) 
+            obj.end = new Date(moment(eventListData[i].endDt+ '' + eventListData[i].endHour, "DD/MM/YYYY hh:mm")); 
+            this.events.push(obj);
+        } 
+        this.refresh.next(); 
+      })  
+    }
+
+    
 
  
-  }
     //event handler for the select element's change event
     selectChangeHandler (event: any) {
       //update the ui
@@ -194,12 +231,13 @@ export class PlannerComponent implements OnInit {
     }
   
   //Recurring Check box header...
-  onRecurranceEvents()
-  {
-    this._serve.onDisplayEvents().subscribe( response => {
-      console.log("eventsdata",response)
-    })
-  }
+  // onRecurranceEvents()
+  // {
+  //   this._serve.onDisplayEvents().subscribe( response => {
+  //     console.log("eventsdata",response)
+  //   })
+  // }
+
    ////console.log("space.fkSpaceId.id == deviceValue ", space.fkSpaceId.id == deviceValue);  this will come in return...
     onChange(deviceValue) { 
  
@@ -280,20 +318,20 @@ onSubmit() {
       Locations: location.toString()    
     }
 
-    // this._serve.onAddlistEvent(reqObj).subscribe ( response => {
-    //   // this.filterData.unshift({id:52, name: "Show All Spaces"});
-    //   this.plannerData = response;
-    //   for(let i=0;i<response.length;i++)
-    //   {
-    //       var obj:any =  {}
-    //       obj.title = response[i].name;
-    //       obj.id = response[i].id; 
-    //       obj.start = new Date(moment(response[i].startDt + '' + response[i].startHour, "DD/MM/YYYY hh:mm").startOf('day')) 
-    //       obj.end = new Date(moment(response[i].endDt+ '' + response[i].endHour, "DD/MM/YYYY hh:mm")); 
-    //       this.events.push(obj);
-    //   } 
-    //   this.refresh.next(); 
-    // })
+    this._serve.onAddlistEvent(reqObj).subscribe ( response => {
+      console.log("aasif",response)
+      this.plannerData = response;
+      for(let i=0;i<response.length;i++)
+      {
+          var reqObj:any =  {}
+          reqObj.title = response[i].name;
+          reqObj.id = response[i].id; 
+          reqObj.start = new Date(moment(response[i].startDt + '' + response[i].startHour, "DD/MM/YYYY hh:mm")) 
+          reqObj.end = new Date(moment(response[i].endDt+ '' + response[i].endHour, "DD/MM/YYYY hh:mm")); 
+          this.events.push(reqObj);
+      } 
+      this.refresh.next(); 
+    })
 
     console.log('reqObj', JSON.stringify(reqObj));
 
@@ -344,11 +382,10 @@ onResetCustom() {
 }
 
 getDefaultSpace(e) {
-  var self = this;
-  console.log('courseType',JSON.stringify(this.courseType));
-  // self._serve.getdefaultSpaces(e.target.value).subscribe((res:any)=> {
-  //   console.log('res', JSON.stringify(res));
-  // })
+  console.log('courseType',e.target.value);
+  this._serve.getdefaultSpaces(e.target.value).subscribe((res:any)=> {
+    console.log('res', res);
+  })
 }
 
 
@@ -448,9 +485,6 @@ getDefaultSpace(e) {
     this.view = view;
   }
 
-  closeOpenMonthViewDay() {
-    this.activeDayIsOpen = false;
-  }
 
 
   open(modalContent){
