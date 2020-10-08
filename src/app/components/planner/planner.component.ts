@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {CalendarEvent,CalendarEventAction,CalendarEventTimesChangedEvent,CalendarView,} from 'angular-calendar';
 import { ConfigService } from '../../services/configs.service'; 
- import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+ import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
  import Swal from 'sweetalert2'
 
 
@@ -50,7 +50,7 @@ export class PlannerComponent implements OnInit {
 
   viewDate: Date = new Date();
   
-
+  courseType:any = {};
   modalData: {
     action: string;
     event: CalendarEvent;
@@ -90,15 +90,29 @@ export class PlannerComponent implements OnInit {
 
 
   ngOnInit(): void {
+  // "fkSubscriberEventTypeId":{"id":"9200e5e6-7c67-11e3-ab65-005056a93afd","name":null,"fkDefaultEventFrequencyTypeId":null},"fkEventFrequencyTypeId":{"id":"1","name":"one time"},
 
   this.eosAddEventForm = this.formBuilder.group({
     s_eventName: ['', Validators.required],
     s_startDate: ['', Validators.required],
-    s_startTime: ['', Validators.required],
-    s_courseType: ['', Validators.required],
+    s_startTime: [null, Validators.required],
+    s_courseType:  ['', Validators.required],
     s_endDate: ['', Validators.required],
-    s_endTime: ['', Validators.required],
+    s_endTime: [null, Validators.required],
     s_notes: ['', Validators.required],
+
+    id: ['', Validators.required],
+    name: ['', Validators.required],
+    notes: ['', Validators.required],
+    occupancy: ['', Validators.required],
+    startDt: [null, Validators. required],
+    endDt: [null, Validators.required],
+    startHour: [null, Validators.required],
+    endHour: [null, Validators.required],
+    seriesEnd: ['', Validators.required],
+    frequency: ['', Validators.required],
+    misc: ['', Validators.required],
+    location: this.formBuilder.array([]),
   });
 
 
@@ -139,8 +153,8 @@ export class PlannerComponent implements OnInit {
         {
             var obj:any =  {}
             obj.title = eventListData[i].name;
-            obj.id = eventListData[i].id;
-            obj.start = new Date(moment(eventListData[i].startDt + '' + eventListData[i].startHour, "DD/MM/YYYY hh:mm")) 
+            obj.id = eventListData[i].id; 
+            obj.start = new Date(moment(eventListData[i].startDt + '' + eventListData[i].startHour, "DD/MM/YYYY hh:mm").startOf('day')) 
             obj.end = new Date(moment(eventListData[i].endDt+ '' + eventListData[i].endHour, "DD/MM/YYYY hh:mm")); 
             this.events.push(obj);
         } 
@@ -149,6 +163,7 @@ export class PlannerComponent implements OnInit {
       
     this._serve.onFilterBySpaces().subscribe(filterRes => {
       this.filterData = filterRes;
+      console.log('filter data', filterRes);
     });
 
     this._serve.onLocationService().subscribe(data => {
@@ -160,7 +175,7 @@ export class PlannerComponent implements OnInit {
     this._serve.onTypeDataService().subscribe(data1 => {
         
         this.typeData=data1;
-       ////console.log(data1);
+       console.log('type data',data1);
     });
     this._serve.onModeDataService().subscribe(data2 => {
         
@@ -219,17 +234,80 @@ get formValuesCustom() { return this.eosAddEventFormCustom.controls; }
 
 onSubmit() {
     this.submitted = true;
+    console.log('eosAddEventForm', JSON.stringify(this.eosAddEventForm.value));
+    var reqObj = {}
+    var courseType:any = this.typeData.filter((item:any)=> {
+      return item.id ==  this.eosAddEventForm.value.s_courseType;
+    })
+    console.log('courseType', courseType)
+    reqObj["id"] = null
+    reqObj["name"] = this.eosAddEventForm.value.name
+    reqObj["notes"] = this.eosAddEventForm.value.notes
+    reqObj["occupancy"] = this.eosAddEventForm.value.occupancy
+    reqObj["startDt"] = this.eosAddEventForm.value.startDt
+    reqObj["endDt"] = this.eosAddEventForm.value.endDt
+    reqObj["startHour"] = new Date(this.eosAddEventForm.value.startHour).toLocaleTimeString([],{ hour: '2-digit', minute: '2-digit' });
+    reqObj["endHour"] = new Date(this.eosAddEventForm.value.endHour).toLocaleTimeString([],{ hour: '2-digit', minute: '2-digit' });
+    reqObj["seriesEnd"] = this.eosAddEventForm.value.seriesEnd
+    reqObj["frequency"] = this.eosAddEventForm.value.frequency
+    reqObj["misc"] = this.eosAddEventForm.value.misc
+    reqObj["fkSubscriberEventTypeId"] = {
+      id: courseType.id,
+      name: null,
+      fkDefaultEventFrequencyTypeId: null
+    }
+    reqObj["spaceEventSet"] = [];
+    var location = [];
+    this.eosAddEventForm.value.location.forEach((item)=> {
+      var obj:any = {
+        id: null,
+        fkSpaceId: {
+          id: item.id,
+          name: null
+        }
+      };
+      reqObj["spaceEventSet"].push(obj);
+      location.push(item.name);
+    })
+    reqObj["auditDetails"] = {
+      Type: courseType.name,
+      Recurring: '',
+      Notes: this.eosAddEventForm.value.notes,
+      RecurEnd: this.eosAddEventForm.value.seriesEnd,
+      Start: `${this.eosAddEventForm.value.startDt} ${reqObj["endHour"]}`,
+      Name: this.eosAddEventForm.value.name,
+      End: `${this.eosAddEventForm.value.endDt} ${reqObj["endHour"]}`,
+      Locations: location.toString()    
+    }
+
+    // this._serve.onAddlistEvent(reqObj).subscribe ( response => {
+    //   // this.filterData.unshift({id:52, name: "Show All Spaces"});
+    //   this.plannerData = response;
+    //   for(let i=0;i<response.length;i++)
+    //   {
+    //       var obj:any =  {}
+    //       obj.title = response[i].name;
+    //       obj.id = response[i].id; 
+    //       obj.start = new Date(moment(response[i].startDt + '' + response[i].startHour, "DD/MM/YYYY hh:mm").startOf('day')) 
+    //       obj.end = new Date(moment(response[i].endDt+ '' + response[i].endHour, "DD/MM/YYYY hh:mm")); 
+    //       this.events.push(obj);
+    //   } 
+    //   this.refresh.next(); 
+    // })
+
+    console.log('reqObj', JSON.stringify(reqObj));
 
     // stop here if form is invalid
     if (this.eosAddEventForm.invalid) {
-        Swal.fire({
-        title: 'Invalid Entry',
-        text: 'Please enter a name for the event',
-        icon: 'warning',
-        customClass: {container: 'confirmName'},
-      // showCancelButton: true,
-        confirmButtonText: 'Ok', 
-      })
+      //   Swal.fire({
+      //   title: 'Invalid Entry',
+      //   text: 'Please enter a name for the event',
+      //   icon: 'warning',
+      //   customClass: {container: 'confirmName'},
+      // // showCancelButton: true,
+      //   confirmButtonText: 'Ok', 
+      // })
+      return;
     } 
     else
     {
@@ -250,16 +328,12 @@ onReset() {
 //custom form
 onSubmits(modalContent) {
   this.submitted = true;
-
-  // stop here if form is invalid
   if (this.eosAddEventFormCustom.invalid) {
       return;
   } 
   else
   {
-    alert(JSON.stringify(this.eosAddEventFormCustom.value, null, 4));
-   
-    //console.log("the values are customs" + JSON.stringify(this.eosAddEventFormCustom.value, null, 3))
+    alert(JSON.stringify(this.eosAddEventFormCustom.value, null, 4)); 
   }
 
 }
@@ -269,7 +343,13 @@ onResetCustom() {
   this.eosAddEventFormCustom.reset();
 }
 
-
+getDefaultSpace(e) {
+  var self = this;
+  console.log('courseType',JSON.stringify(this.courseType));
+  // self._serve.getdefaultSpaces(e.target.value).subscribe((res:any)=> {
+  //   console.log('res', JSON.stringify(res));
+  // })
+}
 
 
     //add event popoup recurring checkbox
@@ -301,9 +381,21 @@ onResetCustom() {
         this.activeDayIsOpen = true;
       }
       this.viewDate = date;
+      
     }
     // this.modal.open(this.modalContent,);
 
+  }
+
+  pushLocation(data:any, isChecked: boolean) {
+    const location = <FormArray>this.eosAddEventForm.controls.location;
+  
+    if(isChecked) {
+      location.push(new FormControl(data));
+    } else {
+      let index = location.controls.findIndex((x:any) => x.id == data.id)
+      location.removeAt(index);
+    }
   }
 
   eventTimesChanged({

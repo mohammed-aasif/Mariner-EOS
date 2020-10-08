@@ -22,9 +22,7 @@ export class CtrlPointsComponent implements OnInit {
   checkedList:any = []; 
   storeNewSwitchArray:any =[]
   loading = true;  
-  storeOptimizeNewArray:any = [];
-
-  valuehidden:boolean = false;
+  storeOptimizeNewArray:any = []; 
 
   constructor(private modal: NgbModal,private _configService:ConfigService) {}
 
@@ -54,14 +52,6 @@ export class CtrlPointsComponent implements OnInit {
       {
         this.loading = false;
         this.controlListArray = controlPointData; 
-        controlPointData.forEach( reso => {
-          reso.equipmentSetFields.forEach( resot => { 
-          if(resot.controllable == false)
-            {
-               this.valuehidden == false  
-            }
-          })
-        })
       })
   }
  

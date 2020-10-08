@@ -60,6 +60,10 @@ export class ConfigService {
 	onControlDescriptionList(widgetId): Observable < any > {
 		return this.http.get(this.api_Url + '/widgets/getLayout?id=' + widgetId)
 	}
+	onAddlistEvent(reqObj):Observable < any >
+	{
+		return this.http.get(this.api_Url+'events/add');
+	}
 
 	//STATUS PAGE 
 
@@ -89,6 +93,11 @@ export class ConfigService {
 	//for graphics page
 	onGetGraphicsDetails(): Observable < any > {
 		return this.http.get('/dashboard/external/secure/dashboardService/bowl/data')
+	}
+
+
+	getdefaultSpaces(id:any) {
+		return this.http.get('/Dashboard/secure/dashboardService/events/default/spaces?id='+id);
 	}
 
 }

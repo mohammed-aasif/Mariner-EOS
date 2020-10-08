@@ -147,6 +147,7 @@
             <div class="checkbox-list-select"> 
                 <div *ngFor="let ctlLst of checkBoxes">
                     <div class="flex" *ngIf="onPrintEquipValue(ctlLst.equipmentSetFields)">
+                        <!-- <div class="flex">  -->
                         <input type="checkbox" [(ngModel)]="ctlLst.checked" value="{{ctlLst}}" (change)="toggleEditableOptimSwitch($event, ctlLst)" />
                         <span>{{ctlLst.name}}</span>
                     </div>

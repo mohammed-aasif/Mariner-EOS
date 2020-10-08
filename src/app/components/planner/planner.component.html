@@ -96,9 +96,9 @@
                                         <div class="col-lg-6">
                                             <div class="form-group eos_flex_forms">
                                                 <label>Name:</label>
-                                                <input type="text"  class="form-control" formControlName="s_eventName" [ngClass]="{ 'is-invalid': submitted && formValues.s_eventName.errors }"/>
-                                                <div *ngIf="submitted && formValues.s_eventName.errors" class="invalid-feedback">
-                                                    <div *ngIf="formValues.s_eventName.errors.required" class="eos_errorValues">Name is required</div>
+                                                <input type="text"  class="form-control" formControlName="name" [ngClass]="{ 'is-invalid': submitted && formValues.name.errors }"/>
+                                                <div *ngIf="submitted && formValues.name.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValues.name.errors.required" class="eos_errorValues">Name is required</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -107,18 +107,19 @@
                                                 <label>Start:</label>
                                                 <div class="flex_grp_eos">
                                                     <label>Date:</label>
-                                                    <input type="date" class="form-control w-140" id="" formControlName="s_startDate" [ngClass]="{ 'is-invalid': submitted && formValues.s_startDate.errors }"/>
-                                                    <div *ngIf="submitted && formValues.s_startDate.errors" class="invalid-feedback">
-                                                        <div *ngIf="formValues.s_startDate.errors.required" class="eos_errorValues">Date is required</div>
+                                                    <input type="date" class="form-control w-140" id="" formControlName="startDt" [ngClass]="{ 'is-invalid': submitted && formValues.startDt.errors }"/>
+                                                    <div *ngIf="submitted && formValues.startDt.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValues.startDt.errors.required" class="eos_errorValues">Date is required</div>
                                                     </div>
                                                 </div>
                                                 <div class="flex_grp_eos">
                                                     <label>Time:</label>
                                                     <div id="timepick_eos">
-                                                        <dp-time-select [(ngModel)]="selectedDate" [config]="config" formControlName="s_startTime" [ngClass]="{ 'is-invalid': submitted && formValues.s_startTime.errors }"></dp-time-select>
+                                                        <!-- {{selectedDate}} -->
+                                                        <dp-time-select [(ngModel)]="selectedDate" [config]="config" mode="time" formControlName="startHour" [ngClass]="{ 'is-invalid': submitted && formValues.startHour.errors }"></dp-time-select>
                                                     </div>
-                                                    <div *ngIf="submitted && formValues.s_startTime.errors" class="invalid-feedback">
-                                                        <div *ngIf="formValues.s_startTime.errors.required" class="eos_errorValues">Time is required</div>
+                                                    <div *ngIf="submitted && formValues.startHour.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValues.startHour.errors.required" class="eos_errorValues">Time is required</div>
                                                     </div>
                                                     <!-- <input type="time" class="form-control w-80" id="" formControlName="s_startTime" /> -->
                                                 
@@ -128,13 +129,15 @@
                                         <div class="col-lg-6">
                                             <div class="form-group eos_flex_forms eos_column">
                                                 <label class="w-100">Type:</label>
-                                                <select name="" class="form-control" id="" formControlName="s_courseType" [ngClass]="{ 'is-invalid': submitted && formValues.s_courseType.errors }">
-                                                    <option value="lightAgency" *ngFor="let eventType of typeData">{{eventType.name}}</option>
+                                                <select name="" class="form-control" formControlName="s_courseType" (change)="getDefaultSpace($event)">
+                                                    <option *ngFor="let eventType of typeData" [value]="eventType.id">{{eventType.name}}</option>
                                                     <!-- <option value="bldga">BLDGA - 24/7</option> -->
                                                 </select>
-                                                <div *ngIf="submitted && formValues.s_courseType.errors" class="invalid-feedback">
+                                                    <!-- <option value="bldga">BLDGA - 24/7</option> -->
+                                                <!-- </select> -->
+                                                <!-- <div *ngIf="submitted && formValues.s_courseType.errors" class="invalid-feedback">
                                                     <div *ngIf="formValues.s_courseType.errors.required" class="eos_errorValues">Type is required</div>
-                                                </div>
+                                                </div> -->
                                                 
                                             </div>
                                             <div class="form-group eos_flex_forms eos_column">
@@ -143,7 +146,7 @@
                                                     <div class="form-group eos_flex_forms">
                                                         <div class="scrollable_lists">
                                                             <lable class="checkbox_eos" *ngFor="let location of filterData">
-                                                                <input id=" " class="e-field rt_checked" type="checkbox" name=" " />
+                                                                <input class="e-field rt_checked" type="checkbox" (change)="pushLocation(location, $event.target.checked)" />
                                                                 <small>{{location.name}}</small>
                                                             </lable>
                                                         </div>
@@ -156,19 +159,19 @@
                                                 <label>End:</label>
                                                 <div class="flex_grp_eos">
                                                     <label>Date:</label>
-                                                    <input type="date" class="form-control w-140" id="" formControlName="s_endDate" [ngClass]="{ 'is-invalid': submitted && formValues.s_endDate.errors }"/>
-                                                    <div *ngIf="submitted && formValues.s_endDate.errors" class="invalid-feedback">
-                                                        <div *ngIf="formValues.s_endDate.errors.required" class="eos_errorValues">date is required</div>
+                                                    <input type="date" class="form-control w-140" id="" formControlName="endDt" [ngClass]="{ 'is-invalid': submitted && formValues.s_endDate.errors }"/>
+                                                    <div *ngIf="submitted && formValues.endDt.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValues.endDt.errors.required" class="eos_errorValues">date is required</div>
                                                     </div>
                                                 </div>
                                                 <div class="flex_grp_eos">
                                                     <label>Time:</label>
                                                     <div id="timepick_eos">
-                                                        <dp-time-select [(ngModel)]="selectedDate1" [config]="config" formControlName="s_endTime" [ngClass]="{ 'is-invalid': submitted && formValues.s_endTime.errors }"></dp-time-select>
+                                                        <dp-time-select [(ngModel)]="selectedDate1" [config]="config" formControlName="endHour" [ngClass]="{ 'is-invalid': submitted && formValues.s_endTime.errors }"></dp-time-select>
                                                     </div>
-                                                    <!-- <input type="time" class="form-control w-80" id=""  formControlName="s_endTime"/> -->
-                                                    <div *ngIf="submitted && formValues.s_endTime.errors" class="invalid-feedback">
-                                                        <div *ngIf="formValues.s_endTime.errors.required" class="eos_errorValues">Time is required</div>
+                                                    <!-- <input type="time" class="form-control w-80" id=""  formControlName="endHour"/> -->
+                                                    <div *ngIf="submitted && formValues.endHour.errors" class="invalid-feedback">
+                                                        <div *ngIf="formValues.endHour.errors.required" class="eos_errorValues">Time is required</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -181,10 +184,10 @@
 
                                             <div class="form-group eos_flex_forms eos_column eos_position_relate">
                                                 <label class="w-100">Notes:</label>
-                                                <textarea id="" class="eos_txt_ht100" formControlName="s_notes" [ngClass]="{ 'is-invalid': submitted && formValues.s_notes.errors }"></textarea>
-                                                <div *ngIf="submitted && formValues.s_notes.errors" class="invalid-feedback">
-                                                    <div *ngIf="formValues.s_notes.errors.required" class="eos_errorValues">Comment is required</div>
-                                                </div>
+                                                <textarea id="" class="eos_txt_ht100" formControlName="notes" ></textarea>
+                                                <!-- <div *ngIf="submitted && formValues.notes.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValues.notes.errors.required" class="eos_errorValues">Comment is required</div>
+                                                </div> -->
 
                                                 <div class="recurring_visible" *ngIf="recurrring_visibleDivision">
                                                     <tabset>
@@ -426,6 +429,7 @@
      (click)="$event.stopPropagation(); eventClicked.emit({event: event})"
      [ngStyle]="{ 'border-left': getEventColor(event.id) }"
      ><span class="eos_ellipse_title">{{event.title}}</span> 
+     <!-- <input type="time" value="{{event.start}}"/> -->
      <span class="eos_start">{{event.start}}</span>- <span class="eos_end"> {{event.end}}</span>
      
     

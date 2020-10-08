@@ -51,9 +51,9 @@ export class StatusComponent implements OnInit {
 
   //for displaying Optimization popup
   openSwitch(modalContent, data:any){ 
-    this.loading = true; 
-    this.storeOptimizeNewArray = data.attributes;
    
+    this.storeOptimizeNewArray = data.attributes;
+    this.loading = true; 
     this._configService.onStatusOptimization(data.attributes.CtrlPointLinkId).subscribe(optimControl => {
       this.checkBoxes = optimControl
       this.loading = false;

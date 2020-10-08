@@ -51,7 +51,18 @@
 	}
  
 }
-
+@media screen and (min-width:992px) and (max-width:1023px)
+{
+	.controlListBlocks {
+		width: 100%; 
+	}
+	.head_text .head_inner:last-child {
+		display: block;
+	}
+	.head_text .head_inner {
+		width: 50%;
+	}
+}
 
 @media screen and (min-width:1000px)
 {
