@@ -22,7 +22,7 @@
                                     <ul>
                                         <li *ngFor="let items of graphicsDetails">
                                             <span>{{items.name}}</span>
-                                            <i (click)="onShowStatus()"  
+                                            <i 
                                             [ngClass]="{ 'statusFalse': items.status == false,'statusTrue': items.status == true,'fanIconOne': items.icon == 'fan1','fanIconTwo': items.icon == 'fan2' }"
                                             class="fas fa-fan">
                                         </i>

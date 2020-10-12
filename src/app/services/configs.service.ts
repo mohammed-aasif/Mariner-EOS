@@ -63,7 +63,7 @@ export class ConfigService {
 	//popup add event post
 	onAddlistEvent(datas):Observable < any >
 	{
-		return this.http.get(this.api_Url+'/events/add',datas);
+		return this.http.post(this.api_Url+'/events/add',datas);
 	}
 
 	//STATUS PAGE 
@@ -98,7 +98,11 @@ export class ConfigService {
 
 
 	getdefaultSpaces(id:any) {
-		return this.http.get('/Dashboard/secure/dashboardService/events/default/spaces?id='+id);
+		return this.http.get('/dashboard/external/secure/dashboardService/events/default/spaces?id='+id);
+	}
+
+	getDefaultModes(id:any) {
+		return this.http.get('/dashboard/external/secure/dashboardService/targets/modes/space/'+id);
 	}
 
 }

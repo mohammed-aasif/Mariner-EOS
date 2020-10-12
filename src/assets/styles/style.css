@@ -2209,17 +2209,15 @@ button.optim_off,button.cancel {
 .eos_accord .power_icons.eos_ctrlPoint_toggle {
     width: 6%;
 }
-
-
-
-p.countList
-{    font-size: 12px;
+p.countList {
+    font-size: 12px;
     color: black;
     background: #dddddd;
     border-radius: 100%;
-    width: 20px;
-    line-height: 20px;
-    height: 20px;
+    width: 23px;
+    min-width: 23px;
+    line-height: 23px;
+    height: 23px;
     text-align: center;
     margin-bottom: 0px;
     margin-right: 10px;
@@ -2611,4 +2609,11 @@ border-radius: 100px;
 .confirm_delete .flx_btn {
     max-width: 100%;
     justify-content: center;
+}
+.input_section input[type="file"] {
+    color: black;
+    background: transparent;
+    opacity: 1;
+    position: relative;
+    left: -88px;
 }

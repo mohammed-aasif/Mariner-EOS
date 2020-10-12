@@ -44,11 +44,48 @@
 	  }
 	  
 }
-@media screen and (max-width:991px)
+@media screen and (max-width:576px)
 {
 	.flexibles , .controlListBlocks{
 		width: 100%;
 	}
+	.controlListBlocks>* {
+		width: 330px;
+	}
+	.ctrl_points {
+		width:600px;
+	}
+	div#wrapper_content {
+		width: 100%;
+		overflow-x: auto;
+
+	}
+	.eos_loader_response {
+		width: 100%;
+		overflow-x: auto;
+	}
+	.status_component {
+		width: 600px;
+	}
+	.eos_accordion_subHeader .eos_accordion_nestedSubHeader {
+		width: 100%;
+	}
+	.head_inner h4:nth-child(3) { 
+		width: 43%;
+	}
+	
+ 
+}
+@media screen and (max-width:991px)
+{
+	 
+	.flexibles,.controlListBlocks {
+		width: 100%;
+	}
+	.controlListBlocks>div {
+		width: 33%;
+	}
+ 
  
 }
 @media screen and (min-width:992px) and (max-width:1023px)
@@ -84,10 +121,11 @@
 /*ctrl_points End*/
 
 /*Graphics*/
-@media screen and (max-width:1024px)
+@media screen and (max-width:1920px)
 {
 	.mobGraphics {
 		width: 1200px; 
+		margin: 0px auto;
 	}
 	.eos_graphChart {
 		width: 1200px;
@@ -97,4 +135,44 @@
 		overflow-x: auto;
 	}
 }
+ 
 /*Graphics End*/
+
+
+
+@media screen and (max-width:600px)
+{
+	div#eos-setting .hidden_flex.panel ul li {
+		flex-direction: column;
+	}
+	div#eos-setting .hidden_flex.panel ul li>* {
+		width: 100%;
+		min-width: 100%;
+	}
+	div#eos-setting .hidden_flex.panel ul li .ipt input {
+		width: 50%;
+	}
+	div#eos-setting .hidden_flex.panel ul li .ipt {
+		display: flex;
+	}
+}
+
+@media screen and (max-width:450px)
+{
+	.eos-btn-grp {
+		flex-direction: column;
+	}
+	.eos-btn-grp button {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
+
+
+
+@media screen and (max-width:767px)
+{
+	.eos_accordion_subHeader .eos_accordion_nestedSubHeader {
+		width: 100%; 
+	}
+}

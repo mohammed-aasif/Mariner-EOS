@@ -20,10 +20,10 @@ export class GraphicsComponent implements OnInit {
     })
   }
     
-   onShowStatus()
-   {
-    this.statusToggle = !this.statusToggle
-   }
+  //  onShowStatus()
+  //  {
+  //   this.statusToggle = !this.statusToggle
+  //  }
 
    //refresh button
   eosRefresh()
