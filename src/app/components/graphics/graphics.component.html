@@ -17,6 +17,20 @@
                         <div id="eos_graphs">
                            <div class="mobGraphics">
                             <img id="bg_graps" src="../../../assets/images/graphics/stadium.png" alt="">
+                            <div class="eos_bowlAran" *ngFor="let lists of arenaBowlDetails">
+                                <div id="bowlList">
+                                    <h6>Event</h6>
+                                    <div class="arenaList">
+                                        <ul>
+                                            <li>
+                                                <span>{{lists.name}}</span>
+                                                <span><small></small>Concert Support</span>
+                                                <h5><i class="far fa-clock"></i><span>{{lists.startTime}}</span>-<span>{{lists.endTime}}</span>&nbsp;|&nbsp;<span>{{lists.startDate}}</span>   <span>{{lists.endDate}}</span>  </h5>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="eos_graphChart">
                                 <div id="eos_chart">
                                     <ul>
@@ -26,11 +40,11 @@
                                             [ngClass]="{ 'statusFalse': items.status == false,'statusTrue': items.status == true,'fanIconOne': items.icon == 'fan1','fanIconTwo': items.icon == 'fan2' }"
                                             class="fas fa-fan">
                                         </i>
-                                        <div class="eos_UserStatus" *ngIf="statusToggle">
+                                        <!-- <div class="eos_UserStatus" *ngIf="statusToggle">
                                             <i class="fas fa-lock lockGreen"></i>
                                             <i class="fas fa-lock lockRed"></i>
                                             <i class="fas fa-lock lockGray"></i>
-                                        </div> 
+                                        </div>  -->
                                         </li>
                                     </ul>
                                 </div>

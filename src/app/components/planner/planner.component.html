@@ -1,8 +1,8 @@
-<context-menu #basicMenu>
+<!-- <context-menu #basicMenu>
     <ng-template contextMenuItem (execute)="addEvent($event.item)">
         Add event
     </ng-template>
-</context-menu>
+</context-menu> -->
 <ng-template #customCellTemplate let-day="day" let-locale="locale">
     <div class="cal-cell-top">
         <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
@@ -69,7 +69,7 @@
                         <br />
                         <div [ngSwitch]="view">
                             <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (dayClicked)="dayClicked($event.day)" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
-                                [cellTemplate]="monthCellTemplate">
+                                [cellTemplate]="monthCellTemplate"> 
                             </mwl-calendar-month-view>
                             <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
                             </mwl-calendar-week-view>
@@ -92,13 +92,13 @@
                         <!--Standard-->
                         <h6 class="eos_event_heading">New Event Entry</h6>
                         <tab heading="Standard">
-                            <form [formGroup]="eosAddEventForm" (ngSubmit)="onSubmit()">
+                            <form [formGroup]="eosAddEventForm" (ngSubmit)="onSubmitStandard()">
                                 <div class="content_section_tab">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group eos_flex_forms">
                                                 <label>Name:</label>
-                                                <input type="text"  class="form-control" formControlName="name" [ngClass]="{ 'is-invalid': submitted && formValues.name.errors }"/>
+                                                <input type="text" [(ngModel)]="nameValueBind" class="form-control" formControlName="name" [ngClass]="{ 'is-invalid': submitted && formValues.name.errors }"/>
                                                 <div *ngIf="submitted && formValues.name.errors" class="invalid-feedback">
                                                     <div *ngIf="formValues.name.errors.required" class="eos_errorValues">Name is required</div>
                                                 </div>
@@ -279,16 +279,16 @@
                         </tab>
                         <!--Custom-->
                         <tab heading="Custom">
-                            <form [formGroup]="eosAddEventFormCustom" (ngSubmit)="onSubmits()">
+                            <form [formGroup]="eosAddEventFormCustom" (ngSubmit)="onSubmitCustom()">
                                 <div class="content_section_tab">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group eos_flex_forms">
                                                 <label>Name:</label>
-                                                <input type="text" class="form-control" id="email" formControlName="c_eventName" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_eventName.errors }" />
-                                                <!-- <div *ngIf="submitted && formValuesCustom.c_eventName.errors" class="invalid-feedback">
-                                                    <div *ngIf="formValuesCustom.c_eventName.errors.required" class="eos_errorValues">Comment is required</div>
-                                                </div> -->
+                                                <input type="text"  value="{{nameValueBind}}" class="form-control" id="email" formControlName="c_eventName" [ngClass]="{ 'is-invalid': submitted && formValuesCustom.c_eventName.errors }" />
+                                                <div *ngIf="submitted && formValuesCustom.c_eventName.errors" class="invalid-feedback">
+                                                    <div *ngIf="formValuesCustom.c_eventName.errors.required" class="eos_errorValues">Name is required</div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -409,9 +409,10 @@
         </div>
 
     </ng-template>
-
-
     <!--ADD EVENT FORM END-->
+
+
+
     <ng-template #monthCellTemplate let-day="day" let-openDay="openDay" let-locale="locale" let-tooltipPlacement="tooltipPlacement" let-highlightDay="highlightDay" let-unhighlightDay="unhighlightDay" let-eventClicked="eventClicked">
         <div class="fill-height" [contextMenu]="basicMenu" [contextMenuSubject]="day.date">
             <div class="cal-cell-top">
@@ -423,6 +424,10 @@
   </div>
   <!-- border-left: event.version == 1640 ? '5px solid red':''  -->
   <div >
+ 
+        <button class="mybtn" (click)="addEvent($event.item)">+</button>
+ 
+   
      <div
      *ngFor="let event of day.events"
      (mouseenter)="highlightDay.emit({event: event})"
@@ -430,13 +435,11 @@
      [mwlCalendarTooltip]="event.title | calendarEventTitle:'monthTooltip':event"
      [tooltipPlacement]="tooltipPlacement"
      (click)="$event.stopPropagation(); eventClicked.emit({event: event})"
-     [ngStyle]="{ 'border-left': getEventColor(event.id) }" 
+     [ngStyle]="{ 'border-left': getEventColor(event.version) }" 
      ><span class="eos_ellipse_title" (click)="onEditEvent(event)">{{event.title}}</span> 
      <!-- <input type="time" value="{{event.start}}"/> -->
      <span class="eos_start">{{event.start}}</span>- 
      <span class="eos_end"> {{event.end}}</span>
-     
-    
   </div>
   </div>
   </div>

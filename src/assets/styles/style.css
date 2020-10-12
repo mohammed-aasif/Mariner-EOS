@@ -2599,10 +2599,65 @@ border-radius: 100px;
 .lockGray {
     background: #80808069;
 }
+.eos_bowlAran {
+    width: 250px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    border: 1px solid #e1e1e1;
+    border-bottom: 28px solid #f1f1f1;
+}
+div#bowlList h6 {
+    background: #e1e1e1;
+    margin: 0px;
+    padding: 10px;
+    font-size: 15px;
+}
+div#bowlList ul {
+    padding: 10px 0px;
+    margin-bottom: 0;
+}
+div#bowlList ul li {
+    list-style: none;
+}
+div#bowlList ul li span {
+    display: block;
+    width: 100%;
+}
+div#bowlList ul li h5 span {
+    width: auto;
+}
+div#bowlList ul li h5 {
+    display: flex;
+    margin: 4px 0px;
+}
+div#bowlList ul li span {
+    display: block;
+    width: 100%;
+}
+div#bowlList ul li>* {
+    padding-left: 10px;
+    margin-bottom: 2px !important;
+    font-size: 12px;
+}
+div#bowlList ul li span small {
+    width: 10px;
+    height: 10px;
+    background: #aed5b4;
+    display: inline-block;
+    margin-right: 2px;
+}
+div#bowlList ul li h5 i, div#bowlList ul li span small {
+    margin-right: 8px;
+}
+/**/
+.monb_disp {
+    display: none;
+}
 .flexibles {
     width: 50%;
 }
- 
+
 .confirm_delete .modal-header {
     background: #ff6600;
 }
@@ -2616,4 +2671,26 @@ border-radius: 100px;
     opacity: 1;
     position: relative;
     left: -88px;
+}
+
+
+button.mybtn {
+    border: none;
+    width: 20px;
+    height: 20px;
+    line-height: 19px;
+    position: absolute;
+    right: 0;
+    border-radius: 50px;
+    background: #aed5b4;
+    color: #fff;
+    top: 3px;
+    text-align: center;
+    display: none;
+}
+mwl-calendar-month-cell.cal-cell.cal-day-cell:hover button.mybtn {
+    display: block;
+}
+mwl-calendar-month-cell.cal-cell.cal-day-cell.cal-past:hover button.mybtn {
+    display: none;
 }

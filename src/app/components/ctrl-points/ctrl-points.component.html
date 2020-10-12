@@ -61,11 +61,16 @@
                                                         <label class="chk_label">{{ctlLst1.name}}</label>
                                                     </div>
                                                     <div class="ipt">
-                                                        <input type="text" [(ngModel)]="ctlLst1.currentValue" name="" />
-                                                        <input type="text" [(ngModel)]="ctlLst1.currentEOSValue" name="" />
+                                                        <div class="monb_disp"><span>Current</span><span>Eos</span></div>
+                                                        <div class="flex">
+                                                            <input type="text" [(ngModel)]="ctlLst1.currentValue" name="" />
+                                                            <input type="text" [(ngModel)]="ctlLst1.currentEOSValue" name="" />
+                                                        </div>
+                                                      
                                                     </div>
 
                                                     <div class="status">
+                                                        <div class="monb_disp"><span>Status</span></div>
                                                         <label data-title="Readable" [ngClass]="{ 'readable_bg': ctlLst1.readable == true}">R</label>
                                                         <label data-title="Writable" [ngClass]="{ 'writable_bg':ctlLst1.writable == true}">W</label>
                                                         <label data-title="Controlled/Optimizable by EOS" [ngClass]="{ 'controllable_bg' : ctlLst1.controllable == true}">C</label>

@@ -49,23 +49,12 @@
 	.flexibles , .controlListBlocks{
 		width: 100%;
 	}
-	.controlListBlocks>* {
-		width: 330px;
+ 
+	.controlListBlocks {
+		flex-direction: column;
 	}
-	.ctrl_points {
-		width:600px;
-	}
-	div#wrapper_content {
-		width: 100%;
-		overflow-x: auto;
-
-	}
-	.eos_loader_response {
-		width: 100%;
-		overflow-x: auto;
-	}
-	.status_component {
-		width: 600px;
+	.controlListBlocks>div {
+		min-width: 100% !important;
 	}
 	.eos_accordion_subHeader .eos_accordion_nestedSubHeader {
 		width: 100%;
@@ -73,9 +62,65 @@
 	.head_inner h4:nth-child(3) { 
 		width: 43%;
 	}
+	.controlListBlocks .ipt .flex {
+		display: flex;
+	}
+	.controlListBlocks .ipt input {
+		width: 50%;
+	}
+	.monb_disp span {
+		width: 50%;
+		display: inline-block;
+		font-size: 12px;
+		color: #666;
+	}
+	.flexibles {
+		border-bottom: 1px solid silver;
+		margin-bottom: 15px;
+	}
+	.monb_disp {
+		width: 100%;
+	}
+	.top_head {
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		padding: 8px 8px;
+		margin-bottom: 8px;
+	}
+	.right_icons {
+		width: 100%;
+		border-bottom: 1px solid #d3eed7;
+		padding-bottom: 8px;
+	}
 	
- 
+	.status_component .ipt input {
+		width: 48%;
+		margin-right: 2px;
+	}
+	.head_inner {
+		display: none;
+	}
+	.monb_disp {
+		display: block;
+	}
+	.eos_accordion_subHeader .chk_div {
+		min-width: 100%;
+	}
+	.eos_accordion_subHeader .eos_accordion_nestedSubHeader {
+		width: 100%;
+		display: block;
+	}
+	.eos_accordion_subHeader .eos_accordion_nestedSubHeader .power_icons {
+		float: right;
+		padding-top: 20px;
+	}
+	.eos_accordion_subHeader .eos_accordion_nestedSubHeader {
+		border-bottom: 1px solid grey;
+		padding-bottom: 8px;
+		margin-bottom: 8px;
+	}
 }
+
 @media screen and (max-width:991px)
 {
 	 

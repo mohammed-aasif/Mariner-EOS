@@ -8,6 +8,7 @@ import { ConfigService } from 'src/app/services/configs.service';
 })
 export class GraphicsComponent implements OnInit {
   graphicsDetails:any = []; 
+  arenaBowlDetails:any = [];
   statusToggle:Boolean = false;
   loading = true;  
   constructor(private _configService:ConfigService) { }
@@ -16,7 +17,12 @@ export class GraphicsComponent implements OnInit {
     this.loading = true;
     this._configService.onGetGraphicsDetails().subscribe( responses => { 
       this.loading = false;
-      this.graphicsDetails = responses.devicerws
+      this.graphicsDetails = responses.devicerws 
+    })
+    this.loading = true;
+    this._configService.onGetGraphicsDetails().subscribe( responses => { 
+      this.loading = false;
+      this.arenaBowlDetails = responses.events
     })
   }
     

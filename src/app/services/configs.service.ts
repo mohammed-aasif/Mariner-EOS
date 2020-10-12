@@ -65,6 +65,14 @@ export class ConfigService {
 	{
 		return this.http.post(this.api_Url+'/events/add',datas);
 	}
+	//popup edit event post
+	onEditlistEvent(datas):Observable < any>
+	{
+		return this.http.post(this.api_Url+'/events/update/OCCURRENCE',datas)
+	} 
+
+
+
 
 	//STATUS PAGE 
 
