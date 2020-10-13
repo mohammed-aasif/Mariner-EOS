@@ -178,6 +178,9 @@ export class PlannerComponent implements OnInit {
           reqcurrenceEnd: [null]
       });
 
+ 
+
+
 
       this.eosAddEventFormCustom = this.formBuilder.group({
           c_eventName: ['', Validators.required],
@@ -462,14 +465,14 @@ export class PlannerComponent implements OnInit {
 
       // stop here if form is invalid
       if (this.eosAddEventForm.invalid) {
-          //   Swal.fire({
-          //   title: 'Invalid Entry',
-          //   text: 'Please enter a name for the event',
-          //   icon: 'warning',
-          //   customClass: {container: 'confirmName'},
-          // // showCancelButton: true,
-          //   confirmButtonText: 'Ok', 
-          // })
+            Swal.fire({
+            title: 'Invalid Entry',
+            text: 'Please enter a name for the event',
+            icon: 'warning',
+            customClass: {container: 'confirmName'},
+          // showCancelButton: true,
+            confirmButtonText: 'Ok', 
+          })
           return;
       } else {
           alert(JSON.stringify(this.eosAddEventForm.value, null, 4));

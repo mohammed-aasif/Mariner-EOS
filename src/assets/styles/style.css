@@ -2672,9 +2672,14 @@ div#bowlList ul li h5 i, div#bowlList ul li span small {
     position: relative;
     left: -88px;
 }
+.cal-month-view .cal-day-cell.cal-in-month.cal-has-events:hover button.btn_addEvents {
+    display: block;
+}
+.cal-cell.cal-day-cell.cal-past.cal-in-month:hover button.btn_addEvents {
+    display: none;
+}
 
-
-button.mybtn {
+button.btn_addEvents {
     border: none;
     width: 20px;
     height: 20px;

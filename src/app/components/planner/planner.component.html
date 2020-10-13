@@ -425,7 +425,7 @@
   <!-- border-left: event.version == 1640 ? '5px solid red':''  -->
   <div >
  
-        <button class="mybtn" (click)="addEvent($event.item)">+</button>
+        <button class="btn_addEvents" (click)="addEvent($event.item)">+</button>
  
    
      <div
@@ -438,8 +438,11 @@
      [ngStyle]="{ 'border-left': getEventColor(event.version) }" 
      ><span class="eos_ellipse_title" (click)="onEditEvent(event)">{{event.title}}</span> 
      <!-- <input type="time" value="{{event.start}}"/> -->
-     <span class="eos_start">{{event.start}}</span>- 
-     <span class="eos_end"> {{event.end}}</span>
+    <div class="flex_pt">
+        <!-- <button class="btn_deleteEvents">-</button> -->
+        <span class="eos_start">{{event.start}}</span>- 
+        <span class="eos_end"> {{event.end}}</span>
+    </div>
   </div>
   </div>
   </div>

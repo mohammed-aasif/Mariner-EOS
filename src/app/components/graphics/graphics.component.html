@@ -24,7 +24,7 @@
                                         <ul>
                                             <li>
                                                 <span>{{lists.name}}</span>
-                                                <span><small></small>Concert Support</span>
+                                                <span><small></small>{{lists.type}}</span>
                                                 <h5><i class="far fa-clock"></i><span>{{lists.startTime}}</span>-<span>{{lists.endTime}}</span>&nbsp;|&nbsp;<span>{{lists.startDate}}</span>   <span>{{lists.endDate}}</span>  </h5>
                                             </li>
                                         </ul>
@@ -40,11 +40,6 @@
                                             [ngClass]="{ 'statusFalse': items.status == false,'statusTrue': items.status == true,'fanIconOne': items.icon == 'fan1','fanIconTwo': items.icon == 'fan2' }"
                                             class="fas fa-fan">
                                         </i>
-                                        <!-- <div class="eos_UserStatus" *ngIf="statusToggle">
-                                            <i class="fas fa-lock lockGreen"></i>
-                                            <i class="fas fa-lock lockRed"></i>
-                                            <i class="fas fa-lock lockGray"></i>
-                                        </div>  -->
                                         </li>
                                     </ul>
                                 </div>
